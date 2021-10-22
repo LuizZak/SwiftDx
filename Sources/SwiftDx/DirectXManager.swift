@@ -50,7 +50,7 @@ class DirectXManager {
         }
 
         let backBufferCount = 3
-        let backBufferFormat = DxFormat.R8G8B8A8_unorm
+        let backBufferFormat = DxFormat.R8g8b8a8Unorm//R8G8B8A8_unorm
         let tearingSupported = try checkTearingSupport(factory)
 
         let rootSignature = try makeRootSignature(device)

@@ -9,7 +9,7 @@ let package = Package(
             targets: ["SwiftDx"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/compnerd/swift-com.git", .branch("main"))
+        .package(url: "https://github.com/compnerd/swift-com.git", .branch("main")),
     ],
     targets: [
         .target(

@@ -7,12 +7,18 @@ typealias BOOL = Int32
 
 public enum DirectX {
     public enum Infrastructure {
-        typealias Factory = SwiftCOM.IDXGIFactory6
-        typealias Adapter = SwiftCOM.IDXGIAdapter4
-        typealias SwapChain = SwiftCOM.IDXGISwapChain3
-        typealias Output = SwiftCOM.IDXGIOutput
+        
     }
+}
 
+public extension DirectX.Infrastructure {
+    typealias Factory = SwiftCOM.IDXGIFactory6
+    typealias Adapter = SwiftCOM.IDXGIAdapter4
+    typealias SwapChain = SwiftCOM.IDXGISwapChain3
+    typealias Output = SwiftCOM.IDXGIOutput
+}
+
+public extension DirectX {
     typealias Device = SwiftCOM.ID3D12Device
     typealias Debug = SwiftCOM.ID3D12Debug
     typealias CommandQueue = SwiftCOM.ID3D12CommandQueue

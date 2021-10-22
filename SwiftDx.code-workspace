@@ -62,6 +62,17 @@
 					"run"
 				]
 			},
+			{
+				"label": "Generate Swift Types",
+				"type": "shell",
+				"command": "python utils\\generate_types.py",
+				"args": [
+					"-o", "${workspaceFolder:SwiftDx}\\Sources\\SwiftDx\\Generated"
+				],
+				"options": {
+					"cwd": "${workspaceFolder:SwiftDx}\\utils"
+				}
+			},
         ]
     },
     "folders": [
@@ -77,11 +88,12 @@
     "settings": {
 		"files.eol": "\n",
         "files.insertFinalNewline": true,
-        "cSpell.words": [
-            "exodiusstudios",
-            "swiftpm",
-            "Xlinker"
-        ],
+		"files.exclude": {
+			".git": true,
+			".build": true,
+			".*.sw?": true,
+			"**/.DS_Store": true
+		},
         "commentAnchors.workspace.excludeFiles": "**/{node_modules,.git,.idea,target,out,build,vendor,.build,.swiftpm}/**/*",
 		"commentAnchors.tags.list": [
 			{
@@ -109,12 +121,14 @@
 				"scope": "file"
 			},
 		],
-		"files.exclude": {
-			".git": true,
-			".build": true,
-			".*.sw?": true,
-			"**/.DS_Store": true
-		},
+        "cSpell.words": [
+            "exodiusstudios",
+            "swiftpm",
+            "Xlinker"
+        ],
+		"python.linting.flake8Enabled": true,
+    	"python.linting.enabled": true,
+		"python.linting.flake8Args": ["--ignore=E501,E302,E225,W293"],
         "ShortcutMenuBar.userButton01Command": "workbench.action.tasks.runTask|Build (debug)",
 		"ShortcutMenuBar.userButton02Command": "workbench.action.tasks.runTask|Test",
 		"ShortcutMenuBar.userButton03Command": "workbench.action.tasks.runTask|Build Sample (debug)",
