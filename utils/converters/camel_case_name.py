@@ -14,7 +14,7 @@ class CamelCaseName(Sequence):
     def __len__(self) -> int:
         return len(self.components)
     
-    def to_string(self, pascal_case=False) -> str:
+    def to_string(self, pascal_case=False, snake_case_between_numbers=True) -> str:
         result = ''
 
         if len(self) == 0:
@@ -29,6 +29,10 @@ class CamelCaseName(Sequence):
             return result
         
         for comp in self[1:]:
+            if snake_case_between_numbers and len(result) > 0 and len(comp) > 0:
+                if result[-1].isdigit() and comp[0].isdigit():
+                    result += "_"
+            
             result += comp.capitalize()
 
         return result
