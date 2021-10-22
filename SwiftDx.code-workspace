@@ -91,6 +91,7 @@
 		"files.exclude": {
 			".git": true,
 			".build": true,
+			"**/__pycache__": true,
 			".*.sw?": true,
 			"**/.DS_Store": true
 		},

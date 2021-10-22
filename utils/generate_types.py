@@ -84,21 +84,6 @@ class SwiftDeclConverter:
         
         return result
 
-
-class DeclCollectorVisitor(c_ast.NodeVisitor):
-    decls: List[c_ast.Node] = []
-
-    def should_include(self, decl_name: str) -> bool:
-        for prefix in DX_PREFIXES:
-            if decl_name.startswith(prefix):
-                return True
-        
-        return False
-
-    def visit_Enum(self, node):
-        if node.name is not None and self.should_include(node.name):
-            self.decls.append(node)
-
 class DeclFileGenerator:
     def __init__(self, destination_folder: Path, decls: List[SwiftDecl]):
         self.destination_folder = destination_folder
@@ -115,7 +100,7 @@ class DeclFileGenerator:
             stream = SyntaxStream(file)
 
             # Write required boilerplate
-            stream.line("// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!")
+            stream.line("// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators.")
             stream.line()
             stream.line("import WinSDK")
             stream.line()
@@ -131,6 +116,25 @@ class DeclFileGenerator:
         
         for decl in self.decls:
             self.generate_file(decl)
+
+class DeclCollectorVisitor(c_ast.NodeVisitor):
+    decls: List[c_ast.Node] = []
+
+    def should_include(self, decl_name: str) -> bool:
+        for prefix in DX_PREFIXES:
+            if decl_name.startswith(prefix):
+                return True
+        
+        return False
+    
+    def visit_Struct(self, node):
+        if node.name is not None and self.should_include(node.name):
+            self.decls.append(node)
+    
+    def visit_Enum(self, node):
+        if node.name is not None and self.should_include(node.name):
+            self.decls.append(node)
+
 
 # Entry point
 
