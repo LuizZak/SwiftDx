@@ -113,18 +113,18 @@ class DirectXManager {
     }
 
     private func clearRenderTarget(state: DirectXState, commandList: GraphicsCommandList, backBufferState: DirectXState.BackBufferState) throws {
-        let barrier = CD3DX12_RESOURCE_BARRIER.transition(backBufferState.backBuffer, .present, .renderTarget)
+        let barrier = DxResourceBarrier.transition(backBufferState.backBuffer, .present, .renderTarget)
         try commandList.ResourceBarrier(1, barrier)
 
         let clearColor: (FLOAT, FLOAT, FLOAT, FLOAT) = (0.4, 0.6, 0.9, 1.0)
 
-        let rtv = try CD3DX12_CPU_DESCRIPTOR_HANDLE(state.rtvDescriptorHeap.GetCPUDescriptorHandleForHeapStart(), state.backBufferIndex, state.rtvDescriptorSize)
+        let rtv = try DxCpuDescriptorHandle(state.rtvDescriptorHeap.GetCPUDescriptorHandleForHeapStart(), state.backBufferIndex, state.rtvDescriptorSize)
 
         try commandList.ClearRenderTargetView(rtv, clearColor, 0, nil)
     }
 
     private func present(state: inout DirectXState, commandList: GraphicsCommandList, backBufferState: DirectXState.BackBufferState) throws {
-        let barrier = CD3DX12_RESOURCE_BARRIER.transition(backBufferState.backBuffer, .renderTarget, .present)
+        let barrier = DxResourceBarrier.transition(backBufferState.backBuffer, .renderTarget, .present)
         try commandList.ResourceBarrier(1, barrier)
 
         try commandList.Close()
