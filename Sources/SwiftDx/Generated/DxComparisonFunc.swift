@@ -1,21 +1,23 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxComparisonFunc = D3D12_COMPARISON_FUNC
 
 public extension DxComparisonFunc {
-    static var Never = D3D12_COMPARISON_FUNC_NEVER
+    static let never = D3D12_COMPARISON_FUNC_NEVER
     
-    static var Less = D3D12_COMPARISON_FUNC_LESS
+    static let less = D3D12_COMPARISON_FUNC_LESS
     
-    static var Equal = D3D12_COMPARISON_FUNC_EQUAL
+    static let equal = D3D12_COMPARISON_FUNC_EQUAL
     
-    static var LessEqual = D3D12_COMPARISON_FUNC_LESS_EQUAL
+    static let lessEqual = D3D12_COMPARISON_FUNC_LESS_EQUAL
     
-    static var Greater = D3D12_COMPARISON_FUNC_GREATER
+    static let greater = D3D12_COMPARISON_FUNC_GREATER
     
-    static var NotEqual = D3D12_COMPARISON_FUNC_NOT_EQUAL
+    static let notEqual = D3D12_COMPARISON_FUNC_NOT_EQUAL
     
-    static var GreaterEqual = D3D12_COMPARISON_FUNC_GREATER_EQUAL
+    static let greaterEqual = D3D12_COMPARISON_FUNC_GREATER_EQUAL
     
-    static var Always = D3D12_COMPARISON_FUNC_ALWAYS
+    static let always = D3D12_COMPARISON_FUNC_ALWAYS
 }

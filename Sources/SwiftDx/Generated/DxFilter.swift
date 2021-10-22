@@ -1,77 +1,79 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxFilter = D3D12_FILTER
 
 public extension DxFilter {
-    static var MinMagMipPoint = D3D12_FILTER_MIN_MAG_MIP_POINT
+    static let minMagMipPoint = D3D12_FILTER_MIN_MAG_MIP_POINT
     
-    static var MinMagPointMipLinear = D3D12_FILTER_MIN_MAG_POINT_MIP_LINEAR
+    static let minMagPointMipLinear = D3D12_FILTER_MIN_MAG_POINT_MIP_LINEAR
     
-    static var MinPointMagLinearMipPoint = D3D12_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT
+    static let minPointMagLinearMipPoint = D3D12_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT
     
-    static var MinPointMagMipLinear = D3D12_FILTER_MIN_POINT_MAG_MIP_LINEAR
+    static let minPointMagMipLinear = D3D12_FILTER_MIN_POINT_MAG_MIP_LINEAR
     
-    static var MinLinearMagMipPoint = D3D12_FILTER_MIN_LINEAR_MAG_MIP_POINT
+    static let minLinearMagMipPoint = D3D12_FILTER_MIN_LINEAR_MAG_MIP_POINT
     
-    static var MinLinearMagPointMipLinear = D3D12_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR
+    static let minLinearMagPointMipLinear = D3D12_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR
     
-    static var MinMagLinearMipPoint = D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT
+    static let minMagLinearMipPoint = D3D12_FILTER_MIN_MAG_LINEAR_MIP_POINT
     
-    static var MinMagMipLinear = D3D12_FILTER_MIN_MAG_MIP_LINEAR
+    static let minMagMipLinear = D3D12_FILTER_MIN_MAG_MIP_LINEAR
     
-    static var Anisotropic = D3D12_FILTER_ANISOTROPIC
+    static let anisotropic = D3D12_FILTER_ANISOTROPIC
     
-    static var ComparisonMinMagMipPoint = D3D12_FILTER_COMPARISON_MIN_MAG_MIP_POINT
+    static let comparisonMinMagMipPoint = D3D12_FILTER_COMPARISON_MIN_MAG_MIP_POINT
     
-    static var ComparisonMinMagPointMipLinear = D3D12_FILTER_COMPARISON_MIN_MAG_POINT_MIP_LINEAR
+    static let comparisonMinMagPointMipLinear = D3D12_FILTER_COMPARISON_MIN_MAG_POINT_MIP_LINEAR
     
-    static var ComparisonMinPointMagLinearMipPoint = D3D12_FILTER_COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT
+    static let comparisonMinPointMagLinearMipPoint = D3D12_FILTER_COMPARISON_MIN_POINT_MAG_LINEAR_MIP_POINT
     
-    static var ComparisonMinPointMagMipLinear = D3D12_FILTER_COMPARISON_MIN_POINT_MAG_MIP_LINEAR
+    static let comparisonMinPointMagMipLinear = D3D12_FILTER_COMPARISON_MIN_POINT_MAG_MIP_LINEAR
     
-    static var ComparisonMinLinearMagMipPoint = D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_MIP_POINT
+    static let comparisonMinLinearMagMipPoint = D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_MIP_POINT
     
-    static var ComparisonMinLinearMagPointMipLinear = D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR
+    static let comparisonMinLinearMagPointMipLinear = D3D12_FILTER_COMPARISON_MIN_LINEAR_MAG_POINT_MIP_LINEAR
     
-    static var ComparisonMinMagLinearMipPoint = D3D12_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT
+    static let comparisonMinMagLinearMipPoint = D3D12_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT
     
-    static var ComparisonMinMagMipLinear = D3D12_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR
+    static let comparisonMinMagMipLinear = D3D12_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR
     
-    static var ComparisonAnisotropic = D3D12_FILTER_COMPARISON_ANISOTROPIC
+    static let comparisonAnisotropic = D3D12_FILTER_COMPARISON_ANISOTROPIC
     
-    static var MinimumMinMagMipPoint = D3D12_FILTER_MINIMUM_MIN_MAG_MIP_POINT
+    static let minimumMinMagMipPoint = D3D12_FILTER_MINIMUM_MIN_MAG_MIP_POINT
     
-    static var MinimumMinMagPointMipLinear = D3D12_FILTER_MINIMUM_MIN_MAG_POINT_MIP_LINEAR
+    static let minimumMinMagPointMipLinear = D3D12_FILTER_MINIMUM_MIN_MAG_POINT_MIP_LINEAR
     
-    static var MinimumMinPointMagLinearMipPoint = D3D12_FILTER_MINIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT
+    static let minimumMinPointMagLinearMipPoint = D3D12_FILTER_MINIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT
     
-    static var MinimumMinPointMagMipLinear = D3D12_FILTER_MINIMUM_MIN_POINT_MAG_MIP_LINEAR
+    static let minimumMinPointMagMipLinear = D3D12_FILTER_MINIMUM_MIN_POINT_MAG_MIP_LINEAR
     
-    static var MinimumMinLinearMagMipPoint = D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_MIP_POINT
+    static let minimumMinLinearMagMipPoint = D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_MIP_POINT
     
-    static var MinimumMinLinearMagPointMipLinear = D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR
+    static let minimumMinLinearMagPointMipLinear = D3D12_FILTER_MINIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR
     
-    static var MinimumMinMagLinearMipPoint = D3D12_FILTER_MINIMUM_MIN_MAG_LINEAR_MIP_POINT
+    static let minimumMinMagLinearMipPoint = D3D12_FILTER_MINIMUM_MIN_MAG_LINEAR_MIP_POINT
     
-    static var MinimumMinMagMipLinear = D3D12_FILTER_MINIMUM_MIN_MAG_MIP_LINEAR
+    static let minimumMinMagMipLinear = D3D12_FILTER_MINIMUM_MIN_MAG_MIP_LINEAR
     
-    static var MinimumAnisotropic = D3D12_FILTER_MINIMUM_ANISOTROPIC
+    static let minimumAnisotropic = D3D12_FILTER_MINIMUM_ANISOTROPIC
     
-    static var MaximumMinMagMipPoint = D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_POINT
+    static let maximumMinMagMipPoint = D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_POINT
     
-    static var MaximumMinMagPointMipLinear = D3D12_FILTER_MAXIMUM_MIN_MAG_POINT_MIP_LINEAR
+    static let maximumMinMagPointMipLinear = D3D12_FILTER_MAXIMUM_MIN_MAG_POINT_MIP_LINEAR
     
-    static var MaximumMinPointMagLinearMipPoint = D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT
+    static let maximumMinPointMagLinearMipPoint = D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_LINEAR_MIP_POINT
     
-    static var MaximumMinPointMagMipLinear = D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_MIP_LINEAR
+    static let maximumMinPointMagMipLinear = D3D12_FILTER_MAXIMUM_MIN_POINT_MAG_MIP_LINEAR
     
-    static var MaximumMinLinearMagMipPoint = D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_MIP_POINT
+    static let maximumMinLinearMagMipPoint = D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_MIP_POINT
     
-    static var MaximumMinLinearMagPointMipLinear = D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR
+    static let maximumMinLinearMagPointMipLinear = D3D12_FILTER_MAXIMUM_MIN_LINEAR_MAG_POINT_MIP_LINEAR
     
-    static var MaximumMinMagLinearMipPoint = D3D12_FILTER_MAXIMUM_MIN_MAG_LINEAR_MIP_POINT
+    static let maximumMinMagLinearMipPoint = D3D12_FILTER_MAXIMUM_MIN_MAG_LINEAR_MIP_POINT
     
-    static var MaximumMinMagMipLinear = D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_LINEAR
+    static let maximumMinMagMipLinear = D3D12_FILTER_MAXIMUM_MIN_MAG_MIP_LINEAR
     
-    static var MaximumAnisotropic = D3D12_FILTER_MAXIMUM_ANISOTROPIC
+    static let maximumAnisotropic = D3D12_FILTER_MAXIMUM_ANISOTROPIC
 }

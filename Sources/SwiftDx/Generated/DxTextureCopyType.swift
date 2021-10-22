@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxTextureCopyType = D3D12_TEXTURE_COPY_TYPE
 
 public extension DxTextureCopyType {
-    static var SubresourceIndex = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX
+    static let subresourceIndex = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX
     
-    static var PlacedFootprint = D3D12_TEXTURE_COPY_TYPE_PLACED_FOOTPRINT
+    static let placedFootprint = D3D12_TEXTURE_COPY_TYPE_PLACED_FOOTPRINT
 }

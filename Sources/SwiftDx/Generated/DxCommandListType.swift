@@ -1,19 +1,21 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxCommandListType = D3D12_COMMAND_LIST_TYPE
 
 public extension DxCommandListType {
-    static var Direct = D3D12_COMMAND_LIST_TYPE_DIRECT
+    static let direct = D3D12_COMMAND_LIST_TYPE_DIRECT
     
-    static var Bundle = D3D12_COMMAND_LIST_TYPE_BUNDLE
+    static let bundle = D3D12_COMMAND_LIST_TYPE_BUNDLE
     
-    static var Compute = D3D12_COMMAND_LIST_TYPE_COMPUTE
+    static let compute = D3D12_COMMAND_LIST_TYPE_COMPUTE
     
-    static var Copy = D3D12_COMMAND_LIST_TYPE_COPY
+    static let copy = D3D12_COMMAND_LIST_TYPE_COPY
     
-    static var VideoDecode = D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE
+    static let videoDecode = D3D12_COMMAND_LIST_TYPE_VIDEO_DECODE
     
-    static var VideoProcess = D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS
+    static let videoProcess = D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS
     
-    static var VideoEncode = D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE
+    static let videoEncode = D3D12_COMMAND_LIST_TYPE_VIDEO_ENCODE
 }

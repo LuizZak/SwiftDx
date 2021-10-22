@@ -1,11 +1,13 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxCullMode = D3D12_CULL_MODE
 
 public extension DxCullMode {
-    static var None = D3D12_CULL_MODE_NONE
+    static let none = D3D12_CULL_MODE_NONE
     
-    static var Front = D3D12_CULL_MODE_FRONT
+    static let front = D3D12_CULL_MODE_FRONT
     
-    static var Back = D3D12_CULL_MODE_BACK
+    static let back = D3D12_CULL_MODE_BACK
 }

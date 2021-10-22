@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxConservativeRasterizationMode = D3D12_CONSERVATIVE_RASTERIZATION_MODE
 
 public extension DxConservativeRasterizationMode {
-    static var Off = D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF
+    static let off = D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF
     
-    static var On = D3D12_CONSERVATIVE_RASTERIZATION_MODE_ON
+    static let on = D3D12_CONSERVATIVE_RASTERIZATION_MODE_ON
 }

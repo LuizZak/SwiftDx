@@ -1,15 +1,17 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxDriverMatchingIdentifierStatus = D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS
 
 public extension DxDriverMatchingIdentifierStatus {
-    static var CompatibleWithDevice = D3D12_DRIVER_MATCHING_IDENTIFIER_COMPATIBLE_WITH_DEVICE
+    static let compatibleWithDevice = D3D12_DRIVER_MATCHING_IDENTIFIER_COMPATIBLE_WITH_DEVICE
     
-    static var UnsupportedType = D3D12_DRIVER_MATCHING_IDENTIFIER_UNSUPPORTED_TYPE
+    static let unsupportedType = D3D12_DRIVER_MATCHING_IDENTIFIER_UNSUPPORTED_TYPE
     
-    static var Unrecognized = D3D12_DRIVER_MATCHING_IDENTIFIER_UNRECOGNIZED
+    static let unrecognized = D3D12_DRIVER_MATCHING_IDENTIFIER_UNRECOGNIZED
     
-    static var IncompatibleVersion = D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_VERSION
+    static let incompatibleVersion = D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_VERSION
     
-    static var IncompatibleType = D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_TYPE
+    static let incompatibleType = D3D12_DRIVER_MATCHING_IDENTIFIER_INCOMPATIBLE_TYPE
 }

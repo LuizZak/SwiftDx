@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxHitGroupType = D3D12_HIT_GROUP_TYPE
 
 public extension DxHitGroupType {
-    static var Triangles = D3D12_HIT_GROUP_TYPE_TRIANGLES
+    static let triangles = D3D12_HIT_GROUP_TYPE_TRIANGLES
     
-    static var ProceduralPrimitive = D3D12_HIT_GROUP_TYPE_PROCEDURAL_PRIMITIVE
+    static let proceduralPrimitive = D3D12_HIT_GROUP_TYPE_PROCEDURAL_PRIMITIVE
 }

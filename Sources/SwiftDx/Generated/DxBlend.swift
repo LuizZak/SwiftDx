@@ -1,39 +1,41 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxBlend = D3D12_BLEND
 
 public extension DxBlend {
-    static var Zero = D3D12_BLEND_ZERO
+    static let zero = D3D12_BLEND_ZERO
     
-    static var One = D3D12_BLEND_ONE
+    static let one = D3D12_BLEND_ONE
     
-    static var SrcColor = D3D12_BLEND_SRC_COLOR
+    static let srcColor = D3D12_BLEND_SRC_COLOR
     
-    static var InvSrcColor = D3D12_BLEND_INV_SRC_COLOR
+    static let invSrcColor = D3D12_BLEND_INV_SRC_COLOR
     
-    static var SrcAlpha = D3D12_BLEND_SRC_ALPHA
+    static let srcAlpha = D3D12_BLEND_SRC_ALPHA
     
-    static var InvSrcAlpha = D3D12_BLEND_INV_SRC_ALPHA
+    static let invSrcAlpha = D3D12_BLEND_INV_SRC_ALPHA
     
-    static var DestAlpha = D3D12_BLEND_DEST_ALPHA
+    static let destAlpha = D3D12_BLEND_DEST_ALPHA
     
-    static var InvDestAlpha = D3D12_BLEND_INV_DEST_ALPHA
+    static let invDestAlpha = D3D12_BLEND_INV_DEST_ALPHA
     
-    static var DestColor = D3D12_BLEND_DEST_COLOR
+    static let destColor = D3D12_BLEND_DEST_COLOR
     
-    static var InvDestColor = D3D12_BLEND_INV_DEST_COLOR
+    static let invDestColor = D3D12_BLEND_INV_DEST_COLOR
     
-    static var SrcAlphaSat = D3D12_BLEND_SRC_ALPHA_SAT
+    static let srcAlphaSat = D3D12_BLEND_SRC_ALPHA_SAT
     
-    static var BlendFactor = D3D12_BLEND_BLEND_FACTOR
+    static let blendFactor = D3D12_BLEND_BLEND_FACTOR
     
-    static var InvBlendFactor = D3D12_BLEND_INV_BLEND_FACTOR
+    static let invBlendFactor = D3D12_BLEND_INV_BLEND_FACTOR
     
-    static var Src1Color = D3D12_BLEND_SRC1_COLOR
+    static let src1Color = D3D12_BLEND_SRC1_COLOR
     
-    static var InvSrc1Color = D3D12_BLEND_INV_SRC1_COLOR
+    static let invSrc1Color = D3D12_BLEND_INV_SRC1_COLOR
     
-    static var Src1Alpha = D3D12_BLEND_SRC1_ALPHA
+    static let src1Alpha = D3D12_BLEND_SRC1_ALPHA
     
-    static var InvSrc1Alpha = D3D12_BLEND_INV_SRC1_ALPHA
+    static let invSrc1Alpha = D3D12_BLEND_INV_SRC1_ALPHA
 }

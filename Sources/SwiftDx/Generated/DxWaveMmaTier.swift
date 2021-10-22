@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxWaveMmaTier = D3D12_WAVE_MMA_TIER
 
 public extension DxWaveMmaTier {
-    static var NotSupported = D3D12_WAVE_MMA_TIER_NOT_SUPPORTED
+    static let notSupported = D3D12_WAVE_MMA_TIER_NOT_SUPPORTED
     
-    static var Tier10 = D3D12_WAVE_MMA_TIER_1_0
+    static let tier_10 = D3D12_WAVE_MMA_TIER_1_0
 }

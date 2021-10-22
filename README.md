@@ -1,3 +1,3 @@
 # SwiftDx
 
-A description of this package.
+A library with more swifty-like names for DirectX 12 APIs.

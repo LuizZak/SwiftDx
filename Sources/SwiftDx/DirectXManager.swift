@@ -50,7 +50,7 @@ class DirectXManager {
         }
 
         let backBufferCount = 3
-        let backBufferFormat = DxFormat.R8g8b8a8Unorm//R8G8B8A8_unorm
+        let backBufferFormat = DxFormat.R8G8B8A8_unorm
         let tearingSupported = try checkTearingSupport(factory)
 
         let rootSignature = try makeRootSignature(device)
@@ -67,10 +67,10 @@ class DirectXManager {
         )
         let fence = try makeFence(device)
         let fenceEvent = try makeEventHandle()
-        let rtvDescriptorHeap = try makeDescriptorHeap(device, D3D12_DESCRIPTOR_HEAP_TYPE_RTV, backBufferCount)
-        let rtvDescriptorSize = Int(try device.GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV))
+        let rtvDescriptorHeap = try makeDescriptorHeap(device, .rtv, backBufferCount)
+        let rtvDescriptorSize = Int(try device.GetDescriptorHandleIncrementSize(.rtv))
         let commandAllocators = try makeCommandAllocators(device, backBufferCount: backBufferCount)
-        let commandList: GraphicsCommandList = try device.CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, commandAllocators[0], nil)
+        let commandList: GraphicsCommandList = try device.CreateCommandList(0, .direct, commandAllocators[0], nil)
         try commandList.Close()
 
         let fenceStructure = DirectXState.FenceStructure(

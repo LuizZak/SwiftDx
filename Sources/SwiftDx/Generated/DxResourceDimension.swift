@@ -1,15 +1,17 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxResourceDimension = D3D12_RESOURCE_DIMENSION
 
 public extension DxResourceDimension {
-    static var Unknown = D3D12_RESOURCE_DIMENSION_UNKNOWN
+    static let unknown = D3D12_RESOURCE_DIMENSION_UNKNOWN
     
-    static var Buffer = D3D12_RESOURCE_DIMENSION_BUFFER
+    static let buffer = D3D12_RESOURCE_DIMENSION_BUFFER
     
-    static var Texture1d = D3D12_RESOURCE_DIMENSION_TEXTURE1D
+    static let texture1d = D3D12_RESOURCE_DIMENSION_TEXTURE1D
     
-    static var Texture2d = D3D12_RESOURCE_DIMENSION_TEXTURE2D
+    static let texture2d = D3D12_RESOURCE_DIMENSION_TEXTURE2D
     
-    static var Texture3d = D3D12_RESOURCE_DIMENSION_TEXTURE3D
+    static let texture3d = D3D12_RESOURCE_DIMENSION_TEXTURE3D
 }

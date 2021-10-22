@@ -1,13 +1,15 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxFilterReductionType = D3D12_FILTER_REDUCTION_TYPE
 
 public extension DxFilterReductionType {
-    static var Standard = D3D12_FILTER_REDUCTION_TYPE_STANDARD
+    static let standard = D3D12_FILTER_REDUCTION_TYPE_STANDARD
     
-    static var Comparison = D3D12_FILTER_REDUCTION_TYPE_COMPARISON
+    static let comparison = D3D12_FILTER_REDUCTION_TYPE_COMPARISON
     
-    static var Minimum = D3D12_FILTER_REDUCTION_TYPE_MINIMUM
+    static let minimum = D3D12_FILTER_REDUCTION_TYPE_MINIMUM
     
-    static var Maximum = D3D12_FILTER_REDUCTION_TYPE_MAXIMUM
+    static let maximum = D3D12_FILTER_REDUCTION_TYPE_MAXIMUM
 }

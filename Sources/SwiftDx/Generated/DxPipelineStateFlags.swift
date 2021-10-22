@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxPipelineStateFlags = D3D12_PIPELINE_STATE_FLAGS
 
 public extension DxPipelineStateFlags {
-    static var FlagNone = D3D12_PIPELINE_STATE_FLAG_NONE
+    static let flagNone = D3D12_PIPELINE_STATE_FLAG_NONE
     
-    static var FlagToolDebug = D3D12_PIPELINE_STATE_FLAG_TOOL_DEBUG
+    static let flagToolDebug = D3D12_PIPELINE_STATE_FLAG_TOOL_DEBUG
 }

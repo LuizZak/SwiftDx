@@ -1,11 +1,13 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxRaytracingGeometryFlags = D3D12_RAYTRACING_GEOMETRY_FLAGS
 
 public extension DxRaytracingGeometryFlags {
-    static var FlagNone = D3D12_RAYTRACING_GEOMETRY_FLAG_NONE
+    static let flagNone = D3D12_RAYTRACING_GEOMETRY_FLAG_NONE
     
-    static var FlagOpaque = D3D12_RAYTRACING_GEOMETRY_FLAG_OPAQUE
+    static let flagOpaque = D3D12_RAYTRACING_GEOMETRY_FLAG_OPAQUE
     
-    static var FlagNoDuplicateAnyhitInvocation = D3D12_RAYTRACING_GEOMETRY_FLAG_NO_DUPLICATE_ANYHIT_INVOCATION
+    static let flagNoDuplicateAnyhitInvocation = D3D12_RAYTRACING_GEOMETRY_FLAG_NO_DUPLICATE_ANYHIT_INVOCATION
 }

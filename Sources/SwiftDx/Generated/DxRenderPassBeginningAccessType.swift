@@ -1,13 +1,15 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxRenderPassBeginningAccessType = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE
 
 public extension DxRenderPassBeginningAccessType {
-    static var Discard = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD
+    static let discard = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_DISCARD
     
-    static var Preserve = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE
+    static let preserve = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE
     
-    static var Clear = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR
+    static let clear = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_CLEAR
     
-    static var NoAccess = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_NO_ACCESS
+    static let noAccess = D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_NO_ACCESS
 }

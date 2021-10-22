@@ -1,15 +1,17 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxTextureAddressMode = D3D12_TEXTURE_ADDRESS_MODE
 
 public extension DxTextureAddressMode {
-    static var Wrap = D3D12_TEXTURE_ADDRESS_MODE_WRAP
+    static let wrap = D3D12_TEXTURE_ADDRESS_MODE_WRAP
     
-    static var Mirror = D3D12_TEXTURE_ADDRESS_MODE_MIRROR
+    static let mirror = D3D12_TEXTURE_ADDRESS_MODE_MIRROR
     
-    static var Clamp = D3D12_TEXTURE_ADDRESS_MODE_CLAMP
+    static let clamp = D3D12_TEXTURE_ADDRESS_MODE_CLAMP
     
-    static var Border = D3D12_TEXTURE_ADDRESS_MODE_BORDER
+    static let border = D3D12_TEXTURE_ADDRESS_MODE_BORDER
     
-    static var MirrorOnce = D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE
+    static let mirrorOnce = D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE
 }

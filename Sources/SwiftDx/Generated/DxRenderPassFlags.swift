@@ -1,13 +1,15 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxRenderPassFlags = D3D12_RENDER_PASS_FLAGS
 
 public extension DxRenderPassFlags {
-    static var FlagNone = D3D12_RENDER_PASS_FLAG_NONE
+    static let flagNone = D3D12_RENDER_PASS_FLAG_NONE
     
-    static var FlagAllowUavWrites = D3D12_RENDER_PASS_FLAG_ALLOW_UAV_WRITES
+    static let flagAllowUavWrites = D3D12_RENDER_PASS_FLAG_ALLOW_UAV_WRITES
     
-    static var FlagSuspendingPass = D3D12_RENDER_PASS_FLAG_SUSPENDING_PASS
+    static let flagSuspendingPass = D3D12_RENDER_PASS_FLAG_SUSPENDING_PASS
     
-    static var FlagResumingPass = D3D12_RENDER_PASS_FLAG_RESUMING_PASS
+    static let flagResumingPass = D3D12_RENDER_PASS_FLAG_RESUMING_PASS
 }

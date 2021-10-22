@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxGpuBasedValidationFlags = D3D12_GPU_BASED_VALIDATION_FLAGS
 
 public extension DxGpuBasedValidationFlags {
-    static var None = D3D12_GPU_BASED_VALIDATION_FLAGS_NONE
+    static let none = D3D12_GPU_BASED_VALIDATION_FLAGS_NONE
     
-    static var DisableStateTracking = D3D12_GPU_BASED_VALIDATION_FLAGS_DISABLE_STATE_TRACKING
+    static let disableStateTracking = D3D12_GPU_BASED_VALIDATION_FLAGS_DISABLE_STATE_TRACKING
 }

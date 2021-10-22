@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxFilterType = D3D12_FILTER_TYPE
 
 public extension DxFilterType {
-    static var Point = D3D12_FILTER_TYPE_POINT
+    static let point = D3D12_FILTER_TYPE_POINT
     
-    static var Linear = D3D12_FILTER_TYPE_LINEAR
+    static let linear = D3D12_FILTER_TYPE_LINEAR
 }

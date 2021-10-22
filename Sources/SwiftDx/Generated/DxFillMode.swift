@@ -1,9 +1,11 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxFillMode = D3D12_FILL_MODE
 
 public extension DxFillMode {
-    static var Wireframe = D3D12_FILL_MODE_WIREFRAME
+    static let wireframe = D3D12_FILL_MODE_WIREFRAME
     
-    static var Solid = D3D12_FILL_MODE_SOLID
+    static let solid = D3D12_FILL_MODE_SOLID
 }

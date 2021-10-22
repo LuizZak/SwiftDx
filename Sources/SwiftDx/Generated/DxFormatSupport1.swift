@@ -1,65 +1,67 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxFormatSupport1 = D3D12_FORMAT_SUPPORT1
 
 public extension DxFormatSupport1 {
-    static var None = D3D12_FORMAT_SUPPORT1_NONE
+    static let none = D3D12_FORMAT_SUPPORT1_NONE
     
-    static var Buffer = D3D12_FORMAT_SUPPORT1_BUFFER
+    static let buffer = D3D12_FORMAT_SUPPORT1_BUFFER
     
-    static var IaVertexBuffer = D3D12_FORMAT_SUPPORT1_IA_VERTEX_BUFFER
+    static let iaVertexBuffer = D3D12_FORMAT_SUPPORT1_IA_VERTEX_BUFFER
     
-    static var IaIndexBuffer = D3D12_FORMAT_SUPPORT1_IA_INDEX_BUFFER
+    static let iaIndexBuffer = D3D12_FORMAT_SUPPORT1_IA_INDEX_BUFFER
     
-    static var SoBuffer = D3D12_FORMAT_SUPPORT1_SO_BUFFER
+    static let soBuffer = D3D12_FORMAT_SUPPORT1_SO_BUFFER
     
-    static var Texture1d = D3D12_FORMAT_SUPPORT1_TEXTURE1D
+    static let texture1d = D3D12_FORMAT_SUPPORT1_TEXTURE1D
     
-    static var Texture2d = D3D12_FORMAT_SUPPORT1_TEXTURE2D
+    static let texture2d = D3D12_FORMAT_SUPPORT1_TEXTURE2D
     
-    static var Texture3d = D3D12_FORMAT_SUPPORT1_TEXTURE3D
+    static let texture3d = D3D12_FORMAT_SUPPORT1_TEXTURE3D
     
-    static var Texturecube = D3D12_FORMAT_SUPPORT1_TEXTURECUBE
+    static let texturecube = D3D12_FORMAT_SUPPORT1_TEXTURECUBE
     
-    static var ShaderLoad = D3D12_FORMAT_SUPPORT1_SHADER_LOAD
+    static let shaderLoad = D3D12_FORMAT_SUPPORT1_SHADER_LOAD
     
-    static var ShaderSample = D3D12_FORMAT_SUPPORT1_SHADER_SAMPLE
+    static let shaderSample = D3D12_FORMAT_SUPPORT1_SHADER_SAMPLE
     
-    static var ShaderSampleComparison = D3D12_FORMAT_SUPPORT1_SHADER_SAMPLE_COMPARISON
+    static let shaderSampleComparison = D3D12_FORMAT_SUPPORT1_SHADER_SAMPLE_COMPARISON
     
-    static var ShaderSampleMonoText = D3D12_FORMAT_SUPPORT1_SHADER_SAMPLE_MONO_TEXT
+    static let shaderSampleMonoText = D3D12_FORMAT_SUPPORT1_SHADER_SAMPLE_MONO_TEXT
     
-    static var Mip = D3D12_FORMAT_SUPPORT1_MIP
+    static let mip = D3D12_FORMAT_SUPPORT1_MIP
     
-    static var RenderTarget = D3D12_FORMAT_SUPPORT1_RENDER_TARGET
+    static let renderTarget = D3D12_FORMAT_SUPPORT1_RENDER_TARGET
     
-    static var Blendable = D3D12_FORMAT_SUPPORT1_BLENDABLE
+    static let blendable = D3D12_FORMAT_SUPPORT1_BLENDABLE
     
-    static var DepthStencil = D3D12_FORMAT_SUPPORT1_DEPTH_STENCIL
+    static let depthStencil = D3D12_FORMAT_SUPPORT1_DEPTH_STENCIL
     
-    static var MultisampleResolve = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RESOLVE
+    static let multisampleResolve = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RESOLVE
     
-    static var Display = D3D12_FORMAT_SUPPORT1_DISPLAY
+    static let display = D3D12_FORMAT_SUPPORT1_DISPLAY
     
-    static var CastWithinBitLayout = D3D12_FORMAT_SUPPORT1_CAST_WITHIN_BIT_LAYOUT
+    static let castWithinBitLayout = D3D12_FORMAT_SUPPORT1_CAST_WITHIN_BIT_LAYOUT
     
-    static var MultisampleRendertarget = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RENDERTARGET
+    static let multisampleRendertarget = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RENDERTARGET
     
-    static var MultisampleLoad = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_LOAD
+    static let multisampleLoad = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_LOAD
     
-    static var ShaderGather = D3D12_FORMAT_SUPPORT1_SHADER_GATHER
+    static let shaderGather = D3D12_FORMAT_SUPPORT1_SHADER_GATHER
     
-    static var BackBufferCast = D3D12_FORMAT_SUPPORT1_BACK_BUFFER_CAST
+    static let backBufferCast = D3D12_FORMAT_SUPPORT1_BACK_BUFFER_CAST
     
-    static var TypedUnorderedAccessView = D3D12_FORMAT_SUPPORT1_TYPED_UNORDERED_ACCESS_VIEW
+    static let typedUnorderedAccessView = D3D12_FORMAT_SUPPORT1_TYPED_UNORDERED_ACCESS_VIEW
     
-    static var ShaderGatherComparison = D3D12_FORMAT_SUPPORT1_SHADER_GATHER_COMPARISON
+    static let shaderGatherComparison = D3D12_FORMAT_SUPPORT1_SHADER_GATHER_COMPARISON
     
-    static var DecoderOutput = D3D12_FORMAT_SUPPORT1_DECODER_OUTPUT
+    static let decoderOutput = D3D12_FORMAT_SUPPORT1_DECODER_OUTPUT
     
-    static var VideoProcessorOutput = D3D12_FORMAT_SUPPORT1_VIDEO_PROCESSOR_OUTPUT
+    static let videoProcessorOutput = D3D12_FORMAT_SUPPORT1_VIDEO_PROCESSOR_OUTPUT
     
-    static var VideoProcessorInput = D3D12_FORMAT_SUPPORT1_VIDEO_PROCESSOR_INPUT
+    static let videoProcessorInput = D3D12_FORMAT_SUPPORT1_VIDEO_PROCESSOR_INPUT
     
-    static var VideoEncoder = D3D12_FORMAT_SUPPORT1_VIDEO_ENCODER
+    static let videoEncoder = D3D12_FORMAT_SUPPORT1_VIDEO_ENCODER
 }

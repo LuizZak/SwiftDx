@@ -1,11 +1,13 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxResourceBarrierType = D3D12_RESOURCE_BARRIER_TYPE
 
 public extension DxResourceBarrierType {
-    static var Transition = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION
+    static let transition = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION
     
-    static var Aliasing = D3D12_RESOURCE_BARRIER_TYPE_ALIASING
+    static let aliasing = D3D12_RESOURCE_BARRIER_TYPE_ALIASING
     
-    static var Uav = D3D12_RESOURCE_BARRIER_TYPE_UAV
+    static let uav = D3D12_RESOURCE_BARRIER_TYPE_UAV
 }

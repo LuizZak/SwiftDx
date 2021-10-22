@@ -1,21 +1,23 @@
+// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators!
+
 import WinSDK
 
 typealias DxStencilOp = D3D12_STENCIL_OP
 
 public extension DxStencilOp {
-    static var Keep = D3D12_STENCIL_OP_KEEP
+    static let keep = D3D12_STENCIL_OP_KEEP
     
-    static var Zero = D3D12_STENCIL_OP_ZERO
+    static let zero = D3D12_STENCIL_OP_ZERO
     
-    static var Replace = D3D12_STENCIL_OP_REPLACE
+    static let replace = D3D12_STENCIL_OP_REPLACE
     
-    static var IncrSat = D3D12_STENCIL_OP_INCR_SAT
+    static let incrSat = D3D12_STENCIL_OP_INCR_SAT
     
-    static var DecrSat = D3D12_STENCIL_OP_DECR_SAT
+    static let decrSat = D3D12_STENCIL_OP_DECR_SAT
     
-    static var Invert = D3D12_STENCIL_OP_INVERT
+    static let invert = D3D12_STENCIL_OP_INVERT
     
-    static var Incr = D3D12_STENCIL_OP_INCR
+    static let incr = D3D12_STENCIL_OP_INCR
     
-    static var Decr = D3D12_STENCIL_OP_DECR
+    static let decr = D3D12_STENCIL_OP_DECR
 }
