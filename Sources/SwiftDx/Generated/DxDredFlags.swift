@@ -5,9 +5,9 @@ import WinSDK
 typealias DxDredFlags = D3D12_DRED_FLAGS
 
 public extension DxDredFlags {
-    static let flagNone = D3D12_DRED_FLAG_NONE
+    static let none = D3D12_DRED_FLAG_NONE
     
-    static let flagForceEnable = D3D12_DRED_FLAG_FORCE_ENABLE
+    static let forceEnable = D3D12_DRED_FLAG_FORCE_ENABLE
     
-    static let flagDisableAutobreadcrumbs = D3D12_DRED_FLAG_DISABLE_AUTOBREADCRUMBS
+    static let disableAutobreadcrumbs = D3D12_DRED_FLAG_DISABLE_AUTOBREADCRUMBS
 }

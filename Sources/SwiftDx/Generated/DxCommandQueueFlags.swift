@@ -5,7 +5,7 @@ import WinSDK
 typealias DxCommandQueueFlags = D3D12_COMMAND_QUEUE_FLAGS
 
 public extension DxCommandQueueFlags {
-    static let flagNone = D3D12_COMMAND_QUEUE_FLAG_NONE
+    static let none = D3D12_COMMAND_QUEUE_FLAG_NONE
     
-    static let flagDisableGpuTimeout = D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT
+    static let disableGpuTimeout = D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT
 }

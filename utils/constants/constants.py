@@ -1,5 +1,13 @@
-DX_PREFIXES = ["DXGI", "D3D12"]
-"List of prefixes from DirectX declarations to convert"
+DX_PREFIXES = [
+    'DXGI',
+    'D3D12',
+    'D3D',
+]
+"""
+List of prefixes from DirectX declarations to convert
+
+Will also be used as a list of terms to remove the prefix of in final declaration names.
+"""
 
 SWIFT_KEYWORDS = [
     'default',

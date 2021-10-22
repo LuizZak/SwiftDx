@@ -22,8 +22,10 @@
 
 #include <Windows.h>
 #include <d3d12.h>
+#include <dxgi1_6.h>
 
-/*
+/* For testing purposes:
+
 typedef
 enum D3D12_QUERY_TYPE
     {

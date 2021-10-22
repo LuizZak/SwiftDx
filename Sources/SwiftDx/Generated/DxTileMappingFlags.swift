@@ -5,7 +5,7 @@ import WinSDK
 typealias DxTileMappingFlags = D3D12_TILE_MAPPING_FLAGS
 
 public extension DxTileMappingFlags {
-    static let flagNone = D3D12_TILE_MAPPING_FLAG_NONE
+    static let none = D3D12_TILE_MAPPING_FLAG_NONE
     
-    static let flagNoHazard = D3D12_TILE_MAPPING_FLAG_NO_HAZARD
+    static let noHazard = D3D12_TILE_MAPPING_FLAG_NO_HAZARD
 }

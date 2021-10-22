@@ -113,7 +113,7 @@ class DirectXManager {
     }
 
     private func clearRenderTarget(state: DirectXState, commandList: GraphicsCommandList, backBufferState: DirectXState.BackBufferState) throws {
-        let barrier = CD3DX12_RESOURCE_BARRIER.transition(backBufferState.backBuffer, D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET)
+        let barrier = CD3DX12_RESOURCE_BARRIER.transition(backBufferState.backBuffer, .present, .renderTarget)
         try commandList.ResourceBarrier(1, barrier)
 
         let clearColor: (FLOAT, FLOAT, FLOAT, FLOAT) = (0.4, 0.6, 0.9, 1.0)
@@ -124,7 +124,7 @@ class DirectXManager {
     }
 
     private func present(state: inout DirectXState, commandList: GraphicsCommandList, backBufferState: DirectXState.BackBufferState) throws {
-        let barrier = CD3DX12_RESOURCE_BARRIER.transition(backBufferState.backBuffer, D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT)
+        let barrier = CD3DX12_RESOURCE_BARRIER.transition(backBufferState.backBuffer, .renderTarget, .present)
         try commandList.ResourceBarrier(1, barrier)
 
         try commandList.Close()
@@ -150,17 +150,17 @@ class DirectXManager {
     private func enableDebugBreaks(_ device: Device) throws {
         let infoQueue: DirectX.InfoQueue = try device.QueryInterface()
 
-        try infoQueue.SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_CORRUPTION, true)
-        try infoQueue.SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_ERROR, true)
-        try infoQueue.SetBreakOnSeverity(D3D12_MESSAGE_SEVERITY_WARNING, true)
+        try infoQueue.SetBreakOnSeverity(.corruption, true)
+        try infoQueue.SetBreakOnSeverity(.error, true)
+        try infoQueue.SetBreakOnSeverity(.warning, true)
 
-        var severities: [D3D12_MESSAGE_SEVERITY] = [
-            D3D12_MESSAGE_SEVERITY_INFO
+        var severities: [DxMessageSeverity] = [
+            .info
         ]
-        var denyIds: [D3D12_MESSAGE_ID] = [
-            D3D12_MESSAGE_ID_CLEARRENDERTARGETVIEW_MISMATCHINGCLEARVALUE,
-            D3D12_MESSAGE_ID_MAP_INVALID_NULLRANGE,
-            D3D12_MESSAGE_ID_UNMAP_INVALID_NULLRANGE,
+        var denyIds: [DxMessageId] = [
+            .clearrendertargetviewMismatchingclearvalue,
+            .mapInvalidNullrange,
+            .unmapInvalidNullrange,
         ]
 
         try severities.withUnsafeMutableBufferPointer { sp in
@@ -177,9 +177,9 @@ class DirectXManager {
     }
 
     private func makeRootSignature(_ device: Device) throws -> RootSignature {
-        let rootSignatureDesc = CD3DX12_ROOT_SIGNATURE_DESC(0, nil, 0, nil, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT)
+        let rootSignatureDesc = CD3DX12_ROOT_SIGNATURE_DESC(0, nil, 0, nil, .allowInputAssemblerInputLayout)
 
-        let (signature, _) = try D3D12SerializeRootSignature(rootSignatureDesc, D3D_ROOT_SIGNATURE_VERSION_1)
+        let (signature, _) = try D3D12SerializeRootSignature(rootSignatureDesc, .version_1)
 
         return try device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
     }
@@ -198,17 +198,17 @@ class DirectXManager {
             return try factory.EnumWarpAdapter()
         }
 
-        return try factory.EnumAdapterByGpuPreference(0, DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE)
+        return try factory.EnumAdapterByGpuPreference(0, .highPerformance)
     }
 
     private func makeDevice(_ adapter: Adapter) throws -> Device {
-        try D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_12_0)
+        try D3D12CreateDevice(adapter, .level_120)
     }
 
     private func makeCommandAllocators(_ device: Device, backBufferCount: Int) throws -> [CommandAllocator] {
         var commandAllocators: [CommandAllocator] = []
         for _ in 0..<backBufferCount {
-            commandAllocators.append(try device.CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT))
+            commandAllocators.append(try device.CreateCommandAllocator(.direct))
         }
 
         return commandAllocators
@@ -216,15 +216,15 @@ class DirectXManager {
 
     private func makeCommandQueue(_ device: Device) throws -> CommandQueue {
         var desc = D3D12_COMMAND_QUEUE_DESC()
-        desc.Type =     D3D12_COMMAND_LIST_TYPE_DIRECT
+        desc.Type =     .direct
         desc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL.rawValue
-        desc.Flags =    D3D12_COMMAND_QUEUE_FLAG_NONE
+        desc.Flags =    .none
         desc.NodeMask = 0
 
         return try device.CreateCommandQueue(desc)
     }
 
-    private func makeSwapChain(_ factory: Factory, _ queue: CommandQueue, _ hwnd: HWND, width: Int, height: Int, backBufferFormat: DXGI_FORMAT, bufferCount: Int, tearingSupported: Bool) throws -> SwapChain {
+    private func makeSwapChain(_ factory: Factory, _ queue: CommandQueue, _ hwnd: HWND, width: Int, height: Int, backBufferFormat: DxFormat, bufferCount: Int, tearingSupported: Bool) throws -> SwapChain {
         var swapChainDesc = DXGI_SWAP_CHAIN_DESC1()
         swapChainDesc.Width = UINT(width)
         swapChainDesc.Height = UINT(height)
@@ -233,9 +233,9 @@ class DirectXManager {
         swapChainDesc.SampleDesc = .init(Count: 1, Quality: 0)
         swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT
         swapChainDesc.BufferCount = UINT(bufferCount)
-        swapChainDesc.Scaling = DXGI_SCALING_STRETCH
-        swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD
-        swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED
+        swapChainDesc.Scaling = .stretch
+        swapChainDesc.SwapEffect = .flipDiscard
+        swapChainDesc.AlphaMode = .unspecified
         swapChainDesc.Flags = tearingSupported ? UINT(DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING.rawValue) : 0
 
         try factory.MakeWindowAssociation(hwnd, UINT(DXGI_MWA_NO_ALT_ENTER))
@@ -245,12 +245,12 @@ class DirectXManager {
 
     private func checkTearingSupport(_ factory: Factory) throws -> Bool {
         var allowTearing: BOOL = 0
-        allowTearing = try factory.CheckFeatureSupport(DXGI_FEATURE_PRESENT_ALLOW_TEARING)
+        allowTearing = try factory.CheckFeatureSupport(.presentAllowTearing)
 
         return allowTearing == 1
     }
 
-    private func makeDescriptorHeap(_ device: Device, _ type: D3D12_DESCRIPTOR_HEAP_TYPE, _ numDescriptors: Int) throws -> DescriptorHeap {
+    private func makeDescriptorHeap(_ device: Device, _ type: DxDescriptorHeapType, _ numDescriptors: Int) throws -> DescriptorHeap {
         var desc = D3D12_DESCRIPTOR_HEAP_DESC()
 
         desc.NumDescriptors = UINT(numDescriptors)
@@ -298,7 +298,7 @@ private struct DirectXState {
     var rtvDescriptorSize: Int
 
     internal init(backBufferCount: Int,
-                  backBufferFormat: DXGI_FORMAT,
+                  backBufferFormat: DxFormat,
                   backBufferIndex: Int = 0,
                   isVSyncOn: Bool = false,
                   tearingSupported: Bool,

@@ -5,7 +5,7 @@ import WinSDK
 typealias DxMetaCommandParameterFlags = D3D12_META_COMMAND_PARAMETER_FLAGS
 
 public extension DxMetaCommandParameterFlags {
-    static let flagInput = D3D12_META_COMMAND_PARAMETER_FLAG_INPUT
+    static let input = D3D12_META_COMMAND_PARAMETER_FLAG_INPUT
     
-    static let flagOutput = D3D12_META_COMMAND_PARAMETER_FLAG_OUTPUT
+    static let output = D3D12_META_COMMAND_PARAMETER_FLAG_OUTPUT
 }

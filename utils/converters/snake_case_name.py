@@ -21,12 +21,36 @@ class SnakeCaseName(Sequence):
     def __len__(self) -> int:
         return len(self.components)
     
-    def removing_common(self, other: 'SnakeCaseName', remove_plurals: bool = False) -> Tuple['SnakeCaseName', Optional['SnakeCaseName']]:
+    def removing_common(self, other: 'SnakeCaseName', detect_plurals: bool = True) -> Tuple['SnakeCaseName', Optional['SnakeCaseName']]:
+        """
+        Returns a new SnakeCaseName with the common prefix between it and another SnakeCaseName removed.
+
+        In case the generated name would produce an invalid Swift identifier, like starting with a digit instead of a letter, an extra
+        prefix is provided as a second element to the return's tuple:
+
+        ```
+        enum      = SnakeCaseName('D3D12_DRED_VERSION')
+        enum_case = SnakeCaseName('D3D12_DRED_VERSION_1_0')
+
+        print(enum_case.removing_common(enum)) # Prints: (SnakeCaseName(components=['1', '0']), SnakeCaseName(components=['VERSION']))
+        ```
+        
+        Optionally allows detecting differences in plurals, e.g.
+        
+        ```
+        enum      = SnakeCaseName('D3D12_RAY_FLAGS')
+        enum_case = SnakeCaseName('D3D12_RAY_FLAG_NONE')
+        
+        print(enum_case.removing_common(enum, detect_plurals=True)[0])  # Prints: 'SnakeCaseName(components=['NONE'])'
+        print(enum_case.removing_common(enum, detect_plurals=False)[0]) # Prints: 'SnakeCaseName(components=['FLAG', 'NONE'])'
+        ```
+        """
+
         new_name = SnakeCaseName()
 
         prefix_index = 0
         for index in range(min(len(self.components), len(other.components))):
-            if remove_plurals:
+            if detect_plurals:
                 if self.components[index].lower() + "s" == other.components[index].lower():
                     prefix_index += 1
                     continue

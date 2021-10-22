@@ -5,5 +5,5 @@ import WinSDK
 typealias DxProtectedResourceSessionFlags = D3D12_PROTECTED_RESOURCE_SESSION_FLAGS
 
 public extension DxProtectedResourceSessionFlags {
-    static let flagNone = D3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE
+    static let none = D3D12_PROTECTED_RESOURCE_SESSION_FLAG_NONE
 }

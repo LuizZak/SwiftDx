@@ -5,11 +5,11 @@ import WinSDK
 typealias DxFenceFlags = D3D12_FENCE_FLAGS
 
 public extension DxFenceFlags {
-    static let flagNone = D3D12_FENCE_FLAG_NONE
+    static let none = D3D12_FENCE_FLAG_NONE
     
-    static let flagShared = D3D12_FENCE_FLAG_SHARED
+    static let shared = D3D12_FENCE_FLAG_SHARED
     
-    static let flagSharedCrossAdapter = D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER
+    static let sharedCrossAdapter = D3D12_FENCE_FLAG_SHARED_CROSS_ADAPTER
     
-    static let flagNonMonitored = D3D12_FENCE_FLAG_NON_MONITORED
+    static let nonMonitored = D3D12_FENCE_FLAG_NON_MONITORED
 }

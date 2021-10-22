@@ -5,7 +5,7 @@ import WinSDK
 typealias DxClearFlags = D3D12_CLEAR_FLAGS
 
 public extension DxClearFlags {
-    static let flagDepth = D3D12_CLEAR_FLAG_DEPTH
+    static let depth = D3D12_CLEAR_FLAG_DEPTH
     
-    static let flagStencil = D3D12_CLEAR_FLAG_STENCIL
+    static let stencil = D3D12_CLEAR_FLAG_STENCIL
 }

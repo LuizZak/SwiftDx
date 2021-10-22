@@ -5,7 +5,7 @@ import WinSDK
 typealias DxMultisampleQualityLevelFlags = D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS
 
 public extension DxMultisampleQualityLevelFlags {
-    static let levelsFlagNone = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE
+    static let none = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE
     
-    static let levelsFlagTiledResource = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_TILED_RESOURCE
+    static let tiledResource = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_TILED_RESOURCE
 }

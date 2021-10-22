@@ -5,11 +5,11 @@ import WinSDK
 typealias DxTileRangeFlags = D3D12_TILE_RANGE_FLAGS
 
 public extension DxTileRangeFlags {
-    static let flagNone = D3D12_TILE_RANGE_FLAG_NONE
+    static let none = D3D12_TILE_RANGE_FLAG_NONE
     
-    static let flagNull = D3D12_TILE_RANGE_FLAG_NULL
+    static let null = D3D12_TILE_RANGE_FLAG_NULL
     
-    static let flagSkip = D3D12_TILE_RANGE_FLAG_SKIP
+    static let skip = D3D12_TILE_RANGE_FLAG_SKIP
     
-    static let flagReuseSingleTile = D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE
+    static let reuseSingleTile = D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE
 }

@@ -5,7 +5,7 @@ import WinSDK
 typealias DxResidencyFlags = D3D12_RESIDENCY_FLAGS
 
 public extension DxResidencyFlags {
-    static let flagNone = D3D12_RESIDENCY_FLAG_NONE
+    static let none = D3D12_RESIDENCY_FLAG_NONE
     
-    static let flagDenyOverbudget = D3D12_RESIDENCY_FLAG_DENY_OVERBUDGET
+    static let denyOverbudget = D3D12_RESIDENCY_FLAG_DENY_OVERBUDGET
 }

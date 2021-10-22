@@ -15,10 +15,20 @@ class CamelCaseName(Sequence):
         return len(self.components)
     
     def to_string(self, pascal_case=False) -> str:
-        if pascal_case:
-            return ''.join(map(lambda c: c.capitalize(), self.components))
+        result = ''
 
-        if len(self.components) < 2:
-            return self.components[0].lower()
+        if len(self) == 0:
+            return result
+
+        if pascal_case:
+            result = self[0].capitalize()
+        else:
+            result = self[0].lower()
+
+        if len(self) < 2:
+            return result
         
-        return self.components[0].lower() + ''.join(map(lambda c: c.capitalize(), self.components[1:]))
+        for comp in self[1:]:
+            result += comp.capitalize()
+
+        return result
