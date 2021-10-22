@@ -11,7 +11,7 @@ from typing import List
 from platform import system
 from pycparser import c_ast, parse_file
 
-from converters.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl
+from converters.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
 from converters.syntax_stream import SyntaxStream
 from converters.snake_case_name import SnakeCaseName, DX_PREFIXES
 from converters.convert_enum_case_name import convert_enum_case_name
@@ -48,6 +48,8 @@ def run_cl() -> bytes:
 # Visitor / declaration collection
 
 class SwiftDeclConverter:
+    # Enum
+
     def convert_snake_case_name(self, name: str, prefix: str, pascal_case: bool = True) -> str:
         return SnakeCaseName(name).camel_cased(prefix).to_string(pascal_case=pascal_case)
 
@@ -69,10 +71,21 @@ class SwiftDeclConverter:
             list(cases)
         )
 
+    # Struct
+
+    def convert_struct_name(self, name: str, prefix="Dx") -> str:
+        return self.convert_snake_case_name(name, prefix=prefix)
+    
+    def convert_struct(self, decl: c_ast.Struct) -> SwiftStructDecl:
+        return SwiftStructDecl(self.convert_struct_name(decl.name), decl.name)
+
+    #
+
     def convert(self, decl: c_ast.Node) -> SwiftDecl | None:
-        if isinstance(decl, c_ast.Enum):
-            return self.convert_enum(decl)
-        
+        match decl:
+            case c_ast.Struct(): return self.convert_struct(decl)
+            case c_ast.Enum(): return self.convert_enum(decl)
+
         return None
         
     def convert_list(self, decls: List[c_ast.Node]) -> List[SwiftDecl]:
@@ -89,9 +102,6 @@ class DeclFileGenerator:
         self.destination_folder = destination_folder
         self.decls = decls
 
-    def generate_enum(self, decl: SwiftEnumDecl, stream: SyntaxStream):
-        decl.write(stream)
-    
     def generate_file(self, decl: SwiftDecl):
         file_name = f"{decl.name}.swift"
         file_path = self.destination_folder.joinpath(file_name)
@@ -105,9 +115,7 @@ class DeclFileGenerator:
             stream.line("import WinSDK")
             stream.line()
 
-            match decl:
-                case SwiftEnumDecl():
-                    self.generate_enum(decl, stream)
+            decl.write(stream)
 
     def generate(self, rm_folder: bool = True):
         if rm_folder:

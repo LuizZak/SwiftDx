@@ -9,6 +9,9 @@ class SwiftDecl(object):
     name: str
     original_name: str
 
+    def write(self, stream: SyntaxStream):
+        raise NotImplementedError("Must be overloaded by subclasses.")
+
 @dataclass
 class SwiftEnumCaseDecl(SwiftDecl):
     pass
@@ -37,3 +40,10 @@ class SwiftEnumDecl(SwiftDecl):
                     stream.line()
                 
                 case.write(stream)
+
+@dataclass
+class SwiftStructDecl(SwiftDecl):
+    def write(self, stream: SyntaxStream):
+        stream.line(f"typealias {self.name} = {self.original_name}")
+
+        pass

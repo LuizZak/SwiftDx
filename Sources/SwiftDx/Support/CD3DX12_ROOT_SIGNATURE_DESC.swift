@@ -1,13 +1,13 @@
 import WinSDK
 
-typealias CD3DX12_ROOT_SIGNATURE_DESC = D3D12_ROOT_SIGNATURE_DESC
+typealias CD3DX12_ROOT_SIGNATURE_DESC = DxRootSignatureDesc
 
 extension CD3DX12_ROOT_SIGNATURE_DESC {
     init(_ numParameters: Int,
-         _ _pParameters: UnsafePointer<D3D12_ROOT_PARAMETER>?,
+         _ _pParameters: UnsafePointer<DxRootParameter>?,
          _ numStaticSamplers: Int = 0,
-         _ _pStaticSamplers: UnsafePointer<D3D12_STATIC_SAMPLER_DESC>? = nil,
-         _ flags: D3D12_ROOT_SIGNATURE_FLAGS = D3D12_ROOT_SIGNATURE_FLAG_NONE) {
+         _ _pStaticSamplers: UnsafePointer<DxStaticSamplerDesc>? = nil,
+         _ flags: DxRootSignatureFlags = .none) {
         
         self.init()
         
@@ -15,10 +15,10 @@ extension CD3DX12_ROOT_SIGNATURE_DESC {
     }
 
     mutating func initialize(_ numParameters: Int,
-                             _ _pParameters: UnsafePointer<D3D12_ROOT_PARAMETER>?,
+                             _ _pParameters: UnsafePointer<DxRootParameter>?,
                              _ numStaticSamplers: Int = 0,
-                             _ _pStaticSamplers: UnsafePointer<D3D12_STATIC_SAMPLER_DESC>? = nil,
-                             _ flags: D3D12_ROOT_SIGNATURE_FLAGS = D3D12_ROOT_SIGNATURE_FLAG_NONE) {
+                             _ _pStaticSamplers: UnsafePointer<DxStaticSamplerDesc>? = nil,
+                             _ flags: DxRootSignatureFlags = .none) {
         
         self.NumParameters = UINT(numParameters)
         self.pParameters = _pParameters

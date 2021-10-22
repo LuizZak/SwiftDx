@@ -165,7 +165,7 @@ class DirectXManager {
 
         try severities.withUnsafeMutableBufferPointer { sp in
             try denyIds.withUnsafeMutableBufferPointer { dp in
-                var filter = D3D12_INFO_QUEUE_FILTER()
+                var filter = DxInfoQueueFilter()
                 filter.DenyList.NumSeverities = UINT(sp.count)
                 filter.DenyList.pSeverityList = sp.baseAddress!
                 filter.DenyList.NumIDs = UINT(dp.count)
@@ -177,7 +177,7 @@ class DirectXManager {
     }
 
     private func makeRootSignature(_ device: Device) throws -> RootSignature {
-        let rootSignatureDesc = CD3DX12_ROOT_SIGNATURE_DESC(0, nil, 0, nil, .allowInputAssemblerInputLayout)
+        let rootSignatureDesc = DxRootSignatureDesc(0, nil, 0, nil, .allowInputAssemblerInputLayout)
 
         let (signature, _) = try D3D12SerializeRootSignature(rootSignatureDesc, .version_1)
 
@@ -202,7 +202,7 @@ class DirectXManager {
     }
 
     private func makeDevice(_ adapter: Adapter) throws -> Device {
-        try D3D12CreateDevice(adapter, .level_120)
+        try D3D12CreateDevice(adapter, .level_12_0)
     }
 
     private func makeCommandAllocators(_ device: Device, backBufferCount: Int) throws -> [CommandAllocator] {
@@ -215,9 +215,9 @@ class DirectXManager {
     }
 
     private func makeCommandQueue(_ device: Device) throws -> CommandQueue {
-        var desc = D3D12_COMMAND_QUEUE_DESC()
+        var desc = DxCommandQueueDesc()
         desc.Type =     .direct
-        desc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL.rawValue
+        desc.Priority = DxCommandQueuePriority.normal.rawValue
         desc.Flags =    .none
         desc.NodeMask = 0
 
@@ -225,7 +225,7 @@ class DirectXManager {
     }
 
     private func makeSwapChain(_ factory: Factory, _ queue: CommandQueue, _ hwnd: HWND, width: Int, height: Int, backBufferFormat: DxFormat, bufferCount: Int, tearingSupported: Bool) throws -> SwapChain {
-        var swapChainDesc = DXGI_SWAP_CHAIN_DESC1()
+        var swapChainDesc = DxSwapChainDesc1()
         swapChainDesc.Width = UINT(width)
         swapChainDesc.Height = UINT(height)
         swapChainDesc.Format = backBufferFormat
@@ -236,7 +236,7 @@ class DirectXManager {
         swapChainDesc.Scaling = .stretch
         swapChainDesc.SwapEffect = .flipDiscard
         swapChainDesc.AlphaMode = .unspecified
-        swapChainDesc.Flags = tearingSupported ? UINT(DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING.rawValue) : 0
+        swapChainDesc.Flags = tearingSupported ? UINT(DxSwapChainFlag.allowTearing.rawValue) : 0
 
         try factory.MakeWindowAssociation(hwnd, UINT(DXGI_MWA_NO_ALT_ENTER))
 
@@ -251,7 +251,7 @@ class DirectXManager {
     }
 
     private func makeDescriptorHeap(_ device: Device, _ type: DxDescriptorHeapType, _ numDescriptors: Int) throws -> DescriptorHeap {
-        var desc = D3D12_DESCRIPTOR_HEAP_DESC()
+        var desc = DxDescriptorHeapDesc()
 
         desc.NumDescriptors = UINT(numDescriptors)
         desc.Type = type
@@ -260,7 +260,7 @@ class DirectXManager {
     }
 
     private func makeFence(_ device: Device) throws -> Fence {
-        try device.CreateFence(0, D3D12_FENCE_FLAG_NONE)
+        try device.CreateFence(0, .none)
     }
 
     private func makeEventHandle() throws -> HANDLE {
