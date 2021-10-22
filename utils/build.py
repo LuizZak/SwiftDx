@@ -29,8 +29,7 @@ def make_argparser() -> argparse.ArgumentParser:
             if d_sp is not None and not {'-h', '--help'}.intersection(in_args):
                 for x in self._subparsers._actions:
                     subparser_found = (
-                        isinstance(x, argparse._SubParsersAction) and
-                        in_args.intersection(x._name_parser_map.keys())
+                        isinstance(x, argparse._SubParsersAction) and in_args.intersection(x._name_parser_map.keys())
                     )
                     if subparser_found:
                         break
@@ -99,7 +98,7 @@ class BuildCommandArgs:
     def swift_build_args(self) -> List[str]:
         args = []
 
-        if not self.target_name is None:
+        if self.target_name is not None:
             args.extend(['--target', self.target_name])
         
         args.extend(['--configuration', self.config, *win32_debug_args])
@@ -115,7 +114,7 @@ class RunCommandArgs:
     def swift_run_args(self) -> List[str]:
         args = []
 
-        if not self.executable_name is None:
+        if self.executable_name is not None:
             args.append(self.executable_name)
         
         args.extend(['--configuration', self.config, *win32_debug_args])
@@ -210,7 +209,7 @@ def run_build(settings: BuildCommandArgs):
         return
     
     target_json = find(lambda target: target['name'] == settings.target_name, package['targets'])
-    if target_json == None:
+    if target_json is None:
         raise Exception(f"Target '{settings.target_name}' is not defined in Package.swift.")
     
     target = SwiftTarget(target_json)
@@ -220,7 +219,7 @@ def run_build(settings: BuildCommandArgs):
         exe_path = build_dir.joinpath(target.name).with_suffix('.exe')
 
         manifest_path = settings.manifest_path
-        if manifest_path == None:
+        if manifest_path is None:
             manifest_path = default_manifest_path(target)
 
         run_post_build(PostBuildSettings(exe_path, manifest_path))
@@ -270,6 +269,7 @@ def main() -> int:
         case 'run': do_run_command(args)
 
     return 0
+
 
 if __name__=='__main__':
     try:

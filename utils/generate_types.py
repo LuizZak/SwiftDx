@@ -8,7 +8,7 @@ import subprocess
 import shutil
 
 from pathlib import Path
-from typing import Callable, List, TextIO
+from typing import List, TextIO
 from platform import system
 from dataclasses import dataclass
 from pycparser import c_ast, parse_file
