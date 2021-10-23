@@ -133,6 +133,9 @@ class CompoundSymbolName(Sequence):
     def __len__(self) -> int:
         return len(self.components)
     
+    def __iter__(self):
+        return self.components.__iter__()
+    
     def __repr__(self) -> str:
         if len(self.components) == 0:
             return "CompoundSymbolName(components=[])"

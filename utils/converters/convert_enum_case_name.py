@@ -1,7 +1,7 @@
 from pycparser import c_ast
 
 from constants.constants import DX_PREFIXES
-from converters.compound_symbol_name import CompoundSymbolName
+from data.compound_symbol_name import CompoundSymbolName
 from converters.custom.dxgi_format_converter import convert_dxgi_enum_case
 
 def convert_enum_case_name(enum: c_ast.Enum, name: str) -> CompoundSymbolName:
@@ -18,7 +18,7 @@ def convert_enum_case_name(enum: c_ast.Enum, name: str) -> CompoundSymbolName:
     if prefix is not None:
         prefix = prefix.camel_cased()
         new_name[0].joint_to_prev = '_'
-        
+
         return CompoundSymbolName(components=prefix.components + new_name.components)
 
     return new_name

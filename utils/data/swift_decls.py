@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List
 
 from converters.syntax_stream import SyntaxStream
-from converters.compound_symbol_name import CompoundSymbolName
+from data.compound_symbol_name import CompoundSymbolName
 from constants.constants import backticked_term
 
 @dataclass

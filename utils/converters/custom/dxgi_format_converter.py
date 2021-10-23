@@ -1,5 +1,5 @@
 from constants.constants import DX_PREFIXES
-from converters.compound_symbol_name import CompoundSymbolName
+from data.compound_symbol_name import CompoundSymbolName
 
 def convert_dxgi_enum_case(name: CompoundSymbolName) -> CompoundSymbolName:
     DECAPITALIZE=[

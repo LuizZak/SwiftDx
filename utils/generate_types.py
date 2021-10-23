@@ -13,10 +13,11 @@ from pycparser import c_ast, parse_file
 from contextlib import contextmanager
 
 from constants.constants import DX_PREFIXES
-from converters.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
 from converters.syntax_stream import SyntaxStream
-from converters.compound_symbol_name import CompoundSymbolName
 from converters.convert_enum_case_name import convert_enum_case_name
+from data.compound_symbol_name import CompoundSymbolName
+from data.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
+from directory_structure.directory_structure_manager import DirectoryStructureManager
 
 SOURCE_ROOT_PATH=Path(__file__).parents[1]
 SCRIPTS_ROOT_PATH=Path(__file__).parent
@@ -129,6 +130,7 @@ class DeclFileGeneratorDiskTarget(DeclGeneratorTarget):
     def __init__(self, destination_folder: Path, rm_folder: bool = True):
         self.destination_folder = destination_folder
         self.rm_folder = rm_folder
+        self.directory_manager = DirectoryStructureManager(destination_folder)
     
     def prepare(self):
         if self.rm_folder:
@@ -137,8 +139,8 @@ class DeclFileGeneratorDiskTarget(DeclGeneratorTarget):
 
     @contextmanager
     def create_stream(self, decl: SwiftDecl) -> SyntaxStream:
-        file_name = f"{decl.name.to_string()}.swift"
-        file_path = self.destination_folder.joinpath(file_name)
+        file_path = self.directory_manager.path_for_decl(decl)
+        file_path.parent.mkdir(parents=True, exist_ok=True)
 
         with open(file_path, 'w') as file:
             stream = SyntaxStream(file)
