@@ -11,9 +11,10 @@ from typing import List
 from platform import system
 from pycparser import c_ast, parse_file
 
+from constants.constants import DX_PREFIXES
 from converters.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
 from converters.syntax_stream import SyntaxStream
-from converters.snake_case_name import SnakeCaseName, DX_PREFIXES
+from converters.compound_symbol_name import CompoundSymbolName
 from converters.convert_enum_case_name import convert_enum_case_name
 
 SOURCE_ROOT_PATH=Path(__file__).parents[1]
@@ -51,7 +52,19 @@ class SwiftDeclConverter:
     # Enum
 
     def convert_snake_case_name(self, name: str, prefix: str, pascal_case: bool = True) -> str:
-        return SnakeCaseName(name).camel_cased(prefix).to_string(pascal_case=pascal_case)
+        symbol_name = CompoundSymbolName\
+            .from_snake_case(name)\
+            .removing_prefixes(DX_PREFIXES)
+
+        if len(prefix) > 0:
+            symbol_name = symbol_name.prepending_component(prefix)
+
+        if pascal_case:
+            symbol_name = symbol_name.pascal_cased()
+        else:
+            symbol_name = symbol_name.camel_cased()
+
+        return symbol_name.to_string()
 
     def convert_enum_name(self, name: str, prefix="Dx") -> str:
         return self.convert_snake_case_name(name, prefix=prefix)

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataDxOptions8 = D3D12_FEATURE_DATA_D3D12_OPTIONS8
+typealias DxFeatureDataD3d12Options1 = D3D12_FEATURE_DATA_D3D12_OPTIONS1

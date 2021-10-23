@@ -13,5 +13,5 @@ public extension DxGpuBasedValidationShaderPatchMode {
     
     static let guardedValidation = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_GUARDED_VALIDATION
     
-    static let numGpuBasedValidationShaderPatchModes = NUM_D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODES
+    static let numD3d12GpuBasedValidationShaderPatchModes = NUM_D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODES
 }

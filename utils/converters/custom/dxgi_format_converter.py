@@ -1,6 +1,7 @@
-from converters.snake_case_name import SnakeCaseName
+from constants.constants import DX_PREFIXES
+from converters.compound_symbol_name import CompoundSymbolName
 
-def convert_dxgi_enum_case(name: SnakeCaseName) -> str:
+def convert_dxgi_enum_case(name: CompoundSymbolName) -> str:
     DECAPITALIZE=[
         'bias',
         'float',
@@ -19,12 +20,13 @@ def convert_dxgi_enum_case(name: SnakeCaseName) -> str:
         *'sampler_feedback_mip_region_used_opaque'.split('_'),
     ]
 
-    common = SnakeCaseName('DXGI_FORMAT')
+    common = CompoundSymbolName.from_snake_case('DXGI_FORMAT')
     (new_name, prefix) = name.removing_common(common)
+    new_name = new_name.removing_prefixes(DX_PREFIXES)
 
     # De-capitalize parts of the string
     for index, comp in enumerate(new_name):
-        if comp.lower() in DECAPITALIZE:
+        if comp.string.lower() in DECAPITALIZE:
             new_name[index] = comp.lower()
 
     if prefix is not None:
