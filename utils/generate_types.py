@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import List
 from platform import system
 from pycparser import c_ast, parse_file
+from contextlib import contextmanager
 
 from constants.constants import DX_PREFIXES
 from converters.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
@@ -51,7 +52,7 @@ def run_cl() -> bytes:
 class SwiftDeclConverter:
     # Enum
 
-    def convert_snake_case_name(self, name: str, prefix: str, pascal_case: bool = True) -> str:
+    def convert_snake_case_name(self, name: str, prefix: str, pascal_case: bool = True) -> CompoundSymbolName:
         symbol_name = CompoundSymbolName\
             .from_snake_case(name)\
             .removing_prefixes(DX_PREFIXES)
@@ -64,13 +65,16 @@ class SwiftDeclConverter:
         else:
             symbol_name = symbol_name.camel_cased()
 
-        return symbol_name.to_string()
+        return symbol_name
 
-    def convert_enum_name(self, name: str, prefix="Dx") -> str:
+    def convert_enum_name(self, name: str, prefix="Dx") -> CompoundSymbolName:
         return self.convert_snake_case_name(name, prefix=prefix)
     
     def convert_enum_case(self, enum: c_ast.Enumerator, decl: c_ast.Enumerator) -> SwiftEnumCaseDecl:
-        return SwiftEnumCaseDecl(convert_enum_case_name(enum, decl.name), decl.name)
+        return SwiftEnumCaseDecl(
+            convert_enum_case_name(enum, decl.name),
+            CompoundSymbolName.from_snake_case(decl.name)
+        )
 
     def convert_enum(self, decl: c_ast.Enum) -> SwiftEnumDecl:
         cases = map(lambda d: self.convert_enum_case(decl, d), decl.values)
@@ -80,7 +84,7 @@ class SwiftDeclConverter:
 
         return SwiftEnumDecl(
             self.convert_enum_name(decl.name),
-            decl.name,
+            CompoundSymbolName.from_snake_case(decl.name),
             list(cases)
         )
 
@@ -90,7 +94,10 @@ class SwiftDeclConverter:
         return self.convert_snake_case_name(name, prefix=prefix)
     
     def convert_struct(self, decl: c_ast.Struct) -> SwiftStructDecl:
-        return SwiftStructDecl(self.convert_struct_name(decl.name), decl.name)
+        return SwiftStructDecl(
+            self.convert_struct_name(decl.name),
+            CompoundSymbolName.from_snake_case(decl.name)
+        )
 
     #
 
@@ -110,18 +117,46 @@ class SwiftDeclConverter:
         
         return result
 
-class DeclFileGenerator:
-    def __init__(self, destination_folder: Path, decls: List[SwiftDecl]):
-        self.destination_folder = destination_folder
-        self.decls = decls
+class DeclGeneratorTarget:
+    def prepare(self):
+        pass
 
-    def generate_file(self, decl: SwiftDecl):
-        file_name = f"{decl.name}.swift"
+    @contextmanager
+    def create_stream(self, _: SwiftDecl) -> SyntaxStream:
+        raise NotImplementedError('Must be overloaded by subclasses.')
+
+class DeclFileGeneratorDiskTarget(DeclGeneratorTarget):
+    def __init__(self, destination_folder: Path, rm_folder: bool = True):
+        self.destination_folder = destination_folder
+        self.rm_folder = rm_folder
+    
+    def prepare(self):
+        if self.rm_folder:
+            shutil.rmtree(self.destination_folder)
+            os.mkdir(self.destination_folder)
+
+    @contextmanager
+    def create_stream(self, decl: SwiftDecl) -> SyntaxStream:
+        file_name = f"{decl.name.to_string()}.swift"
         file_path = self.destination_folder.joinpath(file_name)
 
         with open(file_path, 'w') as file:
             stream = SyntaxStream(file)
+            yield stream
 
+class DeclFileGeneratorStdoutTarget(DeclGeneratorTarget):
+    @contextmanager
+    def create_stream(self, decl: SwiftDecl) -> SyntaxStream:
+        stream = SyntaxStream(sys.stdout)
+        yield stream
+
+class DeclFileGenerator:
+    def __init__(self, target: DeclGeneratorTarget, decls: List[SwiftDecl]):
+        self.target = target
+        self.decls = decls
+
+    def generate_file(self, decl: SwiftDecl):
+        with self.target.create_stream(decl) as stream:
             # Write required boilerplate
             stream.line("// HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators.")
             stream.line()
@@ -130,10 +165,8 @@ class DeclFileGenerator:
 
             decl.write(stream)
 
-    def generate(self, rm_folder: bool = True):
-        if rm_folder:
-            shutil.rmtree(self.destination_folder)
-            os.mkdir(self.destination_folder)
+    def generate(self):
+        self.target.prepare()
         
         for decl in self.decls:
             self.generate_file(decl)
@@ -148,11 +181,11 @@ class DeclCollectorVisitor(c_ast.NodeVisitor):
         
         return False
     
-    def visit_Struct(self, node):
+    def visit_Struct(self, node: c_ast.Struct):
         if node.name is not None and self.should_include(node.name):
             self.decls.append(node)
     
-    def visit_Enum(self, node):
+    def visit_Enum(self, node: c_ast.Enum):
         if node.name is not None and self.should_include(node.name):
             self.decls.append(node)
 
@@ -166,7 +199,13 @@ def main() -> int:
         description='Generates .swift files wrapping DirectX declarations found in public Windows SDK headers.'
     )
 
-    parser.parse_args()
+    parser.add_argument(
+        '--stdout',
+        action='store_true',
+        help='Outputs files to stdout instead of file disk.'
+    )
+
+    args = parser.parse_args()
 
     if system() != "Windows":
         print("This generator script requires a Windows operating system.")
@@ -204,10 +243,17 @@ def main() -> int:
     converter = SwiftDeclConverter()
     swift_decls = converter.convert_list(visitor.decls)
 
-    print(f'Generating .swift files to {DEST_PATH}...')
+    target: DeclGeneratorTarget
 
-    generator = DeclFileGenerator(DEST_PATH, swift_decls)
-    generator.generate(rm_folder=True)
+    if args.stdout:
+        print('Generating .swift files to stdout...')
+        target = DeclFileGeneratorStdoutTarget()
+    else:
+        print(f'Generating .swift files to {DEST_PATH}...')
+        target = DeclFileGeneratorDiskTarget(DEST_PATH, rm_folder=True)
+    
+    generator = DeclFileGenerator(target, swift_decls)
+    generator.generate()
 
     print('Success!')
     

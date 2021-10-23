@@ -9,7 +9,7 @@ public extension DxMinPrecision {
     
     static let float16 = D3D_MIN_PRECISION_FLOAT_16
     
-    static let float28 = D3D_MIN_PRECISION_FLOAT_2_8
+    static let float2_8 = D3D_MIN_PRECISION_FLOAT_2_8
     
     static let reserved = D3D_MIN_PRECISION_RESERVED
     

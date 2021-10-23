@@ -1,7 +1,7 @@
 from constants.constants import DX_PREFIXES
 from converters.compound_symbol_name import CompoundSymbolName
 
-def convert_dxgi_enum_case(name: CompoundSymbolName) -> str:
+def convert_dxgi_enum_case(name: CompoundSymbolName) -> CompoundSymbolName:
     DECAPITALIZE=[
         'bias',
         'float',
@@ -30,6 +30,7 @@ def convert_dxgi_enum_case(name: CompoundSymbolName) -> str:
             new_name[index] = comp.lower()
 
     if prefix is not None:
-        return f"{prefix.camel_cased().to_string()}_{new_name.to_string()}"
+        prefix = prefix.lower()
+        return CompoundSymbolName(components=prefix.components + new_name.components)
     
-    return new_name.to_string()
+    return new_name

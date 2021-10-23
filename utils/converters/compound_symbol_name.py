@@ -124,11 +124,11 @@ class CompoundSymbolName(Sequence):
 
         self.components = components
 
-    def __getitem__(self, i: int) -> Component:
-        return self.components[i]
+    def __getitem__(self, index):
+        return self.components[index]
     
-    def __setitem__(self, i: int, item: Component):
-        self.components[i] = item
+    def __setitem__(self, index, item):
+        self.components[index] = item
 
     def __len__(self) -> int:
         return len(self.components)
@@ -140,7 +140,7 @@ class CompoundSymbolName(Sequence):
         body = ',\n    '.join(map(lambda c: f'{c}', self.components))
         return f"CompoundSymbolName(components=[\n    {body}\n])"
         
-    def from_string_list(*strings: List[str]) -> 'CompoundSymbolName':
+    def from_string_list(*strings: str) -> 'CompoundSymbolName':
         components = map(
             lambda s: CompoundSymbolName.Component(s),
             strings
@@ -148,6 +148,7 @@ class CompoundSymbolName(Sequence):
 
         return CompoundSymbolName(list(components))
     
+    @staticmethod
     def from_snake_case(string: str) -> 'CompoundSymbolName':
         components = map(
             lambda s: CompoundSymbolName.Component(s, joint_to_prev="_"),
@@ -158,6 +159,32 @@ class CompoundSymbolName(Sequence):
     
     def copy(self) -> 'CompoundSymbolName':
         return CompoundSymbolName(components=list(map(lambda c: c.copy(), self.components)))
+    
+    def startswith(self, string: str) -> bool:
+        """
+        Returns True if the computed string for this symbol name starts with a provided string.
+
+        >>> name = CompoundSymbolName.from_snake_case('D3D12_DRED_VERSION')
+        >>> name.startswith('D3D12')
+        True
+        >>> name.startswith('D3D12_DRED')
+        True
+        >>> name.startswith('DXGI')
+        False
+
+        If the symbol name is empty, only empty strings match:
+
+        >>> name = CompoundSymbolName([])
+        >>> name.startswith('D3D12')
+        False
+        >>> name.startswith('')
+        True
+        """
+
+        if len(self) == 0:
+            return string == ''
+        
+        return self.to_string().startswith(string)
 
     def adding_component(self, string: str, prefix: str | None = None, suffix: str | None = None, joint_to_prev: str | None = None) -> 'CompoundSymbolName':
         copy = self.copy()
@@ -167,6 +194,20 @@ class CompoundSymbolName(Sequence):
     def prepending_component(self, string: str, prefix: str | None = None, suffix: str | None = None, joint_to_prev: str | None = None) -> 'CompoundSymbolName':
         copy = self.copy()
         copy.components.insert(0, CompoundSymbolName.Component(string, prefix, suffix, joint_to_prev))
+        return copy
+
+    def lower(self) -> 'CompoundSymbolName':
+        copy = self.copy()
+        for i, comp in enumerate(copy):
+            copy[i] = comp.lower()
+        
+        return copy
+
+    def upper(self) -> 'CompoundSymbolName':
+        copy = self.copy()
+        for i, comp in enumerate(copy):
+            copy[i] = comp.upper()
+        
         return copy
 
     def removing_prefixes(self, prefixes: List[str]) -> 'CompoundSymbolName':
@@ -294,13 +335,19 @@ class CompoundSymbolName(Sequence):
         
         return CompoundSymbolName(components=result)
     
-    def camel_cased(self) -> 'CompoundSymbolName':
+    def camel_cased(self, digit_separator: str | None = '_') -> 'CompoundSymbolName':
         """
         Returns a new compound name where each component is a component from this
         compound name that when put together with to_string() forms a camelCaseString.
 
         >>> CompoundSymbolName.from_string_list('a', 'symbol', 'name').camel_cased().to_string()
         'aSymbolName'
+
+        If two adjacent components have digits on each end, digit_separator will be added as a
+        joint to the second component:
+
+        >>> CompoundSymbolName.from_string_list('target', '1', '0').camel_cased().to_string()
+        'target1_0'
         """
 
         result: List[CompoundSymbolName.Component] = []
@@ -310,6 +357,8 @@ class CompoundSymbolName(Sequence):
 
             if i > 0:
                 new_comp.string = new_comp.string.capitalize()
+                if new_comp.to_string(True)[0].isdigit() and self.components[i - 1].to_string(i > 1)[-1].isdigit():
+                    new_comp = new_comp.with_joint_to_prev(digit_separator)
 
             result.append(new_comp)
         

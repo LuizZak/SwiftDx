@@ -2,22 +2,21 @@ from dataclasses import dataclass
 from typing import List
 
 from converters.syntax_stream import SyntaxStream
+from converters.compound_symbol_name import CompoundSymbolName
 from constants.constants import backticked_term
 
 @dataclass
 class SwiftDecl(object):
-    name: str
-    original_name: str
+    name: CompoundSymbolName
+    original_name: CompoundSymbolName
 
     def write(self, stream: SyntaxStream):
         raise NotImplementedError("Must be overloaded by subclasses.")
 
 @dataclass
 class SwiftEnumCaseDecl(SwiftDecl):
-    pass
-
     def write(self, stream: SyntaxStream):
-        stream.line(f'static let {backticked_term(self.name)} = {self.original_name}')
+        stream.line(f'static let {backticked_term(self.name.to_string())} = {self.original_name.to_string()}')
         pass
 
 @dataclass
@@ -25,10 +24,10 @@ class SwiftEnumDecl(SwiftDecl):
     cases: List[SwiftEnumCaseDecl]
 
     def write(self, stream: SyntaxStream):
-        stream.line(f"typealias {self.name} = {self.original_name}")
+        stream.line(f"typealias {self.name.to_string()} = {self.original_name.to_string()}")
         stream.line()
 
-        decl = f"public extension {self.name}"
+        decl = f"public extension {self.name.to_string()}"
 
         if len(self.cases) == 0:
             stream.line(decl + " { }")
@@ -44,6 +43,6 @@ class SwiftEnumDecl(SwiftDecl):
 @dataclass
 class SwiftStructDecl(SwiftDecl):
     def write(self, stream: SyntaxStream):
-        stream.line(f"typealias {self.name} = {self.original_name}")
+        stream.line(f"typealias {self.name.to_string()} = {self.original_name.to_string()}")
 
         pass
