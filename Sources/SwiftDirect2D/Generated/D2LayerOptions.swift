@@ -11,3 +11,15 @@ public extension D2LayerOptions {
     
     static let forceDword = D2D1_LAYER_OPTIONS_FORCE_DWORD
 }
+
+typealias D2LayerOptions1 = D2D1_LAYER_OPTIONS1
+
+public extension D2LayerOptions1 {
+    static let none = D2D1_LAYER_OPTIONS1_NONE
+    
+    static let initializeFromBackground = D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND
+    
+    static let ignoreAlpha = D2D1_LAYER_OPTIONS1_IGNORE_ALPHA
+    
+    static let forceDword = D2D1_LAYER_OPTIONS1_FORCE_DWORD
+}

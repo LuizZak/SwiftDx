@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias D2StrokeStyleProperties = D2D1_STROKE_STYLE_PROPERTIES
+
+typealias D2StrokeStyleProperties1 = D2D1_STROKE_STYLE_PROPERTIES1

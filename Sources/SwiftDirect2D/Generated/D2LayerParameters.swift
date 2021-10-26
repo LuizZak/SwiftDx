@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias D2LayerParameters = D2D1_LAYER_PARAMETERS
+
+typealias D2LayerParameters1 = D2D1_LAYER_PARAMETERS1

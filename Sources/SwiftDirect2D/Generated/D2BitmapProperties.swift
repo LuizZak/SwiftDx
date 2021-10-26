@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias D2BitmapProperties = D2D1_BITMAP_PROPERTIES
+
+typealias D2BitmapProperties1 = D2D1_BITMAP_PROPERTIES1
