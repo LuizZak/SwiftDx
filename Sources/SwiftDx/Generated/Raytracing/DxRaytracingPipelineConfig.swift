@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias DxRaytracingPipelineConfig = D3D12_RAYTRACING_PIPELINE_CONFIG
+
+typealias DxRaytracingPipelineConfig1 = D3D12_RAYTRACING_PIPELINE_CONFIG1

@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias DxFeatureDataArchitecture = D3D12_FEATURE_DATA_ARCHITECTURE
+
+typealias DxFeatureDataArchitecture1 = D3D12_FEATURE_DATA_ARCHITECTURE1

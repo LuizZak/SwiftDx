@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias DxProtectedResourceSessionDesc = D3D12_PROTECTED_RESOURCE_SESSION_DESC
+
+typealias DxProtectedResourceSessionDesc1 = D3D12_PROTECTED_RESOURCE_SESSION_DESC1

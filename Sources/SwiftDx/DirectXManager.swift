@@ -50,7 +50,7 @@ class DirectXManager {
         }
 
         let backBufferCount = 3
-        let backBufferFormat = DxFormat.R8G8B8A8_unorm
+        let backBufferFormat = DxgiFormat.R8G8B8A8_unorm
         let tearingSupported = try checkTearingSupport(factory)
 
         let rootSignature = try makeRootSignature(device)
@@ -224,8 +224,8 @@ class DirectXManager {
         return try device.CreateCommandQueue(desc)
     }
 
-    private func makeSwapChain(_ factory: Factory, _ queue: CommandQueue, _ hwnd: HWND, width: Int, height: Int, backBufferFormat: DxFormat, bufferCount: Int, tearingSupported: Bool) throws -> SwapChain {
-        var swapChainDesc = DxSwapChainDesc1()
+    private func makeSwapChain(_ factory: Factory, _ queue: CommandQueue, _ hwnd: HWND, width: Int, height: Int, backBufferFormat: DxgiFormat, bufferCount: Int, tearingSupported: Bool) throws -> SwapChain {
+        var swapChainDesc = DxgiSwapChainDesc1()
         swapChainDesc.Width = UINT(width)
         swapChainDesc.Height = UINT(height)
         swapChainDesc.Format = backBufferFormat
@@ -236,7 +236,7 @@ class DirectXManager {
         swapChainDesc.Scaling = .stretch
         swapChainDesc.SwapEffect = .flipDiscard
         swapChainDesc.AlphaMode = .unspecified
-        swapChainDesc.Flags = tearingSupported ? UINT(DxSwapChainFlag.allowTearing.rawValue) : 0
+        swapChainDesc.Flags = tearingSupported ? UINT(DxgiSwapChainFlag.allowTearing.rawValue) : 0
 
         try factory.MakeWindowAssociation(hwnd, UINT(DXGI_MWA_NO_ALT_ENTER))
 
@@ -279,7 +279,7 @@ class DirectXManager {
 
 private struct DirectXState {
     var backBufferCount: Int
-    var backBufferFormat: DxFormat
+    var backBufferFormat: DxgiFormat
     var backBufferIndex: Int = 0
     var isVSyncOn: Bool = false
 
@@ -298,7 +298,7 @@ private struct DirectXState {
     var rtvDescriptorSize: Int
 
     internal init(backBufferCount: Int,
-                  backBufferFormat: DxFormat,
+                  backBufferFormat: DxgiFormat,
                   backBufferIndex: Int = 0,
                   isVSyncOn: Bool = false,
                   tearingSupported: Bool,

@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias DxRootSignatureDesc = D3D12_ROOT_SIGNATURE_DESC
+
+typealias DxRootSignatureDesc1 = D3D12_ROOT_SIGNATURE_DESC1

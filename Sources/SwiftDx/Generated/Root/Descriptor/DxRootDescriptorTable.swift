@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias DxRootDescriptorTable = D3D12_ROOT_DESCRIPTOR_TABLE
+
+typealias DxRootDescriptorTable1 = D3D12_ROOT_DESCRIPTOR_TABLE1

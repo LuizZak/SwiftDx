@@ -3,3 +3,5 @@
 import WinSDK
 
 typealias DxDredAllocationNode = D3D12_DRED_ALLOCATION_NODE
+
+typealias DxDredAllocationNode1 = D3D12_DRED_ALLOCATION_NODE1

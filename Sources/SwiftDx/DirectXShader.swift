@@ -20,7 +20,7 @@ class DirectXShader {
 
     func addInput(name: String,
                   index: UINT,
-                  format: DxFormat,
+                  format: DxgiFormat,
                   slot: UINT,
                   alignedByteOffset: UINT,
                   classification: DxInputClassification) {

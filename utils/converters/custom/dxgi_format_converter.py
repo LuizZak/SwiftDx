@@ -1,5 +1,6 @@
-from constants.constants import DX_PREFIXES
-from data.compound_symbol_name import CompoundSymbolName
+from utils.constants.constants import DX_PREFIXES
+from utils.data.compound_symbol_name import CompoundSymbolName
+
 
 def convert_dxgi_enum_case(name: CompoundSymbolName) -> CompoundSymbolName:
     DECAPITALIZE=[
@@ -14,7 +15,7 @@ def convert_dxgi_enum_case(name: CompoundSymbolName) -> CompoundSymbolName:
         'uint',
         'unknown',
         'unorm',
-        
+
         # Multi-term strings
         *'sampler_feedback_min_mip_opaque'.split('_'),
         *'sampler_feedback_mip_region_used_opaque'.split('_'),
