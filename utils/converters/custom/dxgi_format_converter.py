@@ -1,8 +1,7 @@
-from utils.constants.constants import DX_PREFIXES
 from utils.data.compound_symbol_name import CompoundSymbolName
 
 
-def convert_dxgi_enum_case(name: CompoundSymbolName) -> CompoundSymbolName:
+def convert_dxgi_enum_case(name: CompoundSymbolName, prefixes: list[str]) -> CompoundSymbolName:
     DECAPITALIZE=[
         'bias',
         'float',
@@ -23,7 +22,7 @@ def convert_dxgi_enum_case(name: CompoundSymbolName) -> CompoundSymbolName:
 
     common = CompoundSymbolName.from_snake_case('DXGI_FORMAT')
     (new_name, prefix) = name.removing_common(common)
-    new_name = new_name.removing_prefixes(DX_PREFIXES)
+    new_name = new_name.removing_prefixes(prefixes)
 
     # De-capitalize parts of the string
     for index, comp in enumerate(new_name):

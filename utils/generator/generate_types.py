@@ -1,51 +1,30 @@
 # Utility to extract Swift-styled aliases of DirectX C types.
 
 import sys
-import argparse
 import os
 import subprocess
 import shutil
+from dataclasses import dataclass
+
 import pycparser
 
 from pathlib import Path
 from typing import List
-from platform import system
 from pycparser import c_ast
 from contextlib import contextmanager
-from os import PathLike
 
-from constants.constants import DX_PREFIXES
-from converters.syntax_stream import SyntaxStream
-from converters.convert_enum_case_name import convert_enum_case_name
-from data.compound_symbol_name import CompoundSymbolName
-from data.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
-from directory_structure.directory_structure_manager import DirectoryStructureManager
+from utils.converters.syntax_stream import SyntaxStream
+from utils.converters.convert_enum_case_name import convert_enum_case_name
+from utils.data.compound_symbol_name import CompoundSymbolName
+from utils.data.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
+from utils.directory_structure.directory_structure_manager import DirectoryStructureManager
 from utils.data.swift_file import SwiftFile
 
-SOURCE_ROOT_PATH = Path(__file__).parents[1]
-SCRIPTS_ROOT_PATH = Path(__file__).parent
-
-
 # Utils
+from utils.paths import paths
 
 
-def path(root: Path | str, *args: str | PathLike[str]) -> Path:
-    if root is Path:
-        return root.joinpath(*args)
-
-    return Path(root).joinpath(*args)
-
-
-def srcroot_path(*args: str | PathLike[str]) -> Path:
-    return path(SOURCE_ROOT_PATH, *args)
-
-
-def scripts_path(*args: str | PathLike[str]) -> Path:
-    return path(SCRIPTS_ROOT_PATH, *args)
-
-
-def run_cl() -> bytes:
-    input_path = scripts_path('directx.h')
+def run_cl(input_path: Path) -> bytes:
     cl_args = [
         "cl",
         "/E",
@@ -54,18 +33,23 @@ def run_cl() -> bytes:
         input_path,
     ]
 
-    return subprocess.check_output(cl_args, cwd=SCRIPTS_ROOT_PATH)
+    return subprocess.check_output(cl_args, cwd=paths.SCRIPTS_ROOT_PATH)
 
 
 # Visitor / declaration collection
 
 class SwiftDeclConverter:
+    def __init__(self, prefixes: list[str]):
+        self.prefixes = prefixes
+
     @staticmethod
     def prefix_for_decl_name(name: str) -> str:
         if name.startswith("DXGI"):
             return "Dxgi"
         elif name.startswith("D3D_"):
             return "D3"
+        elif name.startswith("D2D"):
+            return "D2"
         else:
             return "Dx"
 
@@ -74,7 +58,7 @@ class SwiftDeclConverter:
     def convert_snake_case_name(self, name: str, prefix: str, pascal_case: bool = True) -> CompoundSymbolName:
         symbol_name = CompoundSymbolName \
             .from_snake_case(name) \
-            .removing_prefixes(DX_PREFIXES)
+            .removing_prefixes(self.prefixes)
 
         if len(prefix) > 0:
             symbol_name = symbol_name.prepending_component(prefix)
@@ -93,7 +77,7 @@ class SwiftDeclConverter:
 
     def convert_enum_case(self, enum_name: CompoundSymbolName, enum_original_name: str, decl: c_ast.Enumerator) -> SwiftEnumCaseDecl:
         return SwiftEnumCaseDecl(
-            convert_enum_case_name(enum_name, enum_original_name, decl.name),
+            convert_enum_case_name(enum_name, enum_original_name, decl.name, self.prefixes),
             CompoundSymbolName.from_snake_case(decl.name)
         )
 
@@ -155,12 +139,16 @@ class DeclGeneratorTarget:
 
 
 class DeclFileGeneratorDiskTarget(DeclGeneratorTarget):
-    def __init__(self, destination_folder: Path, rm_folder: bool = True):
+    def __init__(self, destination_folder: Path, rm_folder: bool = True, verbose: bool = True):
         self.destination_folder = destination_folder
         self.rm_folder = rm_folder
         self.directory_manager = DirectoryStructureManager(destination_folder)
+        self.verbose = verbose
 
     def prepare(self):
+        if self.verbose:
+            print(f'Generating .swift files to {self.destination_folder}...')
+
         if self.rm_folder:
             shutil.rmtree(self.destination_folder)
             os.mkdir(self.destination_folder)
@@ -205,8 +193,11 @@ class DeclFileGenerator:
 class DeclCollectorVisitor(c_ast.NodeVisitor):
     decls: List[c_ast.Node] = []
 
+    def __init__(self, prefixes: list[str]):
+        self.prefixes = prefixes
+
     def should_include(self, decl_name: str) -> bool:
-        for prefix in DX_PREFIXES:
+        for prefix in self.prefixes:
             if decl_name.startswith(prefix):
                 return True
 
@@ -221,44 +212,21 @@ class DeclCollectorVisitor(c_ast.NodeVisitor):
             self.decls.append(node)
 
 
-# Entry point
+@dataclass
+class TypeGeneratorRequest:
+    header_file: Path
+    destination: Path
+    prefixes: list[str]
+    target: DeclGeneratorTarget
 
-def main() -> int:
-    DEST_PATH = srcroot_path('Sources', 'SwiftDx', 'Generated')
 
-    parser = argparse.ArgumentParser(
-        description='Generates .swift files wrapping DirectX declarations found in public Windows SDK headers.'
-    )
-
-    parser.add_argument(
-        '--stdout',
-        action='store_true',
-        help='Outputs files to stdout instead of file disk.'
-    )
-
-    args = parser.parse_args()
-
-    if system() != "Windows":
-        print("This generator script requires a Windows operating system.")
-        exit(1)
-
-    if os.environ.get("UniversalCRTSdkDir") is None:
-        print("Missing %UniversalCRTSdkDir% environment variable. Please run this script from a Visual Studio "
-              "Developer Command Prompt (more info at "
-              "https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2019)")
-        exit(1)
-    if os.environ.get("UCRTVersion") is None:
-        print("Missing %UCRTVersion% environment variable. Please run this script from a Visual Studio Developer "
-              "Command Prompt (more info at https://docs.microsoft.com/en-us/visualstudio/ide/reference/command"
-              "-prompt-powershell?view=vs-2019)")
-        exit(1)
-
+def generate_types(request: TypeGeneratorRequest) -> int:
     print('Generating header file...')
 
-    output_file = run_cl()
+    output_file = run_cl(request.header_file)
     output_file = output_file.replace(b'\x0c', b'')
 
-    output_path = scripts_path('directx.i')
+    output_path = request.header_file.with_suffix(".i")
     with open(output_path, 'wb') as f:
         f.write(output_file)
 
@@ -268,31 +236,15 @@ def main() -> int:
 
     print('Collecting Swift type candidates...')
 
-    visitor = DeclCollectorVisitor()
+    visitor = DeclCollectorVisitor(prefixes=request.prefixes)
     visitor.visit(ast)
 
-    converter = SwiftDeclConverter()
+    converter = SwiftDeclConverter(prefixes=request.prefixes)
     swift_decls = converter.convert_list(visitor.decls)
 
-    target: DeclGeneratorTarget
-
-    if args.stdout:
-        print('Generating .swift files to stdout...')
-        target = DeclFileGeneratorStdoutTarget()
-    else:
-        print(f'Generating .swift files to {DEST_PATH}...')
-        target = DeclFileGeneratorDiskTarget(DEST_PATH, rm_folder=True)
-
-    generator = DeclFileGenerator(DEST_PATH, target, swift_decls)
+    generator = DeclFileGenerator(request.destination, request.target, swift_decls)
     generator.generate()
 
     print('Success!')
 
     return 0
-
-
-if __name__ == '__main__':
-    try:
-        sys.exit(main())
-    except KeyboardInterrupt:
-        sys.exit(1)

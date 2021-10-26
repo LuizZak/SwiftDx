@@ -17,6 +17,11 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftCOM", package: "swift-com"),
             ]),
+        .target(
+            name: "SwiftDirect2D",
+            dependencies: [
+                .product(name: "SwiftCOM", package: "swift-com"),
+            ]),
         .testTarget(
             name: "SwiftDxTests",
             dependencies: ["SwiftDx"]),

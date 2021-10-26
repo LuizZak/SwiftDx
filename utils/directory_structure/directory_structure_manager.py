@@ -5,6 +5,7 @@ from typing import List, Iterable
 from utils.data.swift_decls import SwiftDecl
 from utils.data.swift_file import SwiftFile
 
+# TODO: Allow passing path matchers as arguments instead of hard-coding it here
 PATH_MATCHERS: dict[re.Pattern, list[str]] = {
     # A
     re.compile(r'^DxAdapter.+'): ["Adapter"],
