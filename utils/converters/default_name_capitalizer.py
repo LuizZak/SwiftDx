@@ -39,7 +39,12 @@ class DefaultNameCapitalizer(NameCapitalizer):
     def split_component(self, component: CompoundSymbolName.Component) -> list[CompoundSymbolName.Component]:
         split_string = self.split_component_string(component.string, has_prev=False)
 
-        return list(map(lambda t: component.with_string(t[0]).with_string_case(t[1]), split_string))
+        return list(
+            map(
+                lambda t: component.with_string(t[0]).with_string_case(component.string_case | t[1]),
+                split_string
+            )
+        )
 
     def split_component_string(self, string: str, has_prev: bool) -> list[Tuple[str, ComponentCase]]:
         result: list[Tuple[str, ComponentCase]] = []

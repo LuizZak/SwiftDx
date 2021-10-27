@@ -12,17 +12,17 @@ class ComponentCase(Enum):
     ANY = 0
     "Any casing is supported."
 
-    UPPER = 1
+    AS_IS = 1
+    "Component's casing must be maintained as-is during transformations."
+
+    UPPER = 2
     "Component is pinned to UPPERCASE."
 
-    LOWER = 2
+    LOWER = 3
     "Component is pinned to lowercase."
 
-    CAPITALIZED = 3
+    CAPITALIZED = 4
     "Component is pinned to Capitalized."
-
-    AS_IS = 4
-    "Component's casing must be maintained as-is during transformations."
 
     def change_case(self, string: str) -> str:
         """
@@ -52,6 +52,21 @@ class ComponentCase(Enum):
             case ComponentCase.CAPITALIZED:
                 return string.capitalize()
 
+    def __or__(self, other):
+        """
+        Returns `other` if `self` is `ComponentCase.ANY`, `self` otherwise.
+
+        >>> ComponentCase.ANY | ComponentCase.ANY
+        <ComponentCase.ANY: 0>
+        >>> ComponentCase.ANY | ComponentCase.AS_IS
+        <ComponentCase.AS_IS: 1>
+        >>> ComponentCase.UPPER | ComponentCase.LOWER
+        <ComponentCase.UPPER: 2>
+        """
+        if self == ComponentCase.ANY:
+            return other
+
+        return self
 
 
 @dataclass(repr=False)
@@ -95,7 +110,7 @@ class CompoundSymbolName(Sequence):
             >>> CompoundSymbolName.Component(string="string", prefix="prefix",
             ...                              suffix="suffix", joint_to_prev="_",
             ...                              string_case=ComponentCase.LOWER).copy()
-            CompoundSymbolName.Component(string=string, prefix=prefix, prefix=suffix, prefix=_, string_case=CompoundCase.LOWER)
+            CompoundSymbolName.Component(string=string, prefix=prefix, prefix=suffix, prefix=_, string_case=ComponentCase.LOWER)
             """
             return CompoundSymbolName.Component(
                 self.string, self.prefix, self.suffix, self.joint_to_prev, self.string_case
@@ -156,7 +171,7 @@ class CompoundSymbolName(Sequence):
             If 'force' is True, the casing is forced to be lower-case but the string_case is reset to ComponentCase.ANY:
             >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev',
             ...                              string_case=ComponentCase.AS_IS).lower(force=True)
-            CompoundSymbolName.Component(string=symbol, prefix=pref, prefix=suff, prefix=_prev, string_case=CompoundCase.ANY)
+            CompoundSymbolName.Component(string=symbol, prefix=pref, prefix=suff, prefix=_prev, string_case=ComponentCase.ANY)
             """
 
             if not force and self.string_case != ComponentCase.ANY:
@@ -190,7 +205,7 @@ class CompoundSymbolName(Sequence):
             If 'force' is True, the casing is forced to be upper-case but the string_case is reset to ComponentCase.ANY:
             >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev',
             ...                              string_case=ComponentCase.LOWER).upper(force=True)
-            CompoundSymbolName.Component(string=SYMBOL, prefix=PREF, prefix=SUFF, prefix=_PREV, string_case=CompoundCase.ANY)
+            CompoundSymbolName.Component(string=SYMBOL, prefix=PREF, prefix=SUFF, prefix=_PREV, string_case=ComponentCase.ANY)
             """
 
             if not force and self.string_case != ComponentCase.ANY:
@@ -437,11 +452,11 @@ class CompoundSymbolName(Sequence):
         >>> enum_case = CompoundSymbolName.from_snake_case('D3D12_DRED_VERSION_1_0')
         >>> enum_case.removing_common(enum)
         (CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=1, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY),
-            CompoundSymbolName.Component(string=0, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
+            CompoundSymbolName.Component(string=1, prefix=None, prefix=None, prefix=_, string_case=ComponentCase.ANY),
+            CompoundSymbolName.Component(string=0, prefix=None, prefix=None, prefix=_, string_case=ComponentCase.ANY)
         ]),
         CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=VERSION, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
+            CompoundSymbolName.Component(string=VERSION, prefix=None, prefix=None, prefix=_, string_case=ComponentCase.ANY)
         ]))
 
         Optionally allows detecting differences in plurals, e.g.
@@ -450,13 +465,13 @@ class CompoundSymbolName(Sequence):
         >>> enum_case = CompoundSymbolName.from_snake_case('D3D12_RAY_FLAG_NONE')
         >>> enum_case.removing_common(enum, detect_plurals=True)[0]
         CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
+            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_, string_case=ComponentCase.ANY)
         ])
 
         >>> enum_case.removing_common(enum, detect_plurals=False)[0]
         CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=FLAG, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY),
-            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
+            CompoundSymbolName.Component(string=FLAG, prefix=None, prefix=None, prefix=_, string_case=ComponentCase.ANY),
+            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_, string_case=ComponentCase.ANY)
         ])
         """
 
