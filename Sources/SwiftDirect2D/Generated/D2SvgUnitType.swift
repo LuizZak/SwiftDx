@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgUnitType = D2D1_SVG_UNIT_TYPE
+typealias D2SVGUnitType = D2D1_SVG_UNIT_TYPE
 
-public extension D2SvgUnitType {
+public extension D2SVGUnitType {
     static let userSpaceOnUse = D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE
     
     static let objectBoundingBox = D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX

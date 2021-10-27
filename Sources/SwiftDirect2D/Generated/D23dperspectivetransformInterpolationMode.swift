@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D23dperspectivetransformInterpolationMode = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE
+typealias D23DPerspectivetransformInterpolationMode = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE
 
-public extension D23dperspectivetransformInterpolationMode {
+public extension D23DPerspectivetransformInterpolationMode {
     static let nearestNeighbor = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_LINEAR

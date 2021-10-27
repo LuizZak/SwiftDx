@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgAspectAlign = D2D1_SVG_ASPECT_ALIGN
+typealias D2SVGAspectAlign = D2D1_SVG_ASPECT_ALIGN
 
-public extension D2SvgAspectAlign {
+public extension D2SVGAspectAlign {
     static let none = D2D1_SVG_ASPECT_ALIGN_NONE
     
     static let xMinYMin = D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN

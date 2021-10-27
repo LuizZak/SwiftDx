@@ -9,7 +9,7 @@ public extension D2BufferPrecision {
     
     static let precision_8bpcUnorm = D2D1_BUFFER_PRECISION_8BPC_UNORM
     
-    static let precision_8bpcUnormSrgb = D2D1_BUFFER_PRECISION_8BPC_UNORM_SRGB
+    static let precision_8bpcUnormSRGB = D2D1_BUFFER_PRECISION_8BPC_UNORM_SRGB
     
     static let precision_16bpcUnorm = D2D1_BUFFER_PRECISION_16BPC_UNORM
     

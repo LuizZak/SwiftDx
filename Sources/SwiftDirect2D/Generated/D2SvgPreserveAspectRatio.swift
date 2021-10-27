@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias D2SvgPreserveAspectRatio = D2D1_SVG_PRESERVE_ASPECT_RATIO
+typealias D2SVGPreserveAspectRatio = D2D1_SVG_PRESERVE_ASPECT_RATIO

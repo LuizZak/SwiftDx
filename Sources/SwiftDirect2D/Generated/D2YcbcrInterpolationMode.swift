@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2YcbcrInterpolationMode = D2D1_YCBCR_INTERPOLATION_MODE
+typealias D2YCbCrInterpolationMode = D2D1_YCBCR_INTERPOLATION_MODE
 
-public extension D2YcbcrInterpolationMode {
+public extension D2YCbCrInterpolationMode {
     static let nearestNeighbor = D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_YCBCR_INTERPOLATION_MODE_LINEAR

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiRgb = DXGI_RGB
+typealias DxgiRGB = DXGI_RGB

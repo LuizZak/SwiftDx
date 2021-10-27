@@ -13,11 +13,11 @@ public extension D3RegisterComponentType {
     
     static let float32 = D3D_REGISTER_COMPONENT_FLOAT32
     
-    static let d3d10RegisterComponentUnknown = D3D10_REGISTER_COMPONENT_UNKNOWN
+    static let d3D10RegisterComponentUnknown = D3D10_REGISTER_COMPONENT_UNKNOWN
     
-    static let d3d10RegisterComponentUint32 = D3D10_REGISTER_COMPONENT_UINT32
+    static let d3D10RegisterComponentUint32 = D3D10_REGISTER_COMPONENT_UINT32
     
-    static let d3d10RegisterComponentSint32 = D3D10_REGISTER_COMPONENT_SINT32
+    static let d3D10RegisterComponentSint32 = D3D10_REGISTER_COMPONENT_SINT32
     
-    static let d3d10RegisterComponentFloat32 = D3D10_REGISTER_COMPONENT_FLOAT32
+    static let d3D10RegisterComponentFloat32 = D3D10_REGISTER_COMPONENT_FLOAT32
 }

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias D2FeatureDataD3d10XHardwareOptions = D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS
+typealias D2FeatureDataD3D10XHardwareOptions = D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS

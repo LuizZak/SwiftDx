@@ -13,15 +13,15 @@ public extension DxSrvDimension {
     
     static let texture1darray = D3D12_SRV_DIMENSION_TEXTURE1DARRAY
     
-    static let texture2d = D3D12_SRV_DIMENSION_TEXTURE2D
+    static let texture2D = D3D12_SRV_DIMENSION_TEXTURE2D
     
-    static let texture2darray = D3D12_SRV_DIMENSION_TEXTURE2DARRAY
+    static let texture2DArray = D3D12_SRV_DIMENSION_TEXTURE2DARRAY
     
-    static let texture2dms = D3D12_SRV_DIMENSION_TEXTURE2DMS
+    static let texture2DMs = D3D12_SRV_DIMENSION_TEXTURE2DMS
     
-    static let texture2dmsarray = D3D12_SRV_DIMENSION_TEXTURE2DMSARRAY
+    static let texture2DMsarray = D3D12_SRV_DIMENSION_TEXTURE2DMSARRAY
     
-    static let texture3d = D3D12_SRV_DIMENSION_TEXTURE3D
+    static let texture3D = D3D12_SRV_DIMENSION_TEXTURE3D
     
     static let texturecube = D3D12_SRV_DIMENSION_TEXTURECUBE
     

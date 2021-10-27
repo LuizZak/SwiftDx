@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgLineCap = D2D1_SVG_LINE_CAP
+typealias D2SVGLineCap = D2D1_SVG_LINE_CAP
 
-public extension D2SvgLineCap {
+public extension D2SVGLineCap {
     static let butt = D2D1_SVG_LINE_CAP_BUTT
     
     static let square = D2D1_SVG_LINE_CAP_SQUARE

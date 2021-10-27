@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D22daffinetransformInterpolationMode = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE
+typealias D22DAffinetransformInterpolationMode = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE
 
-public extension D22daffinetransformInterpolationMode {
+public extension D22DAffinetransformInterpolationMode {
     static let nearestNeighbor = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_LINEAR

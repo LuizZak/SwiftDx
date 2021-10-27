@@ -11,7 +11,7 @@ public extension DxResourceDimension {
     
     static let texture1d = D3D12_RESOURCE_DIMENSION_TEXTURE1D
     
-    static let texture2d = D3D12_RESOURCE_DIMENSION_TEXTURE2D
+    static let texture2D = D3D12_RESOURCE_DIMENSION_TEXTURE2D
     
-    static let texture3d = D3D12_RESOURCE_DIMENSION_TEXTURE3D
+    static let texture3D = D3D12_RESOURCE_DIMENSION_TEXTURE3D
 }

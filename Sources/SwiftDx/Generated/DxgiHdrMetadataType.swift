@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxgiHdrMetadataType = DXGI_HDR_METADATA_TYPE
+typealias DxgiHDRMetadataType = DXGI_HDR_METADATA_TYPE
 
-public extension DxgiHdrMetadataType {
+public extension DxgiHDRMetadataType {
     static let none = DXGI_HDR_METADATA_TYPE_NONE
     
     static let hdr10 = DXGI_HDR_METADATA_TYPE_HDR10

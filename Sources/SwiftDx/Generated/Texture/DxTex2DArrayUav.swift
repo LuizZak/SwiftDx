@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTex2dmsSrv = D3D12_TEX2DMS_SRV
+typealias DxTex2DArrayUav = D3D12_TEX2D_ARRAY_UAV

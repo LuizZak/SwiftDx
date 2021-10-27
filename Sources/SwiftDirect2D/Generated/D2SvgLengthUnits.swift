@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgLengthUnits = D2D1_SVG_LENGTH_UNITS
+typealias D2SVGLengthUnits = D2D1_SVG_LENGTH_UNITS
 
-public extension D2SvgLengthUnits {
+public extension D2SVGLengthUnits {
     static let number = D2D1_SVG_LENGTH_UNITS_NUMBER
     
     static let percentage = D2D1_SVG_LENGTH_UNITS_PERCENTAGE

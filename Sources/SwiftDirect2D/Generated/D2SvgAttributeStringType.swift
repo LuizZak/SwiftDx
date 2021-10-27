@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgAttributeStringType = D2D1_SVG_ATTRIBUTE_STRING_TYPE
+typealias D2SVGAttributeStringType = D2D1_SVG_ATTRIBUTE_STRING_TYPE
 
-public extension D2SvgAttributeStringType {
+public extension D2SVGAttributeStringType {
     static let svg = D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG
     
     static let id = D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID

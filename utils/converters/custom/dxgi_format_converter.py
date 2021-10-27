@@ -1,4 +1,5 @@
 from utils.data.compound_symbol_name import CompoundSymbolName
+from utils.data.compound_symbol_name import ComponentCase
 
 
 def convert_dxgi_enum_case(name: CompoundSymbolName, prefixes: list[str]) -> CompoundSymbolName:
@@ -27,7 +28,7 @@ def convert_dxgi_enum_case(name: CompoundSymbolName, prefixes: list[str]) -> Com
     # De-capitalize parts of the string
     for index, comp in enumerate(new_name):
         if comp.string.lower() in DECAPITALIZE:
-            new_name[index] = comp.lower()
+            new_name[index] = comp.with_string_case(ComponentCase.LOWER)
 
     if prefix is not None:
         prefix = prefix.lower()

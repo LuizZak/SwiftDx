@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgLineJoin = D2D1_SVG_LINE_JOIN
+typealias D2SVGLineJoin = D2D1_SVG_LINE_JOIN
 
-public extension D2SvgLineJoin {
+public extension D2SVGLineJoin {
     static let bevel = D2D1_SVG_LINE_JOIN_BEVEL
     
     static let miter = D2D1_SVG_LINE_JOIN_MITER

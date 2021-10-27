@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgPaintType = D2D1_SVG_PAINT_TYPE
+typealias D2SVGPaintType = D2D1_SVG_PAINT_TYPE
 
-public extension D2SvgPaintType {
+public extension D2SVGPaintType {
     static let none = D2D1_SVG_PAINT_TYPE_NONE
     
     static let color = D2D1_SVG_PAINT_TYPE_COLOR

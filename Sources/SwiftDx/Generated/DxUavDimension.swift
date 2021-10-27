@@ -13,9 +13,9 @@ public extension DxUavDimension {
     
     static let texture1darray = D3D12_UAV_DIMENSION_TEXTURE1DARRAY
     
-    static let texture2d = D3D12_UAV_DIMENSION_TEXTURE2D
+    static let texture2D = D3D12_UAV_DIMENSION_TEXTURE2D
     
-    static let texture2darray = D3D12_UAV_DIMENSION_TEXTURE2DARRAY
+    static let texture2DArray = D3D12_UAV_DIMENSION_TEXTURE2DARRAY
     
-    static let texture3d = D3D12_UAV_DIMENSION_TEXTURE3D
+    static let texture3D = D3D12_UAV_DIMENSION_TEXTURE3D
 }

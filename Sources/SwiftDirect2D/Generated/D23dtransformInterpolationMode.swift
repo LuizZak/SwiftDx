@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D23dtransformInterpolationMode = D2D1_3DTRANSFORM_INTERPOLATION_MODE
+typealias D23DTransformInterpolationMode = D2D1_3DTRANSFORM_INTERPOLATION_MODE
 
-public extension D23dtransformInterpolationMode {
+public extension D23DTransformInterpolationMode {
     static let nearestNeighbor = D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_3DTRANSFORM_INTERPOLATION_MODE_LINEAR

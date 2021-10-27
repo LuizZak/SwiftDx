@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2YcbcrProp = D2D1_YCBCR_PROP
+typealias D2YCbCrProp = D2D1_YCBCR_PROP
 
-public extension D2YcbcrProp {
+public extension D2YCbCrProp {
     static let chromaSubsampling = D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING
     
     static let transformMatrix = D2D1_YCBCR_PROP_TRANSFORM_MATRIX

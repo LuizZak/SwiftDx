@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgPathCommand = D2D1_SVG_PATH_COMMAND
+typealias D2SVGPathCommand = D2D1_SVG_PATH_COMMAND
 
-public extension D2SvgPathCommand {
+public extension D2SVGPathCommand {
     static let closePath = D2D1_SVG_PATH_COMMAND_CLOSE_PATH
     
     static let moveAbsolute = D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE

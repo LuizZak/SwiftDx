@@ -9,7 +9,7 @@ public extension D2ColorSpace {
     
     static let srgb = D2D1_COLOR_SPACE_SRGB
     
-    static let scrgb = D2D1_COLOR_SPACE_SCRGB
+    static let scRGB = D2D1_COLOR_SPACE_SCRGB
     
     static let forceDword = D2D1_COLOR_SPACE_FORCE_DWORD
 }

@@ -17,9 +17,9 @@ public extension DxFormatSupport1 {
     
     static let texture1d = D3D12_FORMAT_SUPPORT1_TEXTURE1D
     
-    static let texture2d = D3D12_FORMAT_SUPPORT1_TEXTURE2D
+    static let texture2D = D3D12_FORMAT_SUPPORT1_TEXTURE2D
     
-    static let texture3d = D3D12_FORMAT_SUPPORT1_TEXTURE3D
+    static let texture3D = D3D12_FORMAT_SUPPORT1_TEXTURE3D
     
     static let texturecube = D3D12_FORMAT_SUPPORT1_TEXTURECUBE
     

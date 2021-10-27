@@ -13,6 +13,8 @@ from typing import List
 from pycparser import c_ast
 from contextlib import contextmanager
 
+from utils.converters.default_name_capitalizer import DefaultNameCapitalizer
+from utils.converters.name_capitalizer import NameCapitalizer
 from utils.converters.syntax_stream import SyntaxStream
 from utils.converters.convert_enum_case_name import convert_enum_case_name
 from utils.data.compound_symbol_name import CompoundSymbolName
@@ -39,8 +41,9 @@ def run_cl(input_path: Path) -> bytes:
 # Visitor / declaration collection
 
 class SwiftDeclConverter:
-    def __init__(self, prefixes: list[str]):
+    def __init__(self, prefixes: list[str], capitalizer: NameCapitalizer):
         self.prefixes = prefixes
+        self.capitalizer = capitalizer
 
     @staticmethod
     def prefix_for_decl_name(name: str) -> str:
@@ -73,21 +76,36 @@ class SwiftDeclConverter:
     def convert_enum_name(self, name: str) -> CompoundSymbolName:
         prefix = self.prefix_for_decl_name(name)
 
-        return self.convert_snake_case_name(name, prefix=prefix)
+        return self.capitalizer.capitalize(self.convert_snake_case_name(name, prefix=prefix))
 
-    def convert_enum_case(self, enum_name: CompoundSymbolName, enum_original_name: str, decl: c_ast.Enumerator) -> SwiftEnumCaseDecl:
+    def convert_enum_case(self,
+                          enum_name: CompoundSymbolName,
+                          enum_original_name: str,
+                          decl: c_ast.Enumerator) -> SwiftEnumCaseDecl:
+
         return SwiftEnumCaseDecl(
-            convert_enum_case_name(enum_name, enum_original_name, decl.name, self.prefixes),
+            self.capitalizer.capitalize(
+                convert_enum_case_name(enum_name,
+                                       enum_original_name,
+                                       decl.name,
+                                       self.prefixes)
+            ),
             CompoundSymbolName.from_snake_case(decl.name)
         )
 
     def convert_enum(self, decl: c_ast.Enum) -> SwiftEnumDecl:
         enum_name = self.convert_enum_name(decl.name)
 
-        cases = map(lambda d: self.convert_enum_case(enum_name, decl.name, d), decl.values)
+        cases = map(
+            lambda d: self.convert_enum_case(enum_name, decl.name, d),
+            decl.values
+        )
 
         # Detect reserved values and ignore them early
-        cases = filter(lambda c: not c.name.startswith('Reserved'), cases)
+        cases = filter(
+            lambda c: not c.name.startswith('Reserved'),
+            cases
+        )
 
         return SwiftEnumDecl(
             enum_name,
@@ -100,7 +118,7 @@ class SwiftDeclConverter:
     def convert_struct_name(self, name: str) -> CompoundSymbolName:
         prefix = self.prefix_for_decl_name(name)
 
-        return self.convert_snake_case_name(name, prefix=prefix)
+        return self.capitalizer.capitalize(self.convert_snake_case_name(name, prefix=prefix))
 
     def convert_struct(self, decl: c_ast.Struct) -> SwiftStructDecl:
         return SwiftStructDecl(
@@ -218,6 +236,7 @@ class TypeGeneratorRequest:
     destination: Path
     prefixes: list[str]
     target: DeclGeneratorTarget
+    capitalizer: NameCapitalizer = DefaultNameCapitalizer()
 
 
 def generate_types(request: TypeGeneratorRequest) -> int:
@@ -239,7 +258,7 @@ def generate_types(request: TypeGeneratorRequest) -> int:
     visitor = DeclCollectorVisitor(prefixes=request.prefixes)
     visitor.visit(ast)
 
-    converter = SwiftDeclConverter(prefixes=request.prefixes)
+    converter = SwiftDeclConverter(prefixes=request.prefixes, capitalizer=request.capitalizer)
     swift_decls = converter.convert_list(visitor.decls)
 
     generator = DeclFileGenerator(request.destination, request.target, swift_decls)

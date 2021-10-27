@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from platform import system
 
-from utils.generator.generate_types import DeclGeneratorTarget, DeclFileGeneratorStdoutTarget, \
+from utils.generator.type_generator import DeclGeneratorTarget, DeclFileGeneratorStdoutTarget, \
     DeclFileGeneratorDiskTarget, TypeGeneratorRequest, generate_types
 from utils.paths import paths
 
@@ -24,7 +24,7 @@ Will also be used as a list of terms to remove the prefix of in final declaratio
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description='Generates .swift files wrapping DirectX declarations found in public Windows SDK headers.'
+        description='Generates .swift files wrapping Direct2D declarations found in public Windows SDK headers.'
     )
 
     parser.add_argument(

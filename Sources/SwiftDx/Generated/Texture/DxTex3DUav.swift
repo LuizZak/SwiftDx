@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTex2dmsDsv = D3D12_TEX2DMS_DSV
+typealias DxTex3DUav = D3D12_TEX3D_UAV

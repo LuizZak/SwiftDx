@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgVisibility = D2D1_SVG_VISIBILITY
+typealias D2SVGVisibility = D2D1_SVG_VISIBILITY
 
-public extension D2SvgVisibility {
+public extension D2SVGVisibility {
     static let visible = D2D1_SVG_VISIBILITY_VISIBLE
     
     static let hidden = D2D1_SVG_VISIBILITY_HIDDEN

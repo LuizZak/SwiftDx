@@ -15,13 +15,13 @@ public extension D3TessellatorPartitioning {
     
     static let fractionalEven = D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN
     
-    static let d3d11TessellatorPartitioningUndefined = D3D11_TESSELLATOR_PARTITIONING_UNDEFINED
+    static let d3D11TessellatorPartitioningUndefined = D3D11_TESSELLATOR_PARTITIONING_UNDEFINED
     
-    static let d3d11TessellatorPartitioningInteger = D3D11_TESSELLATOR_PARTITIONING_INTEGER
+    static let d3D11TessellatorPartitioningInteger = D3D11_TESSELLATOR_PARTITIONING_INTEGER
     
-    static let d3d11TessellatorPartitioningPow2 = D3D11_TESSELLATOR_PARTITIONING_POW2
+    static let d3D11TessellatorPartitioningPow2 = D3D11_TESSELLATOR_PARTITIONING_POW2
     
-    static let d3d11TessellatorPartitioningFractionalOdd = D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_ODD
+    static let d3D11TessellatorPartitioningFractionalOdd = D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_ODD
     
-    static let d3d11TessellatorPartitioningFractionalEven = D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN
+    static let d3D11TessellatorPartitioningFractionalEven = D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN
 }

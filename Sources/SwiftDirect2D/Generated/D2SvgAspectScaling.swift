@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgAspectScaling = D2D1_SVG_ASPECT_SCALING
+typealias D2SVGAspectScaling = D2D1_SVG_ASPECT_SCALING
 
-public extension D2SvgAspectScaling {
+public extension D2SVGAspectScaling {
     static let meet = D2D1_SVG_ASPECT_SCALING_MEET
     
     static let slice = D2D1_SVG_ASPECT_SCALING_SLICE

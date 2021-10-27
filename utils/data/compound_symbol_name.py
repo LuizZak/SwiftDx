@@ -2,6 +2,57 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Optional, Tuple
 
+from enum import Enum
+
+
+class ComponentCase(Enum):
+    """
+    Describes the casing for a CompoundSymbolName.Component.
+    """
+    ANY = 0
+    "Any casing is supported."
+
+    UPPER = 1
+    "Component is pinned to UPPERCASE."
+
+    LOWER = 2
+    "Component is pinned to lowercase."
+
+    CAPITALIZED = 3
+    "Component is pinned to Capitalized."
+
+    AS_IS = 4
+    "Component's casing must be maintained as-is during transformations."
+
+    def change_case(self, string: str) -> str:
+        """
+        Changes a string to a case matching the one specified by 'self'. If the casing is ANY or AS_IS,
+        the string is returned as-is.
+
+        >>> ComponentCase.ANY.change_case("AString")
+        'AString'
+        >>> ComponentCase.UPPER.change_case("AString")
+        'ASTRING'
+        >>> ComponentCase.LOWER.change_case("AString")
+        'astring'
+        >>> ComponentCase.CAPITALIZED.change_case("AString")
+        'Astring'
+        >>> ComponentCase.AS_IS.change_case("AString")
+        'AString'
+        """
+        match self:
+            case ComponentCase.ANY:
+                return string
+            case ComponentCase.AS_IS:
+                return string
+            case ComponentCase.UPPER:
+                return string.upper()
+            case ComponentCase.LOWER:
+                return string.lower()
+            case ComponentCase.CAPITALIZED:
+                return string.capitalize()
+
+
 
 @dataclass(repr=False)
 class CompoundSymbolName(Sequence):
@@ -30,41 +81,64 @@ class CompoundSymbolName(Sequence):
         joint_to_prev: Optional[str] = None
         "A string that is appended to this component if it follows another component in a symbol name."
 
+        string_case: ComponentCase = ComponentCase.ANY
+        "Specifies the suggested casing for this component."
+
         def __repr__(self) -> str:
             return f"CompoundSymbolName.Component(string={self.string}, prefix={self.prefix}, prefix={self.suffix}, " \
-                   f"prefix={self.joint_to_prev})"
+                   f"prefix={self.joint_to_prev}, string_case={self.string_case})"
 
         def copy(self) -> "CompoundSymbolName.Component":
+            """
+            Returns an exact copy of this Component.
+
+            >>> CompoundSymbolName.Component(string="string", prefix="prefix",
+            ...                              suffix="suffix", joint_to_prev="_",
+            ...                              string_case=ComponentCase.LOWER).copy()
+            CompoundSymbolName.Component(string=string, prefix=prefix, prefix=suffix, prefix=_, string_case=CompoundCase.LOWER)
+            """
             return CompoundSymbolName.Component(
-                self.string, self.prefix, self.suffix, self.joint_to_prev
+                self.string, self.prefix, self.suffix, self.joint_to_prev, self.string_case
             )
 
-        def with_string_only(self) -> "CompoundSymbolName.Component":
-            """Returns a copy of this component with the same self.string, but nil prefix, suffix, and joint_to_prev."""
+        def with_string_only(self, string_case: ComponentCase | None = None) -> "CompoundSymbolName.Component":
+            """
+            Returns a copy of this component with the same self.string, but nil prefix, suffix, and joint_to_prev.
 
-            return CompoundSymbolName.Component(self.string)
+            If string_case is specified, string_case of the return is assigned that value, otherwise keeps the case
+            of the current instance.
+            """
+            if string_case is None:
+                string_case = self.string_case
+
+            return CompoundSymbolName.Component(self.string, string_case=string_case)
 
         def with_prefix(self, prefix: str) -> "CompoundSymbolName.Component":
             return CompoundSymbolName.Component(
-                self.string, prefix, self.suffix, self.joint_to_prev
+                self.string, prefix, self.suffix, self.joint_to_prev, self.string_case
             )
 
         def with_string(self, string: str) -> "CompoundSymbolName.Component":
             return CompoundSymbolName.Component(
-                string, self.prefix, self.suffix, self.joint_to_prev
+                string, self.prefix, self.suffix, self.joint_to_prev, self.string_case
             )
 
         def with_suffix(self, suffix: str) -> "CompoundSymbolName.Component":
             return CompoundSymbolName.Component(
-                self.string, self.prefix, suffix, self.joint_to_prev
+                self.string, self.prefix, suffix, self.joint_to_prev, self.string_case
             )
 
         def with_joint_to_prev(self, joint_to_prev: str):
             return CompoundSymbolName.Component(
-                self.string, self.prefix, self.suffix, joint_to_prev
+                self.string, self.prefix, self.suffix, joint_to_prev, self.string_case
             )
 
-        def lower(self) -> "CompoundSymbolName.Component":
+        def with_string_case(self, string_case: ComponentCase) -> "CompoundSymbolName.Component":
+            return CompoundSymbolName.Component(
+                self.string, self.prefix, self.suffix, self.joint_to_prev, string_case
+            )
+
+        def lower(self, force=False) -> "CompoundSymbolName.Component":
             """
             Returns a copy of this component with all available strings lowercased.
 
@@ -73,7 +147,20 @@ class CompoundSymbolName(Sequence):
 
             >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev').lower().to_string(has_previous=True)
             '_prevprefsymbolsuff'
+
+            If the component has a forced casing and 'force' is False, the operation returns an unaltered copy 'self':
+            >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev',
+            ...                              string_case=ComponentCase.AS_IS).lower().to_string(has_previous=True)
+            '_PrevpRefSyMBolSuFF'
+
+            If 'force' is True, the casing is forced to be lower-case but the string_case is reset to ComponentCase.ANY:
+            >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev',
+            ...                              string_case=ComponentCase.AS_IS).lower(force=True)
+            CompoundSymbolName.Component(string=symbol, prefix=pref, prefix=suff, prefix=_prev, string_case=CompoundCase.ANY)
             """
+
+            if not force and self.string_case != ComponentCase.ANY:
+                return self
 
             prefix = self.prefix.lower() if self.prefix is not None else None
             suffix = self.suffix.lower() if self.suffix is not None else None
@@ -83,9 +170,9 @@ class CompoundSymbolName(Sequence):
 
             return CompoundSymbolName.Component(
                 self.string.lower(), prefix, suffix, joint_to_prev
-            )
+            ).with_string_case(ComponentCase.ANY)
 
-        def upper(self) -> "CompoundSymbolName.Component":
+        def upper(self, force=False) -> "CompoundSymbolName.Component":
             """
             Returns a copy of this component with all available strings uppercased.
 
@@ -94,7 +181,20 @@ class CompoundSymbolName(Sequence):
 
             >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev').upper().to_string(has_previous=True)
             '_PREVPREFSYMBOLSUFF'
+
+            If the component has a forced casing and 'force' is False, the operation returns an unaltered copy 'self':
+            >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev',
+            ...                              string_case=ComponentCase.AS_IS).upper().to_string(has_previous=True)
+            '_PrevpRefSyMBolSuFF'
+
+            If 'force' is True, the casing is forced to be upper-case but the string_case is reset to ComponentCase.ANY:
+            >>> CompoundSymbolName.Component(string='SyMBol', prefix='pRef', suffix='SuFF', joint_to_prev='_Prev',
+            ...                              string_case=ComponentCase.LOWER).upper(force=True)
+            CompoundSymbolName.Component(string=SYMBOL, prefix=PREF, prefix=SUFF, prefix=_PREV, string_case=CompoundCase.ANY)
             """
+
+            if not force and self.string_case != ComponentCase.ANY:
+                return self
 
             prefix = self.prefix.upper() if self.prefix is not None else None
             suffix = self.suffix.upper() if self.suffix is not None else None
@@ -104,7 +204,7 @@ class CompoundSymbolName(Sequence):
 
             return CompoundSymbolName.Component(
                 self.string.upper(), prefix, suffix, joint_to_prev
-            )
+            ).with_string_case(ComponentCase.ANY)
 
         def to_string(self, has_previous: bool) -> str:
             """
@@ -122,26 +222,33 @@ class CompoundSymbolName(Sequence):
 
             >>> CompoundSymbolName.Component(string='symbol', prefix='pref', joint_to_prev='_').to_string(has_previous=True)
             '_prefsymbol'
+
+            If the component has a string_case different than ComponentCase.ANY or ComponentCase.AS_IS, the casing
+            is adjusted according to the preference set:
+            >>> CompoundSymbolName.Component(string='Symbol', prefix='Pref', suffix='Suff',
+            ...                              joint_to_prev='_A',
+            ...                              string_case=ComponentCase.LOWER).to_string(has_previous=True)
+            '_aprefsymbolsuff'
             """
 
             result = ""
 
             if has_previous and self.joint_to_prev is not None:
-                result += self.joint_to_prev
+                result += self.string_case.change_case(self.joint_to_prev)
 
             if self.prefix is not None:
-                result += self.prefix
+                result += self.string_case.change_case(self.prefix)
 
-            result += self.string
+            result += self.string_case.change_case(self.string)
 
             if self.suffix is not None:
-                result += self.suffix
+                result += self.string_case.change_case(self.suffix)
 
             return result
 
     def __init__(self, components: list[Component]):
         if components is None:
-            components = []
+            components: list[CompoundSymbolName.Component] = []
 
         for comp in components:
             assert isinstance(comp, CompoundSymbolName.Component)
@@ -218,10 +325,11 @@ class CompoundSymbolName(Sequence):
             prefix: str | None = None,
             suffix: str | None = None,
             joint_to_prev: str | None = None,
+            string_case: ComponentCase = ComponentCase.ANY
     ) -> "CompoundSymbolName":
         copy = self.copy()
         copy.components.append(
-            CompoundSymbolName.Component(string, prefix, suffix, joint_to_prev)
+            CompoundSymbolName.Component(string, prefix, suffix, joint_to_prev, string_case)
         )
         return copy
 
@@ -231,24 +339,56 @@ class CompoundSymbolName(Sequence):
             prefix: str | None = None,
             suffix: str | None = None,
             joint_to_prev: str | None = None,
+            string_case: ComponentCase = ComponentCase.ANY
     ) -> "CompoundSymbolName":
         copy = self.copy()
         copy.components.insert(
-            0, CompoundSymbolName.Component(string, prefix, suffix, joint_to_prev)
+            0, CompoundSymbolName.Component(string, prefix, suffix, joint_to_prev, string_case)
         )
         return copy
 
-    def lower(self) -> "CompoundSymbolName":
+    def lower(self, force=False) -> "CompoundSymbolName":
+        """
+        Returns a copy of this CompoundSymbolName with every component lower-cased.
+
+        If this compound symbol name has any component where the casing is pinned to some value other than
+        ComponentCase.ANY, the casing of that element is manitained.
+
+        >>> c = CompoundSymbolName.from_string_list('A', 'Symbol', 'NAME')
+        >>> c.components[2].string_case = ComponentCase.UPPER
+        >>> c.lower(force=False).to_string()
+        'asymbolNAME'
+
+        Passing force=True resets the casing of the components to ComponentCase.ANY and the string is lowercased:
+        >>> c.lower(force=True).to_string()
+        'asymbolname'
+        """
         copy = self.copy()
         for i, comp in enumerate(copy):
-            copy[i] = comp.lower()
+            copy[i] = comp.lower(force=force)
 
         return copy
 
-    def upper(self) -> "CompoundSymbolName":
+    def upper(self, force=False) -> "CompoundSymbolName":
+        """
+        Returns a copy of this CompoundSymbolName with every component upper-cased.
+
+        If this compound symbol name has any component where the casing is pinned to some value other than
+        ComponentCase.ANY, the casing of that element is manitained.
+
+        >>> c = CompoundSymbolName.from_string_list('A', 'Symbol', 'name')
+        >>> c.components[2].string_case = ComponentCase.LOWER
+        >>> c.upper(force=False).to_string()
+        'ASYMBOLname'
+
+        Passing force=True resets the casing of the components to ComponentCase.ANY and the string is uppercased:
+        >>> c.upper(force=True).to_string()
+        'ASYMBOLNAME'
+        """
+
         copy = self.copy()
         for i, comp in enumerate(copy):
-            copy[i] = comp.upper()
+            copy[i] = comp.upper(force=force)
 
         return copy
 
@@ -297,11 +437,11 @@ class CompoundSymbolName(Sequence):
         >>> enum_case = CompoundSymbolName.from_snake_case('D3D12_DRED_VERSION_1_0')
         >>> enum_case.removing_common(enum)
         (CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=1, prefix=None, prefix=None, prefix=_),
-            CompoundSymbolName.Component(string=0, prefix=None, prefix=None, prefix=_)
+            CompoundSymbolName.Component(string=1, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY),
+            CompoundSymbolName.Component(string=0, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
         ]),
         CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=VERSION, prefix=None, prefix=None, prefix=_)
+            CompoundSymbolName.Component(string=VERSION, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
         ]))
 
         Optionally allows detecting differences in plurals, e.g.
@@ -310,13 +450,13 @@ class CompoundSymbolName(Sequence):
         >>> enum_case = CompoundSymbolName.from_snake_case('D3D12_RAY_FLAG_NONE')
         >>> enum_case.removing_common(enum, detect_plurals=True)[0]
         CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_)
+            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
         ])
 
         >>> enum_case.removing_common(enum, detect_plurals=False)[0]
         CompoundSymbolName(components=[
-            CompoundSymbolName.Component(string=FLAG, prefix=None, prefix=None, prefix=_),
-            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_)
+            CompoundSymbolName.Component(string=FLAG, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY),
+            CompoundSymbolName.Component(string=NONE, prefix=None, prefix=None, prefix=_, string_case=CompoundCase.ANY)
         ])
         """
 
@@ -355,19 +495,31 @@ class CompoundSymbolName(Sequence):
         else:
             return new_name, None
 
-    def lower_snake_cased(self) -> "CompoundSymbolName":
+    def lower_snake_cased(self, force=False) -> "CompoundSymbolName":
         """
         Returns a new compound name where each component is a component from this
         compound name that when put together with to_string() forms a lower_case_snake_cased_string.
 
         >>> CompoundSymbolName.from_string_list('A', 'Symbol', 'Name').lower_snake_cased().to_string()
         'a_symbol_name'
+
+        If this compound symbol name has any component where the casing is pinned to some value other than
+        ComponentCase.ANY, the casing of that element is manitained.
+
+        >>> c = CompoundSymbolName.from_string_list('A', 'Symbol', 'NAME')
+        >>> c.components[2].string_case = ComponentCase.UPPER
+        >>> c.lower_snake_cased(force=False).to_string()
+        'a_symbol_NAME'
+
+        Passing force=True resets the casing of the components to ComponentCase.ANY and the string is lowercased:
+        >>> c.lower_snake_cased(force=True).to_string()
+        'a_symbol_name'
         """
 
         result: list[CompoundSymbolName.Component] = []
 
         for comp in self.components:
-            result.append(comp.with_string_only().lower().with_joint_to_prev("_"))
+            result.append(comp.with_string_only().lower(force=force).with_joint_to_prev("_"))
 
         return CompoundSymbolName(components=result)
 

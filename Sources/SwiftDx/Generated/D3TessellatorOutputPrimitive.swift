@@ -15,13 +15,13 @@ public extension D3TessellatorOutputPrimitive {
     
     static let triangleCcw = D3D_TESSELLATOR_OUTPUT_TRIANGLE_CCW
     
-    static let d3d11TessellatorOutputUndefined = D3D11_TESSELLATOR_OUTPUT_UNDEFINED
+    static let d3D11TessellatorOutputUndefined = D3D11_TESSELLATOR_OUTPUT_UNDEFINED
     
-    static let d3d11TessellatorOutputPoint = D3D11_TESSELLATOR_OUTPUT_POINT
+    static let d3D11TessellatorOutputPoint = D3D11_TESSELLATOR_OUTPUT_POINT
     
-    static let d3d11TessellatorOutputLine = D3D11_TESSELLATOR_OUTPUT_LINE
+    static let d3D11TessellatorOutputLine = D3D11_TESSELLATOR_OUTPUT_LINE
     
-    static let d3d11TessellatorOutputTriangleCw = D3D11_TESSELLATOR_OUTPUT_TRIANGLE_CW
+    static let d3D11TessellatorOutputTriangleCw = D3D11_TESSELLATOR_OUTPUT_TRIANGLE_CW
     
-    static let d3d11TessellatorOutputTriangleCcw = D3D11_TESSELLATOR_OUTPUT_TRIANGLE_CCW
+    static let d3D11TessellatorOutputTriangleCcw = D3D11_TESSELLATOR_OUTPUT_TRIANGLE_CCW
 }

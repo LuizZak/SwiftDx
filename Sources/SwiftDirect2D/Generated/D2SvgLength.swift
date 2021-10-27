@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias D2SvgLength = D2D1_SVG_LENGTH
+typealias D2SVGLength = D2D1_SVG_LENGTH

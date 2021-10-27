@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2YcbcrChromaSubsampling = D2D1_YCBCR_CHROMA_SUBSAMPLING
+typealias D2YCbCrChromaSubsampling = D2D1_YCBCR_CHROMA_SUBSAMPLING
 
-public extension D2YcbcrChromaSubsampling {
+public extension D2YCbCrChromaSubsampling {
     static let auto = D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO
     
     static let subsampling_420 = D2D1_YCBCR_CHROMA_SUBSAMPLING_420

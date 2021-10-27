@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgAttributePodType = D2D1_SVG_ATTRIBUTE_POD_TYPE
+typealias D2SVGAttributePodType = D2D1_SVG_ATTRIBUTE_POD_TYPE
 
-public extension D2SvgAttributePodType {
+public extension D2SVGAttributePodType {
     static let float = D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT
     
     static let color = D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR

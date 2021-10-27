@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2HdrtonemapDisplayMode = D2D1_HDRTONEMAP_DISPLAY_MODE
+typealias D2HDRTonemapDisplayMode = D2D1_HDRTONEMAP_DISPLAY_MODE
 
-public extension D2HdrtonemapDisplayMode {
+public extension D2HDRTonemapDisplayMode {
     static let sdr = D2D1_HDRTONEMAP_DISPLAY_MODE_SDR
     
     static let hdr = D2D1_HDRTONEMAP_DISPLAY_MODE_HDR

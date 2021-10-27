@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D23dtransformProp = D2D1_3DTRANSFORM_PROP
+typealias D23DTransformProp = D2D1_3DTRANSFORM_PROP
 
-public extension D23dtransformProp {
+public extension D23DTransformProp {
     static let interpolationMode = D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE
     
     static let borderMode = D2D1_3DTRANSFORM_PROP_BORDER_MODE

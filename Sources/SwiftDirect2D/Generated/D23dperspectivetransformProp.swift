@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D23dperspectivetransformProp = D2D1_3DPERSPECTIVETRANSFORM_PROP
+typealias D23DPerspectivetransformProp = D2D1_3DPERSPECTIVETRANSFORM_PROP
 
-public extension D23dperspectivetransformProp {
+public extension D23DPerspectivetransformProp {
     static let interpolationMode = D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE
     
     static let borderMode = D2D1_3DPERSPECTIVETRANSFORM_PROP_BORDER_MODE

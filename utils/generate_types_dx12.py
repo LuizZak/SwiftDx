@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from platform import system
 
-from utils.generator.generate_types import DeclGeneratorTarget, DeclFileGeneratorStdoutTarget, \
+from utils.generator.type_generator import DeclGeneratorTarget, DeclFileGeneratorStdoutTarget, \
     DeclFileGeneratorDiskTarget, TypeGeneratorRequest, generate_types
 from utils.paths import paths
 

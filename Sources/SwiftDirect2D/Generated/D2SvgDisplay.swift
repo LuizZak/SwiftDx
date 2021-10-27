@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2SvgDisplay = D2D1_SVG_DISPLAY
+typealias D2SVGDisplay = D2D1_SVG_DISPLAY
 
-public extension D2SvgDisplay {
+public extension D2SVGDisplay {
     static let inline = D2D1_SVG_DISPLAY_INLINE
     
     static let none = D2D1_SVG_DISPLAY_NONE

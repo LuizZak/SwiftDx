@@ -1131,7 +1131,7 @@ public extension DxMessageId {
     
     static let discardOneSubresourceForMipsWithRects = D3D12_MESSAGE_ID_DISCARD_ONE_SUBRESOURCE_FOR_MIPS_WITH_RECTS
     
-    static let discardNoRectsForNonTexture2d = D3D12_MESSAGE_ID_DISCARD_NO_RECTS_FOR_NON_TEXTURE2D
+    static let discardNoRectsForNonTexture2D = D3D12_MESSAGE_ID_DISCARD_NO_RECTS_FOR_NON_TEXTURE2D
     
     static let copyOnSameSubresource = D3D12_MESSAGE_ID_COPY_ON_SAME_SUBRESOURCE
     
