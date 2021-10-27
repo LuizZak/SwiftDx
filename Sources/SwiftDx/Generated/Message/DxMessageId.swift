@@ -773,7 +773,7 @@ public extension DxMessageId {
     
     static let executeIndirectInvalidParameters = D3D12_MESSAGE_ID_EXECUTE_INDIRECT_INVALID_PARAMETERS
     
-    static let getgpuvirtualaddressInvalidResourceDimension = D3D12_MESSAGE_ID_GETGPUVIRTUALADDRESS_INVALID_RESOURCE_DIMENSION
+    static let getGPUVirtualaddressInvalidResourceDimension = D3D12_MESSAGE_ID_GETGPUVIRTUALADDRESS_INVALID_RESOURCE_DIMENSION
     
     static let createresourceInvalidclearvalue = D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDCLEARVALUE
     
@@ -993,7 +993,7 @@ public extension DxMessageId {
     
     static let heapAddressRangeIntersectsMultipleBuffers = D3D12_MESSAGE_ID_HEAP_ADDRESS_RANGE_INTERSECTS_MULTIPLE_BUFFERS
     
-    static let executecommandlistsGpuWrittenReadbackResourceMapped = D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_GPU_WRITTEN_READBACK_RESOURCE_MAPPED
+    static let executecommandlistsGPUWrittenReadbackResourceMapped = D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_GPU_WRITTEN_READBACK_RESOURCE_MAPPED
     
     static let unmapRangeNotEmpty = D3D12_MESSAGE_ID_UNMAP_RANGE_NOT_EMPTY
     
@@ -1483,7 +1483,7 @@ public extension DxMessageId {
     
     static let uninitializedMetaCommand = D3D12_MESSAGE_ID_UNINITIALIZED_META_COMMAND
     
-    static let metaCommandInvalidGpuVirtualAddress = D3D12_MESSAGE_ID_META_COMMAND_INVALID_GPU_VIRTUAL_ADDRESS
+    static let metaCommandInvalidGPUVirtualAddress = D3D12_MESSAGE_ID_META_COMMAND_INVALID_GPU_VIRTUAL_ADDRESS
     
     static let createVideoencodecommandlist = D3D12_MESSAGE_ID_CREATE_VIDEOENCODECOMMANDLIST
     
@@ -1545,7 +1545,7 @@ public extension DxMessageId {
     
     static let renderPassCannotCloseCommandList = D3D12_MESSAGE_ID_RENDER_PASS_CANNOT_CLOSE_COMMAND_LIST
     
-    static let renderPassGpuWorkWhileSuspended = D3D12_MESSAGE_ID_RENDER_PASS_GPU_WORK_WHILE_SUSPENDED
+    static let renderPassGPUWorkWhileSuspended = D3D12_MESSAGE_ID_RENDER_PASS_GPU_WORK_WHILE_SUSPENDED
     
     static let renderPassMismatchingSuspendResume = D3D12_MESSAGE_ID_RENDER_PASS_MISMATCHING_SUSPEND_RESUME
     
@@ -1575,7 +1575,7 @@ public extension DxMessageId {
     
     static let resolveMotionVectorHeapInvalidArgument = D3D12_MESSAGE_ID_RESOLVE_MOTION_VECTOR_HEAP_INVALID_ARGUMENT
     
-    static let getgpuvirtualaddressInvalidHeapType = D3D12_MESSAGE_ID_GETGPUVIRTUALADDRESS_INVALID_HEAP_TYPE
+    static let getGPUVirtualaddressInvalidHeapType = D3D12_MESSAGE_ID_GETGPUVIRTUALADDRESS_INVALID_HEAP_TYPE
     
     static let setBackgroundProcessingModeInvalidArgument = D3D12_MESSAGE_ID_SET_BACKGROUND_PROCESSING_MODE_INVALID_ARGUMENT
     

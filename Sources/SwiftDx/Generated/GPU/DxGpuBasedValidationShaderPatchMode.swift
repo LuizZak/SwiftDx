@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxGpuBasedValidationShaderPatchMode = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE
+typealias DxGPUBasedValidationShaderPatchMode = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE
 
-public extension DxGpuBasedValidationShaderPatchMode {
+public extension DxGPUBasedValidationShaderPatchMode {
     static let none = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_NONE
     
     static let stateTrackingOnly = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_STATE_TRACKING_ONLY
@@ -13,5 +13,5 @@ public extension DxGpuBasedValidationShaderPatchMode {
     
     static let guardedValidation = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_GUARDED_VALIDATION
     
-    static let numD3D12GpuBasedValidationShaderPatchModes = NUM_D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODES
+    static let numD3D12GPUBasedValidationShaderPatchModes = NUM_D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODES
 }

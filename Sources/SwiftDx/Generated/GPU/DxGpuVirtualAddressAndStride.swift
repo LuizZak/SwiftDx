@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxGpuVirtualAddressAndStride = D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE
+typealias DxGPUVirtualAddressAndStride = D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE

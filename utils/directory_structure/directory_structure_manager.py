@@ -33,7 +33,8 @@ PATH_MATCHERS: dict[re.Pattern, list[str]] = {
     re.compile(r'^DxFence.+'): ["Fence"],
 
     # G
-    re.compile(r'^DxGpu.+'): ["GPU"],
+    re.compile(r'^DxGPU.+'): ["GPU"],
+    re.compile(r'^DxgiGPU.+'): ["GPU"],
 
     # H
     re.compile(r'^DxHdr.+'): ["HDR"],

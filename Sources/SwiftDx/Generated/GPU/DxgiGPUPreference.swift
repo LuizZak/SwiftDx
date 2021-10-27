@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxgiGpuPreference = DXGI_GPU_PREFERENCE
+typealias DxgiGPUPreference = DXGI_GPU_PREFERENCE
 
-public extension DxgiGpuPreference {
+public extension DxgiGPUPreference {
     static let unspecified = DXGI_GPU_PREFERENCE_UNSPECIFIED
     
     static let minimumPower = DXGI_GPU_PREFERENCE_MINIMUM_POWER

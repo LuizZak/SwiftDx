@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDebugCommandListGpuBasedValidationSettings = D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS
+typealias DxDebugCommandListGPUBasedValidationSettings = D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS

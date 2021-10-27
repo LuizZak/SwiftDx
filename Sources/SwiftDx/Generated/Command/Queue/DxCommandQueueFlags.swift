@@ -7,5 +7,5 @@ typealias DxCommandQueueFlags = D3D12_COMMAND_QUEUE_FLAGS
 public extension DxCommandQueueFlags {
     static let none = D3D12_COMMAND_QUEUE_FLAG_NONE
     
-    static let disableGpuTimeout = D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT
+    static let disableGPUTimeout = D3D12_COMMAND_QUEUE_FLAG_DISABLE_GPU_TIMEOUT
 }
