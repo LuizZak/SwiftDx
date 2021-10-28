@@ -1,3 +1,4 @@
+import re
 from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Optional, Tuple
@@ -77,6 +78,7 @@ class CompoundSymbolName(Sequence):
 
     Can be used for camelCase, PascalCase, and snake_case strings.
     """
+    _pascal_case_matcher = re.compile(r'.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)')
 
     @dataclass(repr=False)
     class Component:
@@ -289,6 +291,7 @@ class CompoundSymbolName(Sequence):
         body = ",\n    ".join(map(lambda c: f"{c}", self.components))
         return f"CompoundSymbolName(components=[\n    {body}\n])"
 
+    @staticmethod
     def from_string_list(*strings: str) -> "CompoundSymbolName":
         components = map(lambda s: CompoundSymbolName.Component(s), strings)
 
@@ -302,6 +305,21 @@ class CompoundSymbolName(Sequence):
         )
 
         return CompoundSymbolName(list(components))
+
+    @classmethod
+    def from_pascal_case(cls, string: str) -> "CompoundSymbolName":
+        """
+        Creates a new symbol name from a given PascalCase or camelCase string.
+
+        >>> CompoundSymbolName.from_pascal_case("APascalCaseString")
+        CompoundSymbolName(components=[
+            CompoundSymbolName.Component(string=A, prefix=None, prefix=None, prefix=None, string_case=ComponentCase.ANY),
+            CompoundSymbolName.Component(string=Pascal, prefix=None, prefix=None, prefix=None, string_case=ComponentCase.ANY),
+            CompoundSymbolName.Component(string=Case, prefix=None, prefix=None, prefix=None, string_case=ComponentCase.ANY),
+            CompoundSymbolName.Component(string=String, prefix=None, prefix=None, prefix=None, string_case=ComponentCase.ANY)
+        ])
+        """
+        return cls.from_string_list(*cls._pascal_case_matcher.findall(string))
 
     def copy(self) -> "CompoundSymbolName":
         return CompoundSymbolName(

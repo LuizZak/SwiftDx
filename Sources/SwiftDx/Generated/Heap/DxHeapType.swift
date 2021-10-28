@@ -9,7 +9,7 @@ public extension DxHeapType {
     
     static let upload = D3D12_HEAP_TYPE_UPLOAD
     
-    static let readback = D3D12_HEAP_TYPE_READBACK
+    static let readBack = D3D12_HEAP_TYPE_READBACK
     
     static let custom = D3D12_HEAP_TYPE_CUSTOM
 }

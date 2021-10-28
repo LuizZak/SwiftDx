@@ -5,7 +5,7 @@ import WinSDK
 typealias DxDescriptorHeapType = D3D12_DESCRIPTOR_HEAP_TYPE
 
 public extension DxDescriptorHeapType {
-    static let cbvSrvUav = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV
+    static let cbvSRVUAV = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV
     
     static let sampler = D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER
     

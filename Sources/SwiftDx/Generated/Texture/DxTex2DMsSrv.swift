@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTex2DMsSrv = D3D12_TEX2DMS_SRV
+typealias DxTex2DMsSRV = D3D12_TEX2DMS_SRV

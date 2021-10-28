@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTex1dArraySrv = D3D12_TEX1D_ARRAY_SRV
+typealias DxTex1DArrayRTV = D3D12_TEX1D_ARRAY_RTV

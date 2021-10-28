@@ -2,16 +2,16 @@
 
 import WinSDK
 
-typealias DxSrvDimension = D3D12_SRV_DIMENSION
+typealias DxSRVDimension = D3D12_SRV_DIMENSION
 
-public extension DxSrvDimension {
+public extension DxSRVDimension {
     static let unknown = D3D12_SRV_DIMENSION_UNKNOWN
     
     static let buffer = D3D12_SRV_DIMENSION_BUFFER
     
-    static let texture1d = D3D12_SRV_DIMENSION_TEXTURE1D
+    static let texture1D = D3D12_SRV_DIMENSION_TEXTURE1D
     
-    static let texture1darray = D3D12_SRV_DIMENSION_TEXTURE1DARRAY
+    static let texture1DArray = D3D12_SRV_DIMENSION_TEXTURE1DARRAY
     
     static let texture2D = D3D12_SRV_DIMENSION_TEXTURE2D
     
@@ -23,9 +23,9 @@ public extension DxSrvDimension {
     
     static let texture3D = D3D12_SRV_DIMENSION_TEXTURE3D
     
-    static let texturecube = D3D12_SRV_DIMENSION_TEXTURECUBE
+    static let textureCube = D3D12_SRV_DIMENSION_TEXTURECUBE
     
-    static let texturecubearray = D3D12_SRV_DIMENSION_TEXTURECUBEARRAY
+    static let textureCubeArray = D3D12_SRV_DIMENSION_TEXTURECUBEARRAY
     
     static let raytracingAccelerationStructure = D3D12_SRV_DIMENSION_RAYTRACING_ACCELERATION_STRUCTURE
 }

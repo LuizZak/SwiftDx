@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxBufferUavFlags = D3D12_BUFFER_UAV_FLAGS
+typealias DxBufferUAVFlags = D3D12_BUFFER_UAV_FLAGS
 
-public extension DxBufferUavFlags {
+public extension DxBufferUAVFlags {
     static let none = D3D12_BUFFER_UAV_FLAG_NONE
     
     static let raw = D3D12_BUFFER_UAV_FLAG_RAW

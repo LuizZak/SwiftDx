@@ -15,13 +15,13 @@ public extension DxFormatSupport1 {
     
     static let soBuffer = D3D12_FORMAT_SUPPORT1_SO_BUFFER
     
-    static let texture1d = D3D12_FORMAT_SUPPORT1_TEXTURE1D
+    static let texture1D = D3D12_FORMAT_SUPPORT1_TEXTURE1D
     
     static let texture2D = D3D12_FORMAT_SUPPORT1_TEXTURE2D
     
     static let texture3D = D3D12_FORMAT_SUPPORT1_TEXTURE3D
     
-    static let texturecube = D3D12_FORMAT_SUPPORT1_TEXTURECUBE
+    static let textureCube = D3D12_FORMAT_SUPPORT1_TEXTURECUBE
     
     static let shaderLoad = D3D12_FORMAT_SUPPORT1_SHADER_LOAD
     
@@ -39,15 +39,15 @@ public extension DxFormatSupport1 {
     
     static let depthStencil = D3D12_FORMAT_SUPPORT1_DEPTH_STENCIL
     
-    static let multisampleResolve = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RESOLVE
+    static let multiSampleResolve = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RESOLVE
     
     static let display = D3D12_FORMAT_SUPPORT1_DISPLAY
     
     static let castWithinBitLayout = D3D12_FORMAT_SUPPORT1_CAST_WITHIN_BIT_LAYOUT
     
-    static let multisampleRendertarget = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RENDERTARGET
+    static let multiSampleRenderTarget = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_RENDERTARGET
     
-    static let multisampleLoad = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_LOAD
+    static let multiSampleLoad = D3D12_FORMAT_SUPPORT1_MULTISAMPLE_LOAD
     
     static let shaderGather = D3D12_FORMAT_SUPPORT1_SHADER_GATHER
     
@@ -91,7 +91,7 @@ public extension DxFormatSupport2 {
     
     static let tiled = D3D12_FORMAT_SUPPORT2_TILED
     
-    static let multiplaneOverlay = D3D12_FORMAT_SUPPORT2_MULTIPLANE_OVERLAY
+    static let multiPlaneOverlay = D3D12_FORMAT_SUPPORT2_MULTIPLANE_OVERLAY
     
     static let samplerFeedback = D3D12_FORMAT_SUPPORT2_SAMPLER_FEEDBACK
 }

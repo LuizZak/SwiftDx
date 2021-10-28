@@ -13,7 +13,7 @@ public extension DxFeature {
     
     static let formatSupport = D3D12_FEATURE_FORMAT_SUPPORT
     
-    static let multisampleQualityLevels = D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS
+    static let multiSampleQualityLevels = D3D12_FEATURE_MULTISAMPLE_QUALITY_LEVELS
     
     static let formatInfo = D3D12_FEATURE_FORMAT_INFO
     

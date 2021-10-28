@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxPipelineStateSubobjectType = D3D12_PIPELINE_STATE_SUBOBJECT_TYPE
+typealias DxPipelineStateSubObjectType = D3D12_PIPELINE_STATE_SUBOBJECT_TYPE
 
-public extension DxPipelineStateSubobjectType {
+public extension DxPipelineStateSubObjectType {
     static let rootSignature = D3D12_PIPELINE_STATE_SUBOBJECT_TYPE_ROOT_SIGNATURE
     
     static let vs = D3D12_PIPELINE_STATE_SUBOBJECT_TYPE_VS

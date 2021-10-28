@@ -25,7 +25,7 @@ public extension DxGraphicsStates {
     
     static let predication = D3D12_GRAPHICS_STATE_PREDICATION
     
-    static let omRenderTargets = D3D12_GRAPHICS_STATE_OM_RENDER_TARGETS
+    static let omRenderTargetS = D3D12_GRAPHICS_STATE_OM_RENDER_TARGETS
     
     static let omStencilRef = D3D12_GRAPHICS_STATE_OM_STENCIL_REF
     
@@ -33,7 +33,7 @@ public extension DxGraphicsStates {
     
     static let pipelineState = D3D12_GRAPHICS_STATE_PIPELINE_STATE
     
-    static let soTargets = D3D12_GRAPHICS_STATE_SO_TARGETS
+    static let soTargetS = D3D12_GRAPHICS_STATE_SO_TARGETS
     
     static let omDepthBounds = D3D12_GRAPHICS_STATE_OM_DEPTH_BOUNDS
     

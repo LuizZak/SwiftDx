@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxCpuDescriptorHandle = D3D12_CPU_DESCRIPTOR_HANDLE
+typealias DxCPUDescriptorHandle = D3D12_CPU_DESCRIPTOR_HANDLE

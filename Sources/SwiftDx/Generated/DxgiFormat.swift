@@ -139,7 +139,7 @@ public extension DxgiFormat {
     
     static let R1_unorm = DXGI_FORMAT_R1_UNORM
     
-    static let R9G9B9E5_sharedexp = DXGI_FORMAT_R9G9B9E5_SHAREDEXP
+    static let R9G9B9E5_shared_exp = DXGI_FORMAT_R9G9B9E5_SHAREDEXP
     
     static let R8G8_B8G8_unorm = DXGI_FORMAT_R8G8_B8G8_UNORM
     

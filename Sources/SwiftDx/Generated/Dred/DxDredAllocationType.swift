@@ -37,7 +37,7 @@ public extension DxDredAllocationType {
     
     static let cryptosessionpolicy = D3D12_DRED_ALLOCATION_TYPE_CRYPTOSESSIONPOLICY
     
-    static let protectedresourcesession = D3D12_DRED_ALLOCATION_TYPE_PROTECTEDRESOURCESESSION
+    static let protectedResourceSession = D3D12_DRED_ALLOCATION_TYPE_PROTECTEDRESOURCESESSION
     
     static let videoDecoderHeap = D3D12_DRED_ALLOCATION_TYPE_VIDEO_DECODER_HEAP
     

@@ -7,7 +7,7 @@ typealias DxIndirectArgumentType = D3D12_INDIRECT_ARGUMENT_TYPE
 public extension DxIndirectArgumentType {
     static let draw = D3D12_INDIRECT_ARGUMENT_TYPE_DRAW
     
-    static let drawIndexed = D3D12_INDIRECT_ARGUMENT_TYPE_DRAW_INDEXED
+    static let drawIndexEd = D3D12_INDIRECT_ARGUMENT_TYPE_DRAW_INDEXED
     
     static let dispatch = D3D12_INDIRECT_ARGUMENT_TYPE_DISPATCH
     

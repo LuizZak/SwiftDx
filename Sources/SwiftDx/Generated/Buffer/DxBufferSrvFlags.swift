@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxBufferSrvFlags = D3D12_BUFFER_SRV_FLAGS
+typealias DxBufferSRVFlags = D3D12_BUFFER_SRV_FLAGS
 
-public extension DxBufferSrvFlags {
+public extension DxBufferSRVFlags {
     static let none = D3D12_BUFFER_SRV_FLAG_NONE
     
     static let raw = D3D12_BUFFER_SRV_FLAG_RAW

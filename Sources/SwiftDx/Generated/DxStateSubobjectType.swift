@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxStateSubobjectType = D3D12_STATE_SUBOBJECT_TYPE
+typealias DxStateSubObjectType = D3D12_STATE_SUBOBJECT_TYPE
 
-public extension DxStateSubobjectType {
+public extension DxStateSubObjectType {
     static let stateObjectConfig = D3D12_STATE_SUBOBJECT_TYPE_STATE_OBJECT_CONFIG
     
     static let globalRootSignature = D3D12_STATE_SUBOBJECT_TYPE_GLOBAL_ROOT_SIGNATURE
@@ -17,9 +17,9 @@ public extension DxStateSubobjectType {
     
     static let existingCollection = D3D12_STATE_SUBOBJECT_TYPE_EXISTING_COLLECTION
     
-    static let subobjectToExportsAssociation = D3D12_STATE_SUBOBJECT_TYPE_SUBOBJECT_TO_EXPORTS_ASSOCIATION
+    static let subObjectToExportsAssociation = D3D12_STATE_SUBOBJECT_TYPE_SUBOBJECT_TO_EXPORTS_ASSOCIATION
     
-    static let dxilSubobjectToExportsAssociation = D3D12_STATE_SUBOBJECT_TYPE_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION
+    static let dxilSubObjectToExportsAssociation = D3D12_STATE_SUBOBJECT_TYPE_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION
     
     static let raytracingShaderConfig = D3D12_STATE_SUBOBJECT_TYPE_RAYTRACING_SHADER_CONFIG
     

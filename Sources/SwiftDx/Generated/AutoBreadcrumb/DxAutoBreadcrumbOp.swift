@@ -13,35 +13,35 @@ public extension DxAutoBreadcrumbOp {
     
     static let drawinstanced = D3D12_AUTO_BREADCRUMB_OP_DRAWINSTANCED
     
-    static let drawindexedinstanced = D3D12_AUTO_BREADCRUMB_OP_DRAWINDEXEDINSTANCED
+    static let drawIndexEdinstanced = D3D12_AUTO_BREADCRUMB_OP_DRAWINDEXEDINSTANCED
     
     static let executeindirect = D3D12_AUTO_BREADCRUMB_OP_EXECUTEINDIRECT
     
     static let dispatch = D3D12_AUTO_BREADCRUMB_OP_DISPATCH
     
-    static let copybufferregion = D3D12_AUTO_BREADCRUMB_OP_COPYBUFFERREGION
+    static let copyBufferRegion = D3D12_AUTO_BREADCRUMB_OP_COPYBUFFERREGION
     
-    static let copytextureregion = D3D12_AUTO_BREADCRUMB_OP_COPYTEXTUREREGION
+    static let copyTextureRegion = D3D12_AUTO_BREADCRUMB_OP_COPYTEXTUREREGION
     
-    static let copyresource = D3D12_AUTO_BREADCRUMB_OP_COPYRESOURCE
+    static let copyResource = D3D12_AUTO_BREADCRUMB_OP_COPYRESOURCE
     
-    static let copytiles = D3D12_AUTO_BREADCRUMB_OP_COPYTILES
+    static let copyTileS = D3D12_AUTO_BREADCRUMB_OP_COPYTILES
     
-    static let resolvesubresource = D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCE
+    static let resolveSubResource = D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCE
     
-    static let clearrendertargetview = D3D12_AUTO_BREADCRUMB_OP_CLEARRENDERTARGETVIEW
+    static let clearRenderTargetView = D3D12_AUTO_BREADCRUMB_OP_CLEARRENDERTARGETVIEW
     
-    static let clearunorderedaccessview = D3D12_AUTO_BREADCRUMB_OP_CLEARUNORDEREDACCESSVIEW
+    static let clearUnorderedAccessView = D3D12_AUTO_BREADCRUMB_OP_CLEARUNORDEREDACCESSVIEW
     
-    static let cleardepthstencilview = D3D12_AUTO_BREADCRUMB_OP_CLEARDEPTHSTENCILVIEW
+    static let clearDepthStencilView = D3D12_AUTO_BREADCRUMB_OP_CLEARDEPTHSTENCILVIEW
     
-    static let resourcebarrier = D3D12_AUTO_BREADCRUMB_OP_RESOURCEBARRIER
+    static let resourceBarrier = D3D12_AUTO_BREADCRUMB_OP_RESOURCEBARRIER
     
     static let executebundle = D3D12_AUTO_BREADCRUMB_OP_EXECUTEBUNDLE
     
     static let present = D3D12_AUTO_BREADCRUMB_OP_PRESENT
     
-    static let resolvequerydata = D3D12_AUTO_BREADCRUMB_OP_RESOLVEQUERYDATA
+    static let resolveQueryData = D3D12_AUTO_BREADCRUMB_OP_RESOLVEQUERYDATA
     
     static let beginsubmission = D3D12_AUTO_BREADCRUMB_OP_BEGINSUBMISSION
     
@@ -51,17 +51,17 @@ public extension DxAutoBreadcrumbOp {
     
     static let processframes = D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES
     
-    static let atomiccopybufferuint = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT
+    static let atomicCopyBufferUint = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT
     
-    static let atomiccopybufferuint64 = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64
+    static let atomicCopyBufferUint64 = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64
     
-    static let resolvesubresourceregion = D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCEREGION
+    static let resolveSubResourceRegion = D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCEREGION
     
-    static let writebufferimmediate = D3D12_AUTO_BREADCRUMB_OP_WRITEBUFFERIMMEDIATE
+    static let writeBufferImmediate = D3D12_AUTO_BREADCRUMB_OP_WRITEBUFFERIMMEDIATE
     
     static let decodeframe1 = D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME1
     
-    static let setprotectedresourcesession = D3D12_AUTO_BREADCRUMB_OP_SETPROTECTEDRESOURCESESSION
+    static let setprotectedResourceSession = D3D12_AUTO_BREADCRUMB_OP_SETPROTECTEDRESOURCESESSION
     
     static let decodeframe2 = D3D12_AUTO_BREADCRUMB_OP_DECODEFRAME2
     
@@ -69,7 +69,7 @@ public extension DxAutoBreadcrumbOp {
     
     static let buildraytracingaccelerationstructure = D3D12_AUTO_BREADCRUMB_OP_BUILDRAYTRACINGACCELERATIONSTRUCTURE
     
-    static let emitraytracingaccelerationstructurepostbuildinfo = D3D12_AUTO_BREADCRUMB_OP_EMITRAYTRACINGACCELERATIONSTRUCTUREPOSTBUILDINFO
+    static let emitraytracingaccelerationstructurePostBuildInfo = D3D12_AUTO_BREADCRUMB_OP_EMITRAYTRACINGACCELERATIONSTRUCTUREPOSTBUILDINFO
     
     static let copyraytracingaccelerationstructure = D3D12_AUTO_BREADCRUMB_OP_COPYRAYTRACINGACCELERATIONSTRUCTURE
     
@@ -81,17 +81,17 @@ public extension DxAutoBreadcrumbOp {
     
     static let estimatemotion = D3D12_AUTO_BREADCRUMB_OP_ESTIMATEMOTION
     
-    static let resolvemotionvectorheap = D3D12_AUTO_BREADCRUMB_OP_RESOLVEMOTIONVECTORHEAP
+    static let resolvemotionVectorHeap = D3D12_AUTO_BREADCRUMB_OP_RESOLVEMOTIONVECTORHEAP
     
-    static let setpipelinestate1 = D3D12_AUTO_BREADCRUMB_OP_SETPIPELINESTATE1
+    static let setPipelineState1 = D3D12_AUTO_BREADCRUMB_OP_SETPIPELINESTATE1
     
-    static let initializeextensioncommand = D3D12_AUTO_BREADCRUMB_OP_INITIALIZEEXTENSIONCOMMAND
+    static let initializeExtensionCommand = D3D12_AUTO_BREADCRUMB_OP_INITIALIZEEXTENSIONCOMMAND
     
-    static let executeextensioncommand = D3D12_AUTO_BREADCRUMB_OP_EXECUTEEXTENSIONCOMMAND
+    static let executeExtensionCommand = D3D12_AUTO_BREADCRUMB_OP_EXECUTEEXTENSIONCOMMAND
     
     static let dispatchmesh = D3D12_AUTO_BREADCRUMB_OP_DISPATCHMESH
     
     static let encodeframe = D3D12_AUTO_BREADCRUMB_OP_ENCODEFRAME
     
-    static let resolveencoderoutputmetadata = D3D12_AUTO_BREADCRUMB_OP_RESOLVEENCODEROUTPUTMETADATA
+    static let resolveencoderOutputMetadata = D3D12_AUTO_BREADCRUMB_OP_RESOLVEENCODEROUTPUTMETADATA
 }

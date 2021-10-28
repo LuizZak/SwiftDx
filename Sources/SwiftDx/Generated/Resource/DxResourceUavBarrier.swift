@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxResourceUavBarrier = D3D12_RESOURCE_UAV_BARRIER
+typealias DxResourceUAVBarrier = D3D12_RESOURCE_UAV_BARRIER

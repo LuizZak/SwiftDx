@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxStateSubobject = D3D12_STATE_SUBOBJECT
+typealias DxStateSubObject = D3D12_STATE_SUBOBJECT

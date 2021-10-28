@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxWritebufferimmediateMode = D3D12_WRITEBUFFERIMMEDIATE_MODE
+typealias DxWriteBufferImmediateMode = D3D12_WRITEBUFFERIMMEDIATE_MODE
 
-public extension DxWritebufferimmediateMode {
+public extension DxWriteBufferImmediateMode {
     static let `default` = D3D12_WRITEBUFFERIMMEDIATE_MODE_DEFAULT
     
     static let markerIn = D3D12_WRITEBUFFERIMMEDIATE_MODE_MARKER_IN

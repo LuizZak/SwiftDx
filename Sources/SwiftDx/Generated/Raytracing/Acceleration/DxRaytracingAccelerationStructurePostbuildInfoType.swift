@@ -2,12 +2,12 @@
 
 import WinSDK
 
-typealias DxRaytracingAccelerationStructurePostbuildInfoType = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE
+typealias DxRaytracingAccelerationStructurePostBuildInfoType = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE
 
-public extension DxRaytracingAccelerationStructurePostbuildInfoType {
+public extension DxRaytracingAccelerationStructurePostBuildInfoType {
     static let compactedSize = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE
     
-    static let toolsVisualization = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION
+    static let tooLsVisualization = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION
     
     static let serialization = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION
     

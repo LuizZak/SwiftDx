@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDrawIndexedArguments = D3D12_DRAW_INDEXED_ARGUMENTS
+typealias DxDrawIndexEdArguments = D3D12_DRAW_INDEXED_ARGUMENTS

@@ -2,16 +2,16 @@
 
 import WinSDK
 
-typealias DxRtvDimension = D3D12_RTV_DIMENSION
+typealias DxRTVDimension = D3D12_RTV_DIMENSION
 
-public extension DxRtvDimension {
+public extension DxRTVDimension {
     static let unknown = D3D12_RTV_DIMENSION_UNKNOWN
     
     static let buffer = D3D12_RTV_DIMENSION_BUFFER
     
-    static let texture1d = D3D12_RTV_DIMENSION_TEXTURE1D
+    static let texture1D = D3D12_RTV_DIMENSION_TEXTURE1D
     
-    static let texture1darray = D3D12_RTV_DIMENSION_TEXTURE1DARRAY
+    static let texture1DArray = D3D12_RTV_DIMENSION_TEXTURE1DARRAY
     
     static let texture2D = D3D12_RTV_DIMENSION_TEXTURE2D
     

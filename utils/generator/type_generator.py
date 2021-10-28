@@ -13,8 +13,8 @@ from typing import List
 from pycparser import c_ast
 from contextlib import contextmanager
 
-from utils.converters.default_name_capitalizer import DefaultNameCapitalizer
-from utils.converters.name_capitalizer import NameCapitalizer
+from utils.converters.default_symbol_name_formatter import DefaultSymbolNameFormatter
+from utils.converters.symbol_name_formatter import SymbolNameFormatter
 from utils.converters.syntax_stream import SyntaxStream
 from utils.converters.convert_enum_case_name import convert_enum_case_name
 from utils.data.compound_symbol_name import CompoundSymbolName
@@ -41,7 +41,7 @@ def run_cl(input_path: Path) -> bytes:
 # Visitor / declaration collection
 
 class SwiftDeclConverter:
-    def __init__(self, prefixes: list[str], capitalizer: NameCapitalizer):
+    def __init__(self, prefixes: list[str], capitalizer: SymbolNameFormatter):
         self.prefixes = prefixes
         self.capitalizer = capitalizer
 
@@ -76,7 +76,7 @@ class SwiftDeclConverter:
     def convert_enum_name(self, name: str) -> CompoundSymbolName:
         prefix = self.prefix_for_decl_name(name)
 
-        return self.capitalizer.capitalize(self.convert_snake_case_name(name, prefix=prefix))
+        return self.capitalizer.format(self.convert_snake_case_name(name, prefix=prefix))
 
     def convert_enum_case(self,
                           enum_name: CompoundSymbolName,
@@ -84,7 +84,7 @@ class SwiftDeclConverter:
                           decl: c_ast.Enumerator) -> SwiftEnumCaseDecl:
 
         return SwiftEnumCaseDecl(
-            self.capitalizer.capitalize(
+            self.capitalizer.format(
                 convert_enum_case_name(enum_name,
                                        enum_original_name,
                                        decl.name,
@@ -118,7 +118,7 @@ class SwiftDeclConverter:
     def convert_struct_name(self, name: str) -> CompoundSymbolName:
         prefix = self.prefix_for_decl_name(name)
 
-        return self.capitalizer.capitalize(self.convert_snake_case_name(name, prefix=prefix))
+        return self.capitalizer.format(self.convert_snake_case_name(name, prefix=prefix))
 
     def convert_struct(self, decl: c_ast.Struct) -> SwiftStructDecl:
         return SwiftStructDecl(
@@ -236,7 +236,7 @@ class TypeGeneratorRequest:
     destination: Path
     prefixes: list[str]
     target: DeclGeneratorTarget
-    capitalizer: NameCapitalizer = DefaultNameCapitalizer()
+    capitalizer: SymbolNameFormatter = DefaultSymbolNameFormatter()
 
 
 def generate_types(request: TypeGeneratorRequest) -> int:

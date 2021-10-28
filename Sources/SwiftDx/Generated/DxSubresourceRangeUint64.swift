@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSubresourceRangeUint64 = D3D12_SUBRESOURCE_RANGE_UINT64
+typealias DxSubResourceRangeUint64 = D3D12_SUBRESOURCE_RANGE_UINT64

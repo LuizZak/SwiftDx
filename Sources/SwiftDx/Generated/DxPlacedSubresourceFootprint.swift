@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxPlacedSubresourceFootprint = D3D12_PLACED_SUBRESOURCE_FOOTPRINT
+typealias DxPlacedSubResourceFootprint = D3D12_PLACED_SUBRESOURCE_FOOTPRINT

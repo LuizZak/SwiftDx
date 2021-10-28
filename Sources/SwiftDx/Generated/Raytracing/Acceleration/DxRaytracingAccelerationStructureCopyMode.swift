@@ -9,7 +9,7 @@ public extension DxRaytracingAccelerationStructureCopyMode {
     
     static let compact = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_COMPACT
     
-    static let visualizationDecodeForTools = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_VISUALIZATION_DECODE_FOR_TOOLS
+    static let visualizationDecodeForTooLs = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_VISUALIZATION_DECODE_FOR_TOOLS
     
     static let serialize = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_SERIALIZE
     

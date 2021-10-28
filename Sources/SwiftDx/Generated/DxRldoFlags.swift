@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxRldoFlags = D3D12_RLDO_FLAGS
+typealias DxRLDOFlags = D3D12_RLDO_FLAGS
 
-public extension DxRldoFlags {
+public extension DxRLDOFlags {
     static let none = D3D12_RLDO_NONE
     
     static let summary = D3D12_RLDO_SUMMARY

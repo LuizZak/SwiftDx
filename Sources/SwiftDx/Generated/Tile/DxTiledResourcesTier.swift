@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias DxTiledResourcesTier = D3D12_TILED_RESOURCES_TIER
+typealias DxTiledResourceSTier = D3D12_TILED_RESOURCES_TIER
 
-public extension DxTiledResourcesTier {
+public extension DxTiledResourceSTier {
     static let notSupported = D3D12_TILED_RESOURCES_TIER_NOT_SUPPORTED
     
     static let tier_1 = D3D12_TILED_RESOURCES_TIER_1
