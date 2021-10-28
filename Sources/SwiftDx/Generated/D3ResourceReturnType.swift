@@ -9,9 +9,9 @@ public extension D3ResourceReturnType {
     
     static let returnTypeSnorm = D3D_RETURN_TYPE_SNORM
     
-    static let returnTypeSint = D3D_RETURN_TYPE_SINT
+    static let returnTypeSInt = D3D_RETURN_TYPE_SINT
     
-    static let returnTypeUint = D3D_RETURN_TYPE_UINT
+    static let returnTypeUInt = D3D_RETURN_TYPE_UINT
     
     static let returnTypeFloat = D3D_RETURN_TYPE_FLOAT
     
@@ -25,9 +25,9 @@ public extension D3ResourceReturnType {
     
     static let d3D10ReturnTypeSnorm = D3D10_RETURN_TYPE_SNORM
     
-    static let d3D10ReturnTypeSint = D3D10_RETURN_TYPE_SINT
+    static let d3D10ReturnTypeSInt = D3D10_RETURN_TYPE_SINT
     
-    static let d3D10ReturnTypeUint = D3D10_RETURN_TYPE_UINT
+    static let d3D10ReturnTypeUInt = D3D10_RETURN_TYPE_UINT
     
     static let d3D10ReturnTypeFloat = D3D10_RETURN_TYPE_FLOAT
     
@@ -37,9 +37,9 @@ public extension D3ResourceReturnType {
     
     static let d3D11ReturnTypeSnorm = D3D11_RETURN_TYPE_SNORM
     
-    static let d3D11ReturnTypeSint = D3D11_RETURN_TYPE_SINT
+    static let d3D11ReturnTypeSInt = D3D11_RETURN_TYPE_SINT
     
-    static let d3D11ReturnTypeUint = D3D11_RETURN_TYPE_UINT
+    static let d3D11ReturnTypeUInt = D3D11_RETURN_TYPE_UINT
     
     static let d3D11ReturnTypeFloat = D3D11_RETURN_TYPE_FLOAT
     

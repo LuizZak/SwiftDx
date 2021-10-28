@@ -10,7 +10,10 @@ from utils.data.compound_symbol_name import ComponentCase
 
 TERMS_TO_CAPITALIZE: list[str] = [
     r"YCbCr",
+    r"RLDO",
     r"SRGB",
+    r"UInt",
+    r"SInt",
     r"GPU",
     r"CPU",
     r"YUV",
@@ -21,7 +24,6 @@ TERMS_TO_CAPITALIZE: list[str] = [
     r"SRV",
     r"RTV",
     r"UAV",
-    r"RLDO",
     r"3D",
     r"2D",
     r"1D",

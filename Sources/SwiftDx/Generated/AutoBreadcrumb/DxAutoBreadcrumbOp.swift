@@ -51,9 +51,9 @@ public extension DxAutoBreadcrumbOp {
     
     static let processframes = D3D12_AUTO_BREADCRUMB_OP_PROCESSFRAMES
     
-    static let atomicCopyBufferUint = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT
+    static let atomicCopyBufferUInt = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT
     
-    static let atomicCopyBufferUint64 = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64
+    static let atomicCopyBufferUInt64 = D3D12_AUTO_BREADCRUMB_OP_ATOMICCOPYBUFFERUINT64
     
     static let resolveSubResourceRegion = D3D12_AUTO_BREADCRUMB_OP_RESOLVESUBRESOURCEREGION
     
