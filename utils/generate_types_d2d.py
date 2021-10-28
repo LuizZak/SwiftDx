@@ -6,7 +6,8 @@ from pathlib import Path
 from platform import system
 
 from utils.generator.type_generator import DeclGeneratorTarget, DeclFileGeneratorStdoutTarget, \
-    DeclFileGeneratorDiskTarget, TypeGeneratorRequest, generate_types
+                                           DeclFileGeneratorDiskTarget, TypeGeneratorRequest, \
+                                           generate_types
 from utils.paths import paths
 
 FILE_NAME = "SwiftDirect2D.h"

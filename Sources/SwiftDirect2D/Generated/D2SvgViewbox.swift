@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias D2SVGViewbox = D2D1_SVG_VIEWBOX
+typealias D2SVGViewBox = D2D1_SVG_VIEWBOX

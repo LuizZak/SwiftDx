@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2ColormanagementRenderingIntent = D2D1_COLORMANAGEMENT_RENDERING_INTENT
+typealias D2ColorManagementRenderingIntent = D2D1_COLORMANAGEMENT_RENDERING_INTENT
 
-public extension D2ColormanagementRenderingIntent {
+public extension D2ColorManagementRenderingIntent {
     static let perceptual = D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL
     
     static let relativeColorimetric = D2D1_COLORMANAGEMENT_RENDERING_INTENT_RELATIVE_COLORIMETRIC

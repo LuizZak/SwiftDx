@@ -7,7 +7,7 @@ typealias D2Property = D2D1_PROPERTY
 public extension D2Property {
     static let clsid = D2D1_PROPERTY_CLSID
     
-    static let displayname = D2D1_PROPERTY_DISPLAYNAME
+    static let displayName = D2D1_PROPERTY_DISPLAYNAME
     
     static let author = D2D1_PROPERTY_AUTHOR
     

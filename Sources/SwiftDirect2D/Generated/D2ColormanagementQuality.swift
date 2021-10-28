@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2ColormanagementQuality = D2D1_COLORMANAGEMENT_QUALITY
+typealias D2ColorManagementQuality = D2D1_COLORMANAGEMENT_QUALITY
 
-public extension D2ColormanagementQuality {
+public extension D2ColorManagementQuality {
     static let proof = D2D1_COLORMANAGEMENT_QUALITY_PROOF
     
     static let normal = D2D1_COLORMANAGEMENT_QUALITY_NORMAL

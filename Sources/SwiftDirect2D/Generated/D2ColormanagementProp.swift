@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2ColormanagementProp = D2D1_COLORMANAGEMENT_PROP
+typealias D2ColorManagementProp = D2D1_COLORMANAGEMENT_PROP
 
-public extension D2ColormanagementProp {
+public extension D2ColorManagementProp {
     static let sourceColorContext = D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT
     
     static let sourceRenderingIntent = D2D1_COLORMANAGEMENT_PROP_SOURCE_RENDERING_INTENT

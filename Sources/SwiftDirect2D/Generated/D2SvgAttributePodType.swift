@@ -29,7 +29,7 @@ public extension D2SVGAttributePodType {
     
     static let preserveAspectRatio = D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO
     
-    static let viewbox = D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX
+    static let viewBox = D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX
     
     static let length = D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH
     

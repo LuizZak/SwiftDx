@@ -2,9 +2,9 @@
 
 import WinSDK
 
-typealias D2ColormanagementAlphaMode = D2D1_COLORMANAGEMENT_ALPHA_MODE
+typealias D2ColorManagementAlphaMode = D2D1_COLORMANAGEMENT_ALPHA_MODE
 
-public extension D2ColormanagementAlphaMode {
+public extension D2ColorManagementAlphaMode {
     static let premultiplied = D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED
     
     static let straight = D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT

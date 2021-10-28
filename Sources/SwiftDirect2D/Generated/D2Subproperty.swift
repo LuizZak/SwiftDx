@@ -2,12 +2,12 @@
 
 import WinSDK
 
-typealias D2Subproperty = D2D1_SUBPROPERTY
+typealias D2SubProperty = D2D1_SUBPROPERTY
 
-public extension D2Subproperty {
-    static let displayname = D2D1_SUBPROPERTY_DISPLAYNAME
+public extension D2SubProperty {
+    static let displayName = D2D1_SUBPROPERTY_DISPLAYNAME
     
-    static let isreadonly = D2D1_SUBPROPERTY_ISREADONLY
+    static let isReadOnly = D2D1_SUBPROPERTY_ISREADONLY
     
     static let min = D2D1_SUBPROPERTY_MIN
     
