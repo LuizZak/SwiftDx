@@ -19,7 +19,7 @@ public extension D3SRVDimension {
     
     static let texture2DMs = D3D_SRV_DIMENSION_TEXTURE2DMS
     
-    static let texture2DMsarray = D3D_SRV_DIMENSION_TEXTURE2DMSARRAY
+    static let texture2DMsArray = D3D_SRV_DIMENSION_TEXTURE2DMSARRAY
     
     static let texture3D = D3D_SRV_DIMENSION_TEXTURE3D
     
@@ -43,7 +43,7 @@ public extension D3SRVDimension {
     
     static let d3D10SRVDimensionTexture2DMs = D3D10_SRV_DIMENSION_TEXTURE2DMS
     
-    static let d3D10SRVDimensionTexture2DMsarray = D3D10_SRV_DIMENSION_TEXTURE2DMSARRAY
+    static let d3D10SRVDimensionTexture2DMsArray = D3D10_SRV_DIMENSION_TEXTURE2DMSARRAY
     
     static let d3D10SRVDimensionTexture3D = D3D10_SRV_DIMENSION_TEXTURE3D
     
@@ -63,7 +63,7 @@ public extension D3SRVDimension {
     
     static let d3D10_1SRVDimensionTexture2DMs = D3D10_1_SRV_DIMENSION_TEXTURE2DMS
     
-    static let d3D10_1SRVDimensionTexture2DMsarray = D3D10_1_SRV_DIMENSION_TEXTURE2DMSARRAY
+    static let d3D10_1SRVDimensionTexture2DMsArray = D3D10_1_SRV_DIMENSION_TEXTURE2DMSARRAY
     
     static let d3D10_1SRVDimensionTexture3D = D3D10_1_SRV_DIMENSION_TEXTURE3D
     
@@ -85,7 +85,7 @@ public extension D3SRVDimension {
     
     static let d3D11SRVDimensionTexture2DMs = D3D11_SRV_DIMENSION_TEXTURE2DMS
     
-    static let d3D11SRVDimensionTexture2DMsarray = D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY
+    static let d3D11SRVDimensionTexture2DMsArray = D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY
     
     static let d3D11SRVDimensionTexture3D = D3D11_SRV_DIMENSION_TEXTURE3D
     

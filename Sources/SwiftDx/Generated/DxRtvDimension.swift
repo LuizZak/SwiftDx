@@ -19,7 +19,7 @@ public extension DxRTVDimension {
     
     static let texture2DMs = D3D12_RTV_DIMENSION_TEXTURE2DMS
     
-    static let texture2DMsarray = D3D12_RTV_DIMENSION_TEXTURE2DMSARRAY
+    static let texture2DMsArray = D3D12_RTV_DIMENSION_TEXTURE2DMSARRAY
     
     static let texture3D = D3D12_RTV_DIMENSION_TEXTURE3D
 }

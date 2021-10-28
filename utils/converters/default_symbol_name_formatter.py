@@ -122,7 +122,7 @@ TERMS_TO_SPLIT: list[re.Pattern] = [
     # D3D_SRV_DIMENSION
     re.compile(r"(Texture)(Cube)($|Array)", flags=re.IGNORECASE),
     re.compile(r"(Buffer)(Ex)$", flags=re.IGNORECASE),
-    # re.compile(r"(MS)(Array)", flags=re.IGNORECASE),
+    re.compile(r"(MS)(Array)", flags=re.IGNORECASE),
     # D3D12_MESSAGE_ID terms
     re.compile(r"(Access)(View)", flags=re.IGNORECASE),
     re.compile(r"(Adapter|Driver)(Versions|Version)", flags=re.IGNORECASE),
