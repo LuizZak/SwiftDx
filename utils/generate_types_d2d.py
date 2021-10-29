@@ -75,7 +75,8 @@ def main() -> int:
         header_file=input_path,
         destination=destination_path,
         prefixes=D2D_PREFIXES,
-        target=target
+        target=target,
+        includes=["WinSDK", "CDirect2D"]
     )
 
     generate_types(request)

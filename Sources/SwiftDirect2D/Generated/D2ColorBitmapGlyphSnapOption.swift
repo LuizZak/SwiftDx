@@ -1,6 +1,7 @@
 // HEADS UP!: Auto-generated file, changes made directly here will be overwritten by code generators.
 
 import WinSDK
+import CDirect2D
 
 typealias D2ColorBitmapGlyphSnapOption = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION
 

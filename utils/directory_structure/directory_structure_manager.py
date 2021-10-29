@@ -96,7 +96,7 @@ class DirectoryStructureManager:
 
         for decl in decls:
             path = self.path_for_decl(decl)
-            file = result.get(path, SwiftFile(path, []))
+            file = result.get(path, SwiftFile(path, [], []))
             file.add_decl(decl)
 
             result[path] = file

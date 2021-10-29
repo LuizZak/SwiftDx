@@ -22,7 +22,7 @@ class DirectXManager {
     #else
     let debugMode: Bool = false
     #endif
-    
+
     private let useWarp: Bool = false
 
     private var state: DirectXState?
@@ -118,7 +118,7 @@ class DirectXManager {
 
         let clearColor: (FLOAT, FLOAT, FLOAT, FLOAT) = (0.4, 0.6, 0.9, 1.0)
 
-        let rtv = try DxCpuDescriptorHandle(state.rtvDescriptorHeap.GetCPUDescriptorHandleForHeapStart(), state.backBufferIndex, state.rtvDescriptorSize)
+        let rtv = try DxCPUDescriptorHandle(state.rtvDescriptorHeap.GetCPUDescriptorHandleForHeapStart(), state.backBufferIndex, state.rtvDescriptorSize)
 
         try commandList.ClearRenderTargetView(rtv, clearColor, 0, nil)
     }
@@ -158,9 +158,9 @@ class DirectXManager {
             .info
         ]
         var denyIds: [DxMessageId] = [
-            .clearrendertargetviewMismatchingclearvalue,
-            .mapInvalidNullrange,
-            .unmapInvalidNullrange,
+            .clearRenderTargetViewMismatchingClearValue,
+            .mapInvalidNullRange,
+            .unmapInvalidNullRange,
         ]
 
         try severities.withUnsafeMutableBufferPointer { sp in
@@ -267,7 +267,7 @@ class DirectXManager {
         guard let event = CreateEventW(nil, false, false, nil) else {
             throw Error.failedToCreateEvent
         }
-        
+
         return event
     }
 
@@ -313,7 +313,7 @@ private struct DirectXState {
                   fenceStructure: FenceStructure,
                   rtvDescriptorHeap: DescriptorHeap,
                   rtvDescriptorSize: Int) {
-        
+
         self.backBufferCount = backBufferCount
         self.backBufferFormat = backBufferFormat
         self.backBufferIndex = backBufferIndex
@@ -336,7 +336,7 @@ private struct DirectXState {
         backBuffers.removeAll()
 
         var rtvHandle = try descriptorHeap.GetCPUDescriptorHandleForHeapStart()
-        
+
         for i in 0..<backBufferCount {
             let backBuffer: DirectX.Resource = try swapChain.GetBuffer(UINT(i))
 

@@ -75,7 +75,8 @@ def main() -> int:
         header_file=input_path,
         destination=destination_path,
         prefixes=DX_PREFIXES,
-        target=target
+        target=target,
+        includes=["WinSDK"]
     )
 
     generate_types(request)

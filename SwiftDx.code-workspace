@@ -144,6 +144,10 @@
 		"ShortcutMenuBar.userButton02Command": "workbench.action.tasks.runTask|Test",
 		"ShortcutMenuBar.userButton03Command": "workbench.action.tasks.runTask|Build Sample (debug)",
 		"ShortcutMenuBar.userButton04Command": "workbench.action.tasks.runTask|Run Sample (debug)",
+		"files.associations": {
+			"windows.h": "c",
+			"d2d1_3helper.h": "c"
+		},
     },
 	"extensions": {
 		"recommendations": [

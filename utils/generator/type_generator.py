@@ -188,11 +188,14 @@ class DeclFileGeneratorStdoutTarget(DeclGeneratorTarget):
 
 
 class DeclFileGenerator:
-    def __init__(self, destination_folder: Path, target: DeclGeneratorTarget, decls: List[SwiftDecl]):
+    def __init__(self, destination_folder: Path, target: DeclGeneratorTarget,
+                decls: List[SwiftDecl], includes: list[str]):
+
         self.destination_folder = destination_folder
         self.directory_manager = DirectoryStructureManager(destination_folder)
         self.target = target
         self.decls = decls
+        self.includes = includes
 
     def generate_file(self, file: SwiftFile):
         with self.target.create_stream(file.path) as stream:
@@ -204,6 +207,7 @@ class DeclFileGenerator:
         files = self.directory_manager.make_declaration_files(self.decls)
 
         for file in files:
+            file.includes = self.includes
             self.generate_file(file)
 
 
@@ -236,6 +240,7 @@ class TypeGeneratorRequest:
     destination: Path
     prefixes: list[str]
     target: DeclGeneratorTarget
+    includes: list[str]
     capitalizer: SymbolNameFormatter = DefaultSymbolNameFormatter()
 
 
@@ -261,7 +266,7 @@ def generate_types(request: TypeGeneratorRequest) -> int:
     converter = SwiftDeclConverter(prefixes=request.prefixes, capitalizer=request.capitalizer)
     swift_decls = converter.convert_list(visitor.decls)
 
-    generator = DeclFileGenerator(request.destination, request.target, swift_decls)
+    generator = DeclFileGenerator(request.destination, request.target, swift_decls, request.includes)
     generator.generate()
 
     print('Success!')

@@ -1,9 +1,9 @@
 import WinSDK
 
-typealias CD3DX12_CPU_DESCRIPTOR_HANDLE = DxCpuDescriptorHandle
+typealias CD3DX12_CPU_DESCRIPTOR_HANDLE = DxCPUDescriptorHandle
 
 extension CD3DX12_CPU_DESCRIPTOR_HANDLE {
-    init(_ other: DxCpuDescriptorHandle, _ offsetInDescriptors: Int, _ descriptorIncrementSize: Int) {
+    init(_ other: Self, _ offsetInDescriptors: Int, _ descriptorIncrementSize: Int) {
         self.init(ptr: SIZE_T(INT64(other.ptr) + INT64(offsetInDescriptors) * INT64(descriptorIncrementSize)))
     }
 
