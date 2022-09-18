@@ -1,0 +1,7 @@
+module CDirect2D [system] {
+    header "d2d1.h"
+
+    link "d2d1"
+
+    export *
+}

@@ -13,17 +13,17 @@ from typing import List
 from pycparser import c_ast
 from contextlib import contextmanager
 
-from utils.converters.default_symbol_name_formatter import DefaultSymbolNameFormatter
-from utils.converters.symbol_name_formatter import SymbolNameFormatter
-from utils.converters.syntax_stream import SyntaxStream
-from utils.converters.convert_enum_case_name import convert_enum_case_name
-from utils.data.compound_symbol_name import CompoundSymbolName
-from utils.data.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
-from utils.directory_structure.directory_structure_manager import DirectoryStructureManager
-from utils.data.swift_file import SwiftFile
+from converters.default_symbol_name_formatter import DefaultSymbolNameFormatter
+from converters.symbol_name_formatter import SymbolNameFormatter
+from converters.syntax_stream import SyntaxStream
+from converters.convert_enum_case_name import convert_enum_case_name
+from data.compound_symbol_name import CompoundSymbolName
+from data.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
+from directory_structure.directory_structure_manager import DirectoryStructureManager
+from data.swift_file import SwiftFile
 
 # Utils
-from utils.paths import paths
+from paths import paths
 
 
 def run_cl(input_path: Path) -> bytes:
@@ -160,7 +160,6 @@ class DeclFileGeneratorDiskTarget(DeclGeneratorTarget):
     def __init__(self, destination_folder: Path, rm_folder: bool = True, verbose: bool = True):
         self.destination_folder = destination_folder
         self.rm_folder = rm_folder
-        self.directory_manager = DirectoryStructureManager(destination_folder)
         self.verbose = verbose
 
     def prepare(self):
@@ -188,26 +187,33 @@ class DeclFileGeneratorStdoutTarget(DeclGeneratorTarget):
 
 
 class DeclFileGenerator:
-    def __init__(self, destination_folder: Path, target: DeclGeneratorTarget,
-                decls: List[SwiftDecl], includes: list[str]):
+    def __init__(
+        self,
+        destination_folder: Path,
+        directory_manager: DirectoryStructureManager,
+        target: DeclGeneratorTarget,
+        decls: List[SwiftDecl],
+        imports: list[str]
+    ):
 
         self.destination_folder = destination_folder
-        self.directory_manager = DirectoryStructureManager(destination_folder)
+        self.directory_manager = directory_manager
         self.target = target
         self.decls = decls
-        self.includes = includes
+        self.imports = imports
 
     def generate_file(self, file: SwiftFile):
         with self.target.create_stream(file.path) as stream:
             file.write(stream)
 
     def generate(self):
+        self.directory_manager.prepare(self.destination_folder)
         self.target.prepare()
 
         files = self.directory_manager.make_declaration_files(self.decls)
 
         for file in files:
-            file.includes = self.includes
+            file.includes = self.imports
             self.generate_file(file)
 
 
@@ -238,9 +244,13 @@ class DeclCollectorVisitor(c_ast.NodeVisitor):
 class TypeGeneratorRequest:
     header_file: Path
     destination: Path
+    directory_manager: DirectoryStructureManager
     prefixes: list[str]
     target: DeclGeneratorTarget
-    includes: list[str]
+    imports: list[str]
+    """
+    List of modules to import on each .swift file that is generated.
+    """
     capitalizer: SymbolNameFormatter = DefaultSymbolNameFormatter()
 
 
@@ -266,7 +276,15 @@ def generate_types(request: TypeGeneratorRequest) -> int:
     converter = SwiftDeclConverter(prefixes=request.prefixes, capitalizer=request.capitalizer)
     swift_decls = converter.convert_list(visitor.decls)
 
-    generator = DeclFileGenerator(request.destination, request.target, swift_decls, request.includes)
+    dir_manager = request.directory_manager
+
+    generator = DeclFileGenerator(
+        request.destination,
+        dir_manager,
+        request.target,
+        swift_decls,
+        request.imports
+    )
     generator.generate()
 
     print('Success!')

@@ -1,8 +1,13 @@
-from utils.data.compound_symbol_name import CompoundSymbolName
-from utils.converters.custom.dxgi_format_converter import convert_dxgi_enum_case
+from data.compound_symbol_name import CompoundSymbolName
+from converters.custom.dxgi_format_converter import convert_dxgi_enum_case
 
 
-def convert_enum_case_name(enum_name: CompoundSymbolName, enum_original_name: str, name: str, prefixes: list[str]) -> CompoundSymbolName:
+def convert_enum_case_name(
+    enum_name: CompoundSymbolName,
+    enum_original_name: str,
+    name: str,
+    prefixes: list[str],
+) -> CompoundSymbolName:
     case_name = CompoundSymbolName.from_snake_case(name)
 
     if enum_original_name == "DXGI_FORMAT":

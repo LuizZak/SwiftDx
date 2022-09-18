@@ -1,88 +1,113 @@
-import argparse
-import os
+import re
 import sys
 
-from pathlib import Path
-from platform import system
-
-from utils.generator.type_generator import DeclGeneratorTarget, DeclFileGeneratorStdoutTarget, \
-    DeclFileGeneratorDiskTarget, TypeGeneratorRequest, generate_types
-from utils.paths import paths
-
-FILE_NAME = "SwiftDx.h"
-
-DX_PREFIXES = [
-    "DXGI",
-    "D3D12",
-    "D3D",
-]
-"""
-List of prefixes from DirectX declarations to convert
-
-Will also be used as a list of terms to remove the prefix of in final declaration names.
-"""
+from directory_structure.directory_structure_manager import (
+    DirectoryStructureManager,
+)
+from generate_types_main import generate_types_main
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(
-        description='Generates .swift files wrapping DirectX declarations found in public Windows SDK headers.'
+    header_file = "SwiftDx.h"
+
+    d2d_prefixes = [
+        "DXGI",
+        "D3D12",
+        "D3D",
+    ]
+    """
+    List of prefixes from DirectX declarations to convert
+
+    Will also be used as a list of terms to remove the prefix of in final declaration names.
+    """
+    imports = [
+        "WinSDK",
+    ]
+
+    dir_manager = DirectoryStructureManager(DX12_PATH_MATCHERS)
+
+    generate_types_main(
+        header_file=header_file,
+        prefixes=d2d_prefixes,
+        imports=imports,
+        directory_manager=dir_manager,
+        cli_description="Generates .swift files wrapping DirectX declarations found in public Windows SDK headers.",
     )
 
-    parser.add_argument(
-        '--stdout',
-        action='store_true',
-        help='Outputs files to stdout instead of file disk.'
-    )
 
-    args = parser.parse_args()
+DX12_PATH_MATCHERS: dict[re.Pattern, list[str]] = {
+    # A
+    re.compile(r"^DxAdapter.+"): ["Adapter"],
+    re.compile(r"^DxAutoBreadcrumb.+"): ["AutoBreadcrumb"],
+    # B
+    re.compile(r"^DxBlend.+"): ["Blend"],
+    re.compile(r"^DxBuffer.+"): ["Buffer"],
+    re.compile(r"^DxBuildRaytracing.+"): ["Raytracing"],
+    # C
+    re.compile(r"^DxCommand.+"): ["Command"],
+    re.compile(r"^DxCommandList.+"): ["Command", "List"],
+    re.compile(r"^DxCommandQueue.+"): ["Command", "Queue"],
+    re.compile(r"^DxCompute.+"): ["Compute"],
+    # D
+    re.compile(r"^DxDebug.+"): ["Debug"],
+    re.compile(r"^DxDepthStencil.+"): ["DepthStencil"],
+    re.compile(r"^DxDred.+"): ["Dred"],
+    re.compile(r"^DxDescriptor.+"): ["Descriptor"],
+    # E
+    # F
+    re.compile(r"^DxFeatureData.+"): ["FeatureData"],
+    re.compile(r"^DxFence.+"): ["Fence"],
+    # G
+    re.compile(r"^DxGPU.+"): ["GPU"],
+    re.compile(r"^DxgiGPU.+"): ["GPU"],
+    # H
+    re.compile(r"^DxHdr.+"): ["HDR"],
+    re.compile(r"^DxHeap.+"): ["Heap"],
+    # I
+    re.compile(r"^DxInput.+"): ["Input"],
+    # J
+    # K
+    # M
+    re.compile(r"^DxMessage.+"): ["Message"],
+    re.compile(r"^DxMetaCommand.+"): ["MetaCommand"],
+    re.compile(r"^DxMode.+"): ["Mode"],
+    # N
+    # O
+    re.compile(r"^DxOutput.+"): ["Output"],
+    # P
+    re.compile(r"^DxPipeline.+"): ["Pipeline"],
+    re.compile(r"^DxPrimitive.+"): ["Primitive"],
+    # Q
+    re.compile(r"^DxQuery.+"): ["Query"],
+    # R
+    re.compile(r"^DxRaytracing.+"): ["Raytracing"],
+    re.compile(r"^DxRaytracingAcceleration.+"): ["Raytracing", "Acceleration"],
+    re.compile(r"^DxRaytracingGeometry.+"): ["Raytracing", "Geometry"],
+    re.compile(r"^DxResource.+"): ["Resource"],
+    re.compile(r"^DxRenderPass.+"): ["RenderPass"],
+    re.compile(r"^DxRoot.+"): ["Root"],
+    re.compile(r"^DxRootDescriptor.+"): ["Root", "Descriptor"],
+    re.compile(r"^DxRootSignature.+"): ["Root", "Signature"],
+    # S
+    re.compile(r"^DxShader.+"): ["Shader"],
+    re.compile(r"^DxShaderCache.+"): ["Shader", "Cache"],
+    re.compile(r"^DxSwapChain.+"): ["SwapChain"],
+    # T
+    re.compile(r"^DxTile.+"): ["Tile"],
+    re.compile(r"^DxTessellator.+"): ["Tessellator"],
+    re.compile(r"^DxTex.+"): ["Texture"],
+    re.compile(r"^DxTex1d.+"): ["Texture", "1D"],
+    re.compile(r"^DxTex2d.+"): ["Texture", "2D"],
+    re.compile(r"^DxTex3d.+"): ["Texture", "3D"],
+    # U
+    # V
+    # X
+    # W
+    # Z
+}
 
-    if system() != "Windows":
-        print("This generator script requires a Windows operating system.")
-        exit(1)
 
-    if os.environ.get("UniversalCRTSdkDir") is None:
-        print("Missing %UniversalCRTSdkDir% environment variable. Please run this script from a Visual Studio "
-              "Developer Command Prompt (more info at "
-              "https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2019)")
-        exit(1)
-    if os.environ.get("UCRTVersion") is None:
-        print("Missing %UCRTVersion% environment variable. Please run this script from a Visual Studio Developer "
-              "Command Prompt (more info at https://docs.microsoft.com/en-us/visualstudio/ide/reference/command"
-              "-prompt-powershell?view=vs-2019)")
-        exit(1)
-
-    input_path = paths.scripts_path(FILE_NAME)
-    if not input_path.exists() or not input_path.is_file():
-        print("Error: Expected path to an existing header file within utils\\.")
-        return 1
-
-    swift_target_path = paths.srcroot_path("Sources", Path(FILE_NAME).with_suffix(""))
-    if not swift_target_path.exists() or not swift_target_path.is_dir():
-        print(f"Error: No Swift target directory with name '{FILE_NAME.rstrip('.h')}' "
-              f"found in {paths.srcroot_path('Sources')}\\.")
-        return 1
-
-    destination_path = swift_target_path.joinpath("Generated")
-
-    target: DeclGeneratorTarget
-
-    if args.stdout:
-        target = DeclFileGeneratorStdoutTarget()
-    else:
-        target = DeclFileGeneratorDiskTarget(destination_path, rm_folder=True)
-
-    request = TypeGeneratorRequest(
-        header_file=input_path,
-        destination=destination_path,
-        prefixes=DX_PREFIXES,
-        target=target,
-        includes=["WinSDK"]
-    )
-
-    generate_types(request)
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         sys.exit(main())
     except KeyboardInterrupt:

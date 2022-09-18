@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-from utils.converters.syntax_stream import SyntaxStream
-from utils.data.swift_decls import SwiftDecl
+from converters.syntax_stream import SyntaxStream
+from data.swift_decls import SwiftDecl
 
 
 @dataclass

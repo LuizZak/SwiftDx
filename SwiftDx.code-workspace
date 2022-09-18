@@ -63,14 +63,25 @@
 				]
 			},
 			{
-				"label": "Generate Swift Types",
+				"label": "Generate Swift Types (SwiftDx)",
 				"type": "shell",
-				"command": "python utils\\generate_types.py",
+				"command": "python generate_types_dx12.py",
 				"args": [
 					"-o", "${workspaceFolder:SwiftDx}\\Sources\\SwiftDx\\Generated"
 				],
 				"options": {
 					"cwd": "${workspaceFolder:SwiftDx}\\utils"
+				}
+			},
+			{
+				"label": "Generate Swift Types (SwiftDirect2D)",
+				"type": "shell",
+				"command": "python utils\\generate_types_d2d.py",
+				"args": [
+					"-o", "${workspaceFolder:SwiftDx}\\Sources\\SwiftDirect2D\\Generated"
+				],
+				"options": {
+					"cwd": "${workspaceFolder:SwiftDx}"
 				}
 			},
         ]
@@ -124,9 +135,12 @@
 			},
 		],
         "cSpell.words": [
+			"backticked",
+			"DECAPITALIZE",
 			"exodiusstudios",
 			"mypy",
 			"pycache",
+			"srcroot",
 			"swiftpm",
 			"Xlinker"
 		],
@@ -134,7 +148,7 @@
 		"python.formatting.provider": "black",
     	"python.linting.enabled": true,
 		"python.linting.flake8Enabled": true,
-		"python.linting.flake8Args": ["--ignore=E501,E302,E225,W293,W503"],
+		"python.linting.flake8Args": ["--ignore=E203,E225,E302,E501,W293,W503"],
 
 		"[python]": {
 			"editor.formatOnSave": true
@@ -144,6 +158,8 @@
 		"ShortcutMenuBar.userButton02Command": "workbench.action.tasks.runTask|Test",
 		"ShortcutMenuBar.userButton03Command": "workbench.action.tasks.runTask|Build Sample (debug)",
 		"ShortcutMenuBar.userButton04Command": "workbench.action.tasks.runTask|Run Sample (debug)",
+		"ShortcutMenuBar.userButton05Command": "workbench.action.tasks.runTask|Generate Swift Types (SwiftDx)",
+		"ShortcutMenuBar.userButton06Command": "workbench.action.tasks.runTask|Generate Swift Types (SwiftDirect2D)",
 		"files.associations": {
 			"windows.h": "c",
 			"d2d1_3helper.h": "c"

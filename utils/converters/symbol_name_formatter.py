@@ -1,4 +1,4 @@
-from utils.data.compound_symbol_name import CompoundSymbolName
+from data.compound_symbol_name import CompoundSymbolName
 
 
 class SymbolNameFormatter:

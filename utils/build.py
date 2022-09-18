@@ -31,8 +31,7 @@ def make_argparser() -> argparse.ArgumentParser:
             if d_sp is not None and not {'-h', '--help'}.intersection(in_args):
                 for x in self._subparsers._actions:
                     subparser_found = (
-                            isinstance(x, argparse._SubParsersAction) and in_args.intersection(
-                        x._name_parser_map.keys())
+                        isinstance(x, argparse._SubParsersAction) and in_args.intersection(x._name_parser_map.keys())
                     )
                     if subparser_found:
                         break

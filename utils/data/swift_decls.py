@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from typing import List
 
-from utils.converters.syntax_stream import SyntaxStream
-from utils.data.compound_symbol_name import CompoundSymbolName
-from utils.constants.constants import backticked_term
+from converters.syntax_stream import SyntaxStream
+from data.compound_symbol_name import CompoundSymbolName
+from constants.constants import backticked_term
 
 
 @dataclass

@@ -1,12 +1,10 @@
 import re
 from typing import Tuple
 
-from utils.collection.collection_utils import flatten
-from utils.converters.symbol_name_formatter import SymbolNameFormatter
-from utils.data.compound_symbol_name import CompoundSymbolName
-from utils.data.compound_symbol_name import ComponentCase
-
-# TODO: Support splitting single words into multiple components on a symbol name.
+from collection.collection_utils import flatten
+from converters.symbol_name_formatter import SymbolNameFormatter
+from data.compound_symbol_name import CompoundSymbolName
+from data.compound_symbol_name import ComponentCase
 
 TERMS_TO_CAPITALIZE: list[str] = [
     r"YCbCr",
@@ -14,6 +12,7 @@ TERMS_TO_CAPITALIZE: list[str] = [
     r"SRGB",
     r"UInt",
     r"SInt",
+    r"DPI",
     r"GPU",
     r"CPU",
     r"YUV",
@@ -28,14 +27,19 @@ TERMS_TO_CAPITALIZE: list[str] = [
     r"2D",
     r"1D",
 ]
+"""
+Specific terms that require a specific capitalization.
+
+The capitalization, as written in this array, will be respected over general
+CamelCase capitalization.
+
+Must be sorted from longest to shortest, to better detect longer term substrings.
+"""
 
 
 class DefaultSymbolNameFormatter(SymbolNameFormatter):
     def format(self, name: CompoundSymbolName) -> CompoundSymbolName:
-        components = flatten(map(
-            self.format_component,
-            name.components
-        ))
+        components = flatten(map(self.format_component, name.components))
 
         if len(name.components) > 0:
             is_camel_case = name.components[0].to_string(False)[0].islower()
@@ -45,28 +49,34 @@ class DefaultSymbolNameFormatter(SymbolNameFormatter):
 
         return CompoundSymbolName(components)
 
-    def format_component(self, component: CompoundSymbolName.Component) -> list[CompoundSymbolName.Component]:
+    def format_component(
+        self, component: CompoundSymbolName.Component
+    ) -> list[CompoundSymbolName.Component]:
         split_string: list[str] = []
         self.split_component_inplace(component.string, split_string)
 
         split_components = flatten(
             map(
                 lambda p: self.format_component_string(p[1], has_prev=p[0] > 0),
-                enumerate(split_string)
+                enumerate(split_string),
             )
         )
 
         return list(
             map(
-                lambda t: component.with_string(t[0]).with_string_case(component.string_case | t[1]),
-                split_components
+                lambda t: component.with_string(t[0]).with_string_case(
+                    component.string_case | t[1]
+                ),
+                split_components,
             )
         )
 
     def split_component_inplace(self, string: str, output: list[str]):
         for pattern in TERMS_TO_SPLIT:
             if pattern.search(string):
-                filtered = filter(lambda x: x is not None and len(x) > 0, pattern.split(string))
+                filtered = filter(
+                    lambda x: x is not None and len(x) > 0, pattern.split(string)
+                )
 
                 for word in filtered:
                     self.split_component_inplace(word, output)
@@ -84,7 +94,9 @@ class DefaultSymbolNameFormatter(SymbolNameFormatter):
 
         return [string]
 
-    def format_component_string(self, string: str, has_prev: bool) -> list[Tuple[str, ComponentCase]]:
+    def format_component_string(
+        self, string: str, has_prev: bool
+    ) -> list[Tuple[str, ComponentCase]]:
         result: list[Tuple[str, ComponentCase]] = []
         leftmost_interval: Tuple[str, int, int] | None = None
 
@@ -104,12 +116,20 @@ class DefaultSymbolNameFormatter(SymbolNameFormatter):
             return [(string, ComponentCase.ANY)]
 
         if leftmost_interval[1] > 0:
-            result.extend(self.format_component_string(string[0:leftmost_interval[1]], has_prev=has_prev))
+            result.extend(
+                self.format_component_string(
+                    string[0 : leftmost_interval[1]], has_prev=has_prev
+                )
+            )
 
         result.append((leftmost_interval[0], ComponentCase.AS_IS))
 
         if leftmost_interval[2] < len(string) - 1:
-            result.extend(self.format_component_string(string[leftmost_interval[2]:], has_prev=True))
+            result.extend(
+                self.format_component_string(
+                    string[leftmost_interval[2] :], has_prev=True
+                )
+            )
 
         return result
 
@@ -121,8 +141,23 @@ def to_single_term_regex(string: str) -> re.Pattern:
 
 TERMS_TO_SPLIT: list[re.Pattern] = [
     # Use multi-word regex when a standalone word might lead to unintended matches in compound words.
-    # D2D1_COLORMANAGEMENT_PROP
+    #
+    # D2D
+    #
+    # D2D1_*_PROP properties in general
+    re.compile(r"(Affine)(Transform)", flags=re.IGNORECASE),
+    re.compile(r"(Arithmetic)(Composite)", flags=re.IGNORECASE),
     re.compile(r"(Color)(Management)", flags=re.IGNORECASE),
+    re.compile(r"(Convolve)(Matrix)", flags=re.IGNORECASE),
+    re.compile(r"(Cross)(Fade)", flags=re.IGNORECASE),
+    re.compile(r"(Highlights)(And)(Shadows)", flags=re.IGNORECASE),
+    re.compile(r"(Lookup)(Table)", flags=re.IGNORECASE),
+    re.compile(r"(Perspective)(Transform)", flags=re.IGNORECASE),
+    re.compile(r"(Temperature)(And)(Tint)", flags=re.IGNORECASE),
+    re.compile(r"(Tone)(Map)", flags=re.IGNORECASE),
+    #
+    # DX12
+    #
     # D3D_SRV_DIMENSION
     re.compile(r"(Buffer)(Ex)$", flags=re.IGNORECASE),
     re.compile(r"(MS)(Array)", flags=re.IGNORECASE),
@@ -146,7 +181,9 @@ TERMS_TO_SPLIT: list[re.Pattern] = [
     re.compile(r"(Cached)(Session|Size)", flags=re.IGNORECASE),
     re.compile(r"(Class)(Change)", flags=re.IGNORECASE),
     re.compile(r"(Clear)(Value|View)", flags=re.IGNORECASE),
-    re.compile(r"(Command)(Allocator|List|Pools|Pool|Queue|Recorder)", flags=re.IGNORECASE),
+    re.compile(
+        r"(Command)(Allocator|List|Pools|Pool|Queue|Recorder)", flags=re.IGNORECASE
+    ),
     re.compile(r"(Copy|Update)(Buffer|Texture|Tile)", flags=re.IGNORECASE),
     re.compile(r"(Data)(Pointer)", flags=re.IGNORECASE),
     re.compile(r"(Decode)(Stream)", flags=re.IGNORECASE),
@@ -156,7 +193,10 @@ TERMS_TO_SPLIT: list[re.Pattern] = [
     re.compile(r"(Dest)(Blend)", flags=re.IGNORECASE),
     re.compile(r"(Developer)(Mode)", flags=re.IGNORECASE),
     re.compile(r"(Display)(Name)", flags=re.IGNORECASE),
-    re.compile(r"(Dst)(Coordinates|Dimensions|Format|Offset|Placement|Range|Region|Type)", flags=re.IGNORECASE),
+    re.compile(
+        r"(Dst)(Coordinates|Dimensions|Format|Offset|Placement|Range|Region|Type)",
+        flags=re.IGNORECASE,
+    ),
     re.compile(r"(Duplicate)(?!d)(\w+)", flags=re.IGNORECASE),
     re.compile(r"(Empty|Source)(Rect)(?!angle)", flags=re.IGNORECASE),
     re.compile(r"(Encoder)(Heap)", flags=re.IGNORECASE),
@@ -217,7 +257,10 @@ TERMS_TO_SPLIT: list[re.Pattern] = [
     re.compile(r"(Set)(Residency|View)", flags=re.IGNORECASE),
     re.compile(r"(Set)(Sample)(Positions)", flags=re.IGNORECASE),
     re.compile(r"(Slot)(Class)", flags=re.IGNORECASE),
-    re.compile(r"(Src)(Blend|Box|Boxes|Dimensions|Format|Offset|Placement|Range|Region|Type)", flags=re.IGNORECASE),
+    re.compile(
+        r"(Src)(Blend|Box|Boxes|Dimensions|Format|Offset|Placement|Range|Region|Type)",
+        flags=re.IGNORECASE,
+    ),
     re.compile(r"(Start)(Component)", flags=re.IGNORECASE),
     re.compile(r"(Step)(Rate)", flags=re.IGNORECASE),
     re.compile(r"(Store)(Pipeline)", flags=re.IGNORECASE),
@@ -235,86 +278,104 @@ TERMS_TO_SPLIT: list[re.Pattern] = [
     re.compile(r"(Write)(Buffer)", flags=re.IGNORECASE),
     re.compile(r"(Write)(Mask|To)", flags=re.IGNORECASE),
     re.compile(r"(Z)?(Fail|Pass)(Op)", flags=re.IGNORECASE),
-    re.compile(r"(\w+)(Suported|Unsuported)|(Suported|Unsuported)(\w+)", flags=re.IGNORECASE),
+    re.compile(
+        r"(\w+)(Suported|Unsuported)|(Suported|Unsuported)(\w+)", flags=re.IGNORECASE
+    ),
     re.compile(r"^(Not)(Found)", flags=re.IGNORECASE),
     # Single word terms. Try to use plurals, whenever possible, to avoid splitting the trailing 's'.
-    *map(to_single_term_regex, [
-        "alpha",
-        "already",
-        "always",
-        "cached",
-        "cant",
-        "completion",
-        "component",
-        "copyable",
-        "create",
-        "custom",
-        "definitions",
-        "denorm(?!alization)",
-        "depth",
-        "descriptors",
-        "displaced",
-        "doubles",
-        "elements",
-        "empty",
-        "enough",
-        "exceeds",
-        "existing",
-        "extensions",
-        "flags",
-        "float",
-        "font",
-        "footprints",
-        "forced",
-        "ignored",
-        "immediately",
-        "incompatible",
-        "index",
-        "invalid",
-        "invalid",
-        "keyed",
-        "lifetime",
-        "linkage",
-        "mapped",
-        "mappings",
-        "memory,"
-        "misc(?!ellaneous)",
-        "miscellaneous",
-        "mismatched",
-        "mismatching",
-        "missing",
-        "monitored",
-        "null",
-        "only",
-        "output",
-        "params",
-        "plane",
-        "precision",
-        "query(?!ing)",
-        "rasterizer",
-        "rendering",
-        "resource",
-        "samples",
-        "scaled",
-        "semantic",
-        "shader",
-        "shared",
-        "signature",
-        "slice",
-        "sources",
-        "stencil",
-        "target",
-        "tiles",
-        "too",
-        "topology",
-        "tracked",
-        "unexpected",
-        "unordered",
-        "unparseable",
-        "unrecognized",
-        "vertex",
-        "video",
-        "written",
-        "wrong",
-    ]),
+    *map(
+        to_single_term_regex,
+        [
+            "adjustment",
+            "alpha",
+            "already",
+            "always",
+            "bitmap",
+            "cached",
+            "cant",
+            "completion",
+            "component",
+            "copyable",
+            "create",
+            "custom",
+            "definitions",
+            "denorm(?!alization)",
+            "depth",
+            "descriptors",
+            "detection",
+            "diffuse",
+            "directional",
+            "discrete",
+            "displaced",
+            "displacement",
+            "distant",
+            "doubles",
+            "elements",
+            "empty",
+            "enough",
+            "exceeds",
+            "existing",
+            "extensions",
+            "flags",
+            "float",
+            "font",
+            "footprints",
+            "forced",
+            "gamma",
+            "gaussian",
+            "ignored",
+            "immediately",
+            "incompatible",
+            "index",
+            "invalid",
+            "invalid",
+            "keyed",
+            "lifetime",
+            "linkage",
+            "management",
+            "mapped",
+            "mappings",
+            "memory," "misc(?!ellaneous)",
+            "miscellaneous",
+            "mismatched",
+            "mismatching",
+            "missing",
+            "monitored",
+            "null",
+            "opacity",
+            "only",
+            "output",
+            "params",
+            "plane",
+            "precision",
+            "query(?!ing)",
+            "rasterizer",
+            "rendering",
+            "resource",
+            "samples",
+            "scaled",
+            "semantic",
+            "shader",
+            "shared",
+            "signature",
+            "slice",
+            "sources",
+            "specular",
+            "stencil",
+            "target",
+            "tiles",
+            "too",
+            "topology",
+            "tracked",
+            "transfer",
+            "unexpected",
+            "unordered",
+            "unparseable",
+            "unrecognized",
+            "vertex",
+            "video",
+            "written",
+            "wrong",
+        ],
+    ),
 ]
