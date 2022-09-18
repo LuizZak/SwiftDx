@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2EdgedetectionMode = D2D1_EDGEDETECTION_MODE
+typealias D2EdgeDetectionMode = D2D1_EDGEDETECTION_MODE
 
-public extension D2EdgedetectionMode {
+public extension D2EdgeDetectionMode {
     static let sobel = D2D1_EDGEDETECTION_MODE_SOBEL
     
     static let prewitt = D2D1_EDGEDETECTION_MODE_PREWITT

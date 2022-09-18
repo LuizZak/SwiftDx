@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2PointdiffuseProp = D2D1_POINTDIFFUSE_PROP
+typealias D2PointDiffuseProp = D2D1_POINTDIFFUSE_PROP
 
-public extension D2PointdiffuseProp {
+public extension D2PointDiffuseProp {
     static let lightPosition = D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION
     
     static let diffuseConstant = D2D1_POINTDIFFUSE_PROP_DIFFUSE_CONSTANT

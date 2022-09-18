@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2LineartransferProp = D2D1_LINEARTRANSFER_PROP
+typealias D2LinearTransferProp = D2D1_LINEARTRANSFER_PROP
 
-public extension D2LineartransferProp {
+public extension D2LinearTransferProp {
     static let redYIntercept = D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT
     
     static let redSlope = D2D1_LINEARTRANSFER_PROP_RED_SLOPE

@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2GammatransferProp = D2D1_GAMMATRANSFER_PROP
+typealias D2GammaTransferProp = D2D1_GAMMATRANSFER_PROP
 
-public extension D2GammatransferProp {
+public extension D2GammaTransferProp {
     static let redAmplitude = D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE
     
     static let redExponent = D2D1_GAMMATRANSFER_PROP_RED_EXPONENT

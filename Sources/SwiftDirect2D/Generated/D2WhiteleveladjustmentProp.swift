@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2WhiteleveladjustmentProp = D2D1_WHITELEVELADJUSTMENT_PROP
+typealias D2WhitelevelAdjustmentProp = D2D1_WHITELEVELADJUSTMENT_PROP
 
-public extension D2WhiteleveladjustmentProp {
+public extension D2WhitelevelAdjustmentProp {
     static let inputWhiteLevel = D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL
     
     static let outputWhiteLevel = D2D1_WHITELEVELADJUSTMENT_PROP_OUTPUT_WHITE_LEVEL

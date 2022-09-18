@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2BitmapsourceInterpolationMode = D2D1_BITMAPSOURCE_INTERPOLATION_MODE
+typealias D2BitmapSourceInterpolationMode = D2D1_BITMAPSOURCE_INTERPOLATION_MODE
 
-public extension D2BitmapsourceInterpolationMode {
+public extension D2BitmapSourceInterpolationMode {
     static let nearestNeighbor = D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_BITMAPSOURCE_INTERPOLATION_MODE_LINEAR

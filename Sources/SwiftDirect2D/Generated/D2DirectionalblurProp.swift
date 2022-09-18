@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2DirectionalblurProp = D2D1_DIRECTIONALBLUR_PROP
+typealias D2DirectionalBlurProp = D2D1_DIRECTIONALBLUR_PROP
 
-public extension D2DirectionalblurProp {
+public extension D2DirectionalBlurProp {
     static let standardDeviation = D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION
     
     static let angle = D2D1_DIRECTIONALBLUR_PROP_ANGLE

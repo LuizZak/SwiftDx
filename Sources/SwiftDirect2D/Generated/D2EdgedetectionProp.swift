@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2EdgedetectionProp = D2D1_EDGEDETECTION_PROP
+typealias D2EdgeDetectionProp = D2D1_EDGEDETECTION_PROP
 
-public extension D2EdgedetectionProp {
+public extension D2EdgeDetectionProp {
     static let strength = D2D1_EDGEDETECTION_PROP_STRENGTH
     
     static let blurRadius = D2D1_EDGEDETECTION_PROP_BLUR_RADIUS

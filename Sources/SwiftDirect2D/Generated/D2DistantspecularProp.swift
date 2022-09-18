@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2DistantspecularProp = D2D1_DISTANTSPECULAR_PROP
+typealias D2DistantSpecularProp = D2D1_DISTANTSPECULAR_PROP
 
-public extension D2DistantspecularProp {
+public extension D2DistantSpecularProp {
     static let azimuth = D2D1_DISTANTSPECULAR_PROP_AZIMUTH
     
     static let elevation = D2D1_DISTANTSPECULAR_PROP_ELEVATION

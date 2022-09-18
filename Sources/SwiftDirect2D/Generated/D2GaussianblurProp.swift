@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2GaussianblurProp = D2D1_GAUSSIANBLUR_PROP
+typealias D2GaussianBlurProp = D2D1_GAUSSIANBLUR_PROP
 
-public extension D2GaussianblurProp {
+public extension D2GaussianBlurProp {
     static let standardDeviation = D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION
     
     static let optimization = D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION

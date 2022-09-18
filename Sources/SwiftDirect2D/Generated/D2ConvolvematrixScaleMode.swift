@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2ConvolvematrixScaleMode = D2D1_CONVOLVEMATRIX_SCALE_MODE
+typealias D2ConvolveMatrixScaleMode = D2D1_CONVOLVEMATRIX_SCALE_MODE
 
-public extension D2ConvolvematrixScaleMode {
+public extension D2ConvolveMatrixScaleMode {
     static let nearestNeighbor = D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR

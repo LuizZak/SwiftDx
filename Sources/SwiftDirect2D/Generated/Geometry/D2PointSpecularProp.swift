@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2PointspecularProp = D2D1_POINTSPECULAR_PROP
+typealias D2PointSpecularProp = D2D1_POINTSPECULAR_PROP
 
-public extension D2PointspecularProp {
+public extension D2PointSpecularProp {
     static let lightPosition = D2D1_POINTSPECULAR_PROP_LIGHT_POSITION
     
     static let specularExponent = D2D1_POINTSPECULAR_PROP_SPECULAR_EXPONENT

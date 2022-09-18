@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2ConvolvematrixProp = D2D1_CONVOLVEMATRIX_PROP
+typealias D2ConvolveMatrixProp = D2D1_CONVOLVEMATRIX_PROP
 
-public extension D2ConvolvematrixProp {
+public extension D2ConvolveMatrixProp {
     static let kernelUnitLength = D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH
     
     static let scaleMode = D2D1_CONVOLVEMATRIX_PROP_SCALE_MODE

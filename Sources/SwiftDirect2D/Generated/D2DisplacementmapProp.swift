@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2DisplacementmapProp = D2D1_DISPLACEMENTMAP_PROP
+typealias D2DisplacementMapProp = D2D1_DISPLACEMENTMAP_PROP
 
-public extension D2DisplacementmapProp {
+public extension D2DisplacementMapProp {
     static let scale = D2D1_DISPLACEMENTMAP_PROP_SCALE
     
     static let xChannelSelect = D2D1_DISPLACEMENTMAP_PROP_X_CHANNEL_SELECT

@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2ArithmeticcompositeProp = D2D1_ARITHMETICCOMPOSITE_PROP
+typealias D2ArithmeticCompositeProp = D2D1_ARITHMETICCOMPOSITE_PROP
 
-public extension D2ArithmeticcompositeProp {
+public extension D2ArithmeticCompositeProp {
     static let coefficients = D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS
     
     static let clampOutput = D2D1_ARITHMETICCOMPOSITE_PROP_CLAMP_OUTPUT

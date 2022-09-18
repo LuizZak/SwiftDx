@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D22DAffinetransformProp = D2D1_2DAFFINETRANSFORM_PROP
+typealias D22DAffineTransformProp = D2D1_2DAFFINETRANSFORM_PROP
 
-public extension D22DAffinetransformProp {
+public extension D22DAffineTransformProp {
     static let interpolationMode = D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE
     
     static let borderMode = D2D1_2DAFFINETRANSFORM_PROP_BORDER_MODE

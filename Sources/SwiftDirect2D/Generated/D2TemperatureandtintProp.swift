@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2TemperatureandtintProp = D2D1_TEMPERATUREANDTINT_PROP
+typealias D2TemperatureAndTintProp = D2D1_TEMPERATUREANDTINT_PROP
 
-public extension D2TemperatureandtintProp {
+public extension D2TemperatureAndTintProp {
     static let temperature = D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE
     
     static let tint = D2D1_TEMPERATUREANDTINT_PROP_TINT

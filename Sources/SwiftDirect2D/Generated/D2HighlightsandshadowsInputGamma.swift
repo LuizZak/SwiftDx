@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2HighlightsandshadowsInputGamma = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA
+typealias D2HighlightsAndShadowsInputGamma = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA
 
-public extension D2HighlightsandshadowsInputGamma {
+public extension D2HighlightsAndShadowsInputGamma {
     static let linear = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR
     
     static let srgb = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_SRGB

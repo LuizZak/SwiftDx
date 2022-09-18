@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2DpicompensationInterpolationMode = D2D1_DPICOMPENSATION_INTERPOLATION_MODE
+typealias D2DPICompensationInterpolationMode = D2D1_DPICOMPENSATION_INTERPOLATION_MODE
 
-public extension D2DpicompensationInterpolationMode {
+public extension D2DPICompensationInterpolationMode {
     static let nearestNeighbor = D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_DPICOMPENSATION_INTERPOLATION_MODE_LINEAR

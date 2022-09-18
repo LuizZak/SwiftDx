@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2HDRTonemapProp = D2D1_HDRTONEMAP_PROP
+typealias D2HDRToneMapProp = D2D1_HDRTONEMAP_PROP
 
-public extension D2HDRTonemapProp {
+public extension D2HDRToneMapProp {
     static let inputMaxLuminance = D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE
     
     static let outputMaxLuminance = D2D1_HDRTONEMAP_PROP_OUTPUT_MAX_LUMINANCE

@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2PointdiffuseScaleMode = D2D1_POINTDIFFUSE_SCALE_MODE
+typealias D2PointDiffuseScaleMode = D2D1_POINTDIFFUSE_SCALE_MODE
 
-public extension D2PointdiffuseScaleMode {
+public extension D2PointDiffuseScaleMode {
     static let nearestNeighbor = D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_POINTDIFFUSE_SCALE_MODE_LINEAR

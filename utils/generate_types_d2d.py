@@ -24,7 +24,7 @@ def main() -> int:
         "CDirect2D",
     ]
 
-    dir_manager = DirectoryStructureManager(dict())
+    dir_manager = DirectoryStructureManager(D2D_PATH_MATCHERS)
 
     generate_types_main(
         header_file=header_file,

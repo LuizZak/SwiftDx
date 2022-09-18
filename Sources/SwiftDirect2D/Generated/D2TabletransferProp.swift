@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2TabletransferProp = D2D1_TABLETRANSFER_PROP
+typealias D2TableTransferProp = D2D1_TABLETRANSFER_PROP
 
-public extension D2TabletransferProp {
+public extension D2TableTransferProp {
     static let redTable = D2D1_TABLETRANSFER_PROP_RED_TABLE
     
     static let redDisable = D2D1_TABLETRANSFER_PROP_RED_DISABLE

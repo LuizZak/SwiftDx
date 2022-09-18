@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2HighlightsandshadowsProp = D2D1_HIGHLIGHTSANDSHADOWS_PROP
+typealias D2HighlightsAndShadowsProp = D2D1_HIGHLIGHTSANDSHADOWS_PROP
 
-public extension D2HighlightsandshadowsProp {
+public extension D2HighlightsAndShadowsProp {
     static let highlights = D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS
     
     static let shadows = D2D1_HIGHLIGHTSANDSHADOWS_PROP_SHADOWS

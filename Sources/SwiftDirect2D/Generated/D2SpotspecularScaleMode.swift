@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2SpotspecularScaleMode = D2D1_SPOTSPECULAR_SCALE_MODE
+typealias D2SpotSpecularScaleMode = D2D1_SPOTSPECULAR_SCALE_MODE
 
-public extension D2SpotspecularScaleMode {
+public extension D2SpotSpecularScaleMode {
     static let nearestNeighbor = D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_SPOTSPECULAR_SCALE_MODE_LINEAR

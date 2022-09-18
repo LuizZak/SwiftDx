@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2BitmapsourceOrientation = D2D1_BITMAPSOURCE_ORIENTATION
+typealias D2BitmapSourceOrientation = D2D1_BITMAPSOURCE_ORIENTATION
 
-public extension D2BitmapsourceOrientation {
+public extension D2BitmapSourceOrientation {
     static let `default` = D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT
     
     static let flipHorizontal = D2D1_BITMAPSOURCE_ORIENTATION_FLIP_HORIZONTAL

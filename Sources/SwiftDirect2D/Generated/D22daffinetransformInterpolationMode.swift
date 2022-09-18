@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D22DAffinetransformInterpolationMode = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE
+typealias D22DAffineTransformInterpolationMode = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE
 
-public extension D22DAffinetransformInterpolationMode {
+public extension D22DAffineTransformInterpolationMode {
     static let nearestNeighbor = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR
     
     static let linear = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_LINEAR

@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2GaussianblurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION
+typealias D2GaussianBlurOptimization = D2D1_GAUSSIANBLUR_OPTIMIZATION
 
-public extension D2GaussianblurOptimization {
+public extension D2GaussianBlurOptimization {
     static let speed = D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED
     
     static let balanced = D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED

@@ -3,9 +3,9 @@
 import WinSDK
 import CDirect2D
 
-typealias D2DistantdiffuseProp = D2D1_DISTANTDIFFUSE_PROP
+typealias D2DistantDiffuseProp = D2D1_DISTANTDIFFUSE_PROP
 
-public extension D2DistantdiffuseProp {
+public extension D2DistantDiffuseProp {
     static let azimuth = D2D1_DISTANTDIFFUSE_PROP_AZIMUTH
     
     static let elevation = D2D1_DISTANTDIFFUSE_PROP_ELEVATION
