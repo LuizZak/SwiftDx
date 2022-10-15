@@ -1,3 +1,1 @@
-import CDirect2D
-
-
+@_exported import CDirect2D

@@ -34,6 +34,8 @@ def main() -> int:
         cli_description="Generates .swift files wrapping Direct2D declarations found in public Windows SDK headers.",
     )
 
+    return 0
+
 
 D2D_PATH_MATCHERS: dict[re.Pattern, list[str]] = {
     # A

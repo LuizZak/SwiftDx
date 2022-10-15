@@ -13,9 +13,6 @@ class GeneratedPathOutput:
 
 
 def path(root: Path | str, *args: str | PathLike[str]) -> Path:
-    if root is Path:
-        return root.joinpath(*args)
-
     return Path(root).joinpath(*args)
 
 

@@ -4,5 +4,3 @@ import WinSDK
 import CDirect2D
 
 typealias D2PropertyBinding = D2D1_PROPERTY_BINDING
-
-typealias D2PropertyBinding = D2D1_PROPERTY_BINDING

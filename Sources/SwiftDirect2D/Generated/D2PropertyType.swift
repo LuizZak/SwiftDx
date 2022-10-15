@@ -28,7 +28,7 @@ public extension D2PropertyType {
     
     static let iunknown = D2D1_PROPERTY_TYPE_IUNKNOWN
     
-    static let enum = D2D1_PROPERTY_TYPE_ENUM
+    static let `enum` = D2D1_PROPERTY_TYPE_ENUM
     
     static let array = D2D1_PROPERTY_TYPE_ARRAY
     

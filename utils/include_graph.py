@@ -1,6 +1,7 @@
 # Generates a .dot Graphviz file with the include graph starting from a given header file.
 
 import argparse
+import os
 import subprocess
 import sys
 import re
@@ -16,7 +17,7 @@ from typing import List, Generic, TypeVar
 def make_argparser() -> argparse.ArgumentParser:
     argparser = argparse.ArgumentParser(
         description="Generates a .dot Graphviz file with the include graph starting from a given header file. Results "
-                    "gets printed to stdout. "
+        "gets printed to stdout. "
     )
     argparser.add_argument(
         "header_file_path",
@@ -30,10 +31,15 @@ def make_argparser() -> argparse.ArgumentParser:
 def run_cl(header_file_path: Path) -> str:
     args = ["cl", "/showIncludes", str(header_file_path), "/E"]
 
-    proc = subprocess.run(args, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    env = os.environ.copy()
+    env["VSLANG"] = "1033"
+
+    proc = subprocess.run(
+        args, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, env=env
+    )
     proc.check_returncode()
 
-    return proc.stderr.decode("UTF8")
+    return proc.stderr.decode("cp1252")
 
 
 # https://stackoverflow.com/a/30747003
@@ -192,7 +198,7 @@ def print_graphviz(graph: Graph[HeaderFile]) -> str:
 
 
 def process(header_file_path: Path, output: str) -> str:
-    pattern = re.compile(r"Note: including file:(\s+)(.+)")
+    pattern = re.compile(r".+:(\s+)(\w:\\.+)")
 
     depth = 0
     start = HeaderFile(header_file_path)

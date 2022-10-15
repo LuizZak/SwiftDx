@@ -24,7 +24,7 @@ def generate_types_main(
     imports: list[str],
     directory_manager: DirectoryStructureManager,
     cli_description: str,
-) -> int:
+):
     parser = argparse.ArgumentParser(description=cli_description)
 
     parser.add_argument(

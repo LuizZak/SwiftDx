@@ -34,6 +34,8 @@ def main() -> int:
         cli_description="Generates .swift files wrapping DirectX declarations found in public Windows SDK headers.",
     )
 
+    return 0
+
 
 DX12_PATH_MATCHERS: dict[re.Pattern, list[str]] = {
     # A

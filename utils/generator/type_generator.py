@@ -24,6 +24,7 @@ from data.swift_file import SwiftFile
 
 # Utils
 from paths import paths
+from generator.swift_decl_merger import SwiftDeclMerger
 
 
 def run_cl(input_path: Path) -> bytes:
@@ -32,7 +33,7 @@ def run_cl(input_path: Path) -> bytes:
         "/E",
         "/Za",
         "/Zc:wchar_t",
-        input_path,
+        str(input_path),
     ]
 
     return subprocess.check_output(cl_args, cwd=paths.SCRIPTS_ROOT_PATH)
@@ -96,21 +97,21 @@ class SwiftDeclConverter:
     def convert_enum(self, decl: c_ast.Enum) -> SwiftEnumDecl:
         enum_name = self.convert_enum_name(decl.name)
 
-        cases = map(
+        cases = list(map(
             lambda d: self.convert_enum_case(enum_name, decl.name, d),
             decl.values
-        )
+        ))
 
         # Detect reserved values and ignore them early
-        cases = filter(
+        cases = list(filter(
             lambda c: not c.name.startswith('Reserved'),
             cases
-        )
+        ))
 
         return SwiftEnumDecl(
             enum_name,
             CompoundSymbolName.from_snake_case(decl.name),
-            list(cases)
+            cases
         )
 
     # Struct
@@ -275,6 +276,9 @@ def generate_types(request: TypeGeneratorRequest) -> int:
 
     converter = SwiftDeclConverter(prefixes=request.prefixes, capitalizer=request.capitalizer)
     swift_decls = converter.convert_list(visitor.decls)
+
+    merger = SwiftDeclMerger()
+    swift_decls = merger.merge(swift_decls)
 
     dir_manager = request.directory_manager
 

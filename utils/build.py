@@ -5,22 +5,28 @@ import sys
 import argparse
 import subprocess
 import json
-import inspect
 
 from pathlib import Path
 from dataclasses import dataclass
 from enum import Enum, unique
 from typing import Any, Callable, List, Optional, TypeVar
-from os import PathLike
 
-win32_debug_args = ["-Xswiftc", "-g", "-Xswiftc", "-debug-info-format=codeview", "-Xlinker", "-debug"]
+win32_debug_args = [
+    # "-v", "-Xcxx", "-v",
+    "-Xswiftc",
+    "-g",
+    "-Xswiftc",
+    "-debug-info-format=codeview",
+    "-Xlinker",
+    "-debug",
+]
 
 
 def make_argparser() -> argparse.ArgumentParser:
     # Argument parser with support for specifying default subcommand parser
     # https://stackoverflow.com/a/37593636
     class DefaultSubcommandArgParse(argparse.ArgumentParser):
-        __default_subparser = None
+        __default_subparser: Any = None
 
         def set_default_subparser(self, name):
             self.__default_subparser = name
@@ -58,7 +64,7 @@ def make_argparser() -> argparse.ArgumentParser:
 
     def add_manifest_arg(parser: argparse.ArgumentParser):
         parser.add_argument('-m', '--manifest-path',
-                            type=Optional[Path],
+                            type=Path,
                             dest='manifest_path',
                             default=None,
                             help="Path to a .manifest file to use when building .exe targets. If not provided, a path of the form "
@@ -157,26 +163,14 @@ class SwiftTarget(object):
         self.name = obj['name']
         self.type = SwiftTargetType(obj['type'])
 
-
-T = TypeVar("T")
-
-
-def deserialize_json(target_class: Callable[[Any], T], object_repr: str | bytes | bytearray) -> T:
-    data = json.loads(object_repr)
-    signature = inspect.signature(target_class)
-    bound_signature = signature.bind(**data)
-    bound_signature.apply_defaults()
-    return target_class(**bound_signature.arguments)
-
-
-def run_output(bin_name: str, *args: str | PathLike, echo: bool = True) -> bytes:
+def run_output(bin_name: str, *args: Any, echo: bool = True) -> bytes:
     if echo:
         print('>', bin_name, *list(args))
 
     return subprocess.check_output([bin_name] + list(args))
 
 
-def run(bin_name: str, *args: str | PathLike, echo: bool = True, silent: bool = False):
+def run(bin_name: str, *args: Any, echo: bool = True, silent: bool = False):
     if echo:
         print('>', bin_name, *list(args))
 
@@ -185,6 +179,8 @@ def run(bin_name: str, *args: str | PathLike, echo: bool = True, silent: bool = 
     else:
         subprocess.check_call([bin_name] + list(args))
 
+
+T = TypeVar("T")
 
 def find(predicate: Callable[[T], bool], list: List[T]) -> Optional[T]:
     for item in list:

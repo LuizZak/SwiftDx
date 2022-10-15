@@ -130,7 +130,7 @@ class CompoundSymbolName(Sequence):
 
             return CompoundSymbolName.Component(self.string, string_case=string_case)
 
-        def with_prefix(self, prefix: str) -> "CompoundSymbolName.Component":
+        def with_prefix(self, prefix: str | None) -> "CompoundSymbolName.Component":
             return CompoundSymbolName.Component(
                 self.string, prefix, self.suffix, self.joint_to_prev, self.string_case
             )
@@ -140,12 +140,12 @@ class CompoundSymbolName(Sequence):
                 string, self.prefix, self.suffix, self.joint_to_prev, self.string_case
             )
 
-        def with_suffix(self, suffix: str) -> "CompoundSymbolName.Component":
+        def with_suffix(self, suffix: str | None) -> "CompoundSymbolName.Component":
             return CompoundSymbolName.Component(
                 self.string, self.prefix, suffix, self.joint_to_prev, self.string_case
             )
 
-        def with_joint_to_prev(self, joint_to_prev: str):
+        def with_joint_to_prev(self, joint_to_prev: str | None):
             return CompoundSymbolName.Component(
                 self.string, self.prefix, self.suffix, joint_to_prev, self.string_case
             )
@@ -263,9 +263,9 @@ class CompoundSymbolName(Sequence):
 
             return result
 
-    def __init__(self, components: list[Component]):
+    def __init__(self, components: list[Component] | None):
         if components is None:
-            components: list[CompoundSymbolName.Component] = []
+            components = []
 
         for comp in components:
             assert isinstance(comp, CompoundSymbolName.Component)

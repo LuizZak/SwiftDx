@@ -6,7 +6,7 @@ import CDirect2D
 typealias D2VertexUsage = D2D1_VERTEX_USAGE
 
 public extension D2VertexUsage {
-    static let static = D2D1_VERTEX_USAGE_STATIC
+    static let `static` = D2D1_VERTEX_USAGE_STATIC
     
     static let dynamic = D2D1_VERTEX_USAGE_DYNAMIC
     

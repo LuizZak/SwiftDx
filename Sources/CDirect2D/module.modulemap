@@ -1,0 +1,9 @@
+module CDirect2D [system] {
+    header "CDirect2D.h"
+
+    link "d2d1.lib"
+    link "d3d12.lib"
+    link "dxgi.lib"
+
+    export *
+}

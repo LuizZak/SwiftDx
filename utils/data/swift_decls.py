@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from typing import List
 
 from converters.syntax_stream import SyntaxStream
+from data.backticked_term import backticked_term
 from data.compound_symbol_name import CompoundSymbolName
-from constants.constants import backticked_term
 
 
 @dataclass
@@ -50,6 +50,16 @@ class SwiftEnumDecl(SwiftDecl):
 
 @dataclass
 class SwiftStructDecl(SwiftDecl):
+    def write(self, stream: SyntaxStream):
+        stream.line(
+            f"typealias {self.name.to_string()} = {self.original_name.to_string()}"
+        )
+
+        pass
+
+
+@dataclass
+class SwiftTypealiasDecl(SwiftDecl):
     def write(self, stream: SyntaxStream):
         stream.line(
             f"typealias {self.name.to_string()} = {self.original_name.to_string()}"
