@@ -47,6 +47,8 @@ public extension DxFeature {
     
     static let options5 = D3D12_FEATURE_D3D12_OPTIONS5
     
+    static let displayable = D3D12_FEATURE_DISPLAYABLE
+    
     static let options6 = D3D12_FEATURE_D3D12_OPTIONS6
     
     static let queryMetaCommand = D3D12_FEATURE_QUERY_META_COMMAND
@@ -61,5 +63,7 @@ public extension DxFeature {
     
     static let options9 = D3D12_FEATURE_D3D12_OPTIONS9
     
-    static let waveMma = D3D12_FEATURE_WAVE_MMA
+    static let options10 = D3D12_FEATURE_D3D12_OPTIONS10
+    
+    static let options11 = D3D12_FEATURE_D3D12_OPTIONS11
 }

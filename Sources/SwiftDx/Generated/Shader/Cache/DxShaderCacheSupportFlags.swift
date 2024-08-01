@@ -16,4 +16,8 @@ public extension DxShaderCacheSupportFlags {
     static let automaticDiskCache = D3D12_SHADER_CACHE_SUPPORT_AUTOMATIC_DISK_CACHE
     
     static let driverManagedCache = D3D12_SHADER_CACHE_SUPPORT_DRIVER_MANAGED_CACHE
+    
+    static let shaderControlClear = D3D12_SHADER_CACHE_SUPPORT_SHADER_CONTROL_CLEAR
+    
+    static let shaderSessionDelete = D3D12_SHADER_CACHE_SUPPORT_SHADER_SESSION_DELETE
 }

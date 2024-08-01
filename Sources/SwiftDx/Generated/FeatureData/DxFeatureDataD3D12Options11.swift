@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataWaveMma = D3D12_FEATURE_DATA_WAVE_MMA
+typealias DxFeatureDataD3D12Options11 = D3D12_FEATURE_DATA_D3D12_OPTIONS11

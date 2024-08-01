@@ -1773,5 +1773,19 @@ public extension DxMessageId {
     
     static let setPrivateDataNoAccess = D3D12_MESSAGE_ID_SETPRIVATEDATA_NO_ACCESS
     
+    static let commandListStaticDescriptorSamplerModeMismatch = D3D12_MESSAGE_ID_COMMAND_LIST_STATIC_DESCRIPTOR_SAMPLER_MODE_MISMATCH
+    
+    static let getCopyableFootprintsUnsupportedBufferWidth = D3D12_MESSAGE_ID_GETCOPYABLEFOOTPRINTS_UNSUPPORTED_BUFFER_WIDTH
+    
+    static let createMeshShaderTopologyMismatch = D3D12_MESSAGE_ID_CREATEMESHSHADER_TOPOLOGY_MISMATCH
+    
+    static let vrsSumCombinerRequiresCapability = D3D12_MESSAGE_ID_VRS_SUM_COMBINER_REQUIRES_CAPABILITY
+    
+    static let settingShadingRateFromMsRequiresCapability = D3D12_MESSAGE_ID_SETTING_SHADING_RATE_FROM_MS_REQUIRES_CAPABILITY
+    
+    static let shaderCacheSessionShaderCachedEleteNotSupported = D3D12_MESSAGE_ID_SHADERCACHESESSION_SHADERCACHEDELETE_NOTSUPPORTED
+    
+    static let shaderCacheControlShaderCacheclearNotSupported = D3D12_MESSAGE_ID_SHADERCACHECONTROL_SHADERCACHECLEAR_NOTSUPPORTED
+    
     static let messagesEnd = D3D12_MESSAGE_ID_D3D12_MESSAGES_END
 }

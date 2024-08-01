@@ -42,7 +42,7 @@ enum D3D12_QUERY_TYPE
         D3D12_QUERY_TYPE_1 = 11
     } 	D3D12_QUERY_TYPE;
 
-typedef 
+typedef
 enum DXGI_COLOR_SPACE_TYPE
     {
         DXGI_COLOR_SPACE_RESERVED   = 0,

@@ -224,7 +224,16 @@ class DirectXManager {
         return try device.CreateCommandQueue(desc)
     }
 
-    private func makeSwapChain(_ factory: Factory, _ queue: CommandQueue, _ hwnd: HWND, width: Int, height: Int, backBufferFormat: DxgiFormat, bufferCount: Int, tearingSupported: Bool) throws -> SwapChain {
+    private func makeSwapChain(
+        _ factory: Factory,
+        _ queue: CommandQueue,
+        _ hwnd: HWND,
+        width: Int,
+        height: Int,
+        backBufferFormat: DxgiFormat,
+        bufferCount: Int,
+        tearingSupported: Bool
+    ) throws -> SwapChain {
         var swapChainDesc = DxgiSwapChainDesc1()
         swapChainDesc.Width = UINT(width)
         swapChainDesc.Height = UINT(height)
@@ -297,22 +306,24 @@ private struct DirectXState {
     var rtvDescriptorHeap: DescriptorHeap
     var rtvDescriptorSize: Int
 
-    internal init(backBufferCount: Int,
-                  backBufferFormat: DxgiFormat,
-                  backBufferIndex: Int = 0,
-                  isVSyncOn: Bool = false,
-                  tearingSupported: Bool,
-                  factory: Factory,
-                  device: Device,
-                  rootSignature: RootSignature,
-                  commandQueue: CommandQueue,
-                  swapChain: SwapChain,
-                  backBuffers: [Resource] = [],
-                  commandAllocators: [CommandAllocator],
-                  commandList: GraphicsCommandList,
-                  fenceStructure: FenceStructure,
-                  rtvDescriptorHeap: DescriptorHeap,
-                  rtvDescriptorSize: Int) {
+    internal init(
+        backBufferCount: Int,
+        backBufferFormat: DxgiFormat,
+        backBufferIndex: Int = 0,
+        isVSyncOn: Bool = false,
+        tearingSupported: Bool,
+        factory: Factory,
+        device: Device,
+        rootSignature: RootSignature,
+        commandQueue: CommandQueue,
+        swapChain: SwapChain,
+        backBuffers: [Resource] = [],
+        commandAllocators: [CommandAllocator],
+        commandList: GraphicsCommandList,
+        fenceStructure: FenceStructure,
+        rtvDescriptorHeap: DescriptorHeap,
+        rtvDescriptorSize: Int
+    ) {
 
         self.backBufferCount = backBufferCount
         self.backBufferFormat = backBufferFormat

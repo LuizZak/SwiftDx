@@ -32,41 +32,46 @@
             {
 				"label": "Build (debug)",
 				"type": "shell",
-				"command": "python utils\\build.py",
+				"command": "python312",
 				"args": [
-					"-c", "debug"
+					"utils\\build.py",
+					"-c", "debug",
 				]
 			},
             {
 				"label": "Test",
 				"type": "shell",
-				"command": "python utils\\build.py",
+				"command": "python312",
 				"args": [
-					"test"
+					"utils\\build.py",
+					"test",
 				]
 			},
             {
 				"label": "Build Sample (debug)",
 				"type": "shell",
-				"command": "python utils\\build.py",
+				"command": "python312",
 				"args": [
+					"utils\\build.py",
 					"-c", "debug",
-					"-t", "SwiftDx_Sample"
+					"-t", "SwiftDx_Sample",
 				]
 			},
             {
 				"label": "Run Sample (debug)",
 				"type": "shell",
-				"command": "python utils\\build.py",
+				"command": "python312",
 				"args": [
-					"run"
+					"utils\\build.py",
+					"run",
 				]
 			},
 			{
 				"label": "Generate Swift Types (SwiftDx)",
 				"type": "shell",
-				"command": "python generate_types_dx12.py",
+				"command": "python312",
 				"args": [
+					"generate_types_dx12.py",
 					"-o", "${workspaceFolder:SwiftDx}\\Sources\\SwiftDx\\Generated"
 				],
 				"options": {
@@ -76,8 +81,9 @@
 			{
 				"label": "Generate Swift Types (SwiftDirect2D)",
 				"type": "shell",
-				"command": "python utils\\generate_types_d2d.py",
+				"command": "python312",
 				"args": [
+					"utils\\generate_types_d2d.py",
 					"-o", "${workspaceFolder:SwiftDx}\\Sources\\SwiftDirect2D\\Generated"
 				],
 				"options": {

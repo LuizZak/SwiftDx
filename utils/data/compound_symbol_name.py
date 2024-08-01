@@ -41,17 +41,16 @@ class ComponentCase(Enum):
         >>> ComponentCase.AS_IS.change_case("AString")
         'AString'
         """
-        match self:
-            case ComponentCase.ANY:
-                return string
-            case ComponentCase.AS_IS:
-                return string
-            case ComponentCase.UPPER:
-                return string.upper()
-            case ComponentCase.LOWER:
-                return string.lower()
-            case ComponentCase.CAPITALIZED:
-                return string.capitalize()
+        if self == ComponentCase.ANY or self == ComponentCase.AS_IS:
+            return string
+        elif self == ComponentCase.UPPER:
+            return string.upper()
+        elif self == ComponentCase.LOWER:
+            return string.lower()
+        elif self == ComponentCase.CAPITALIZED:
+            return string.capitalize()
+
+        return string
 
     def __or__(self, other):
         """
