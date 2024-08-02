@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxViewInstancingDesc = D3D12_VIEW_INSTANCING_DESC
+public typealias DxViewInstancingDesc = D3D12_VIEW_INSTANCING_DESC

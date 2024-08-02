@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceStates = D3D12_RESOURCE_STATES
+public typealias DxResourceStates = D3D12_RESOURCE_STATES
 
 public extension DxResourceStates {
     static let common = D3D12_RESOURCE_STATE_COMMON

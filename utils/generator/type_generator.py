@@ -18,7 +18,7 @@ from converters.symbol_name_formatter import SymbolNameFormatter
 from converters.syntax_stream import SyntaxStream
 from converters.convert_enum_case_name import convert_enum_case_name
 from data.compound_symbol_name import CompoundSymbolName
-from data.swift_decls import SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
+from data.swift_decls import AccessLevel, SwiftDecl, SwiftEnumCaseDecl, SwiftEnumDecl, SwiftStructDecl
 from directory_structure.directory_structure_manager import DirectoryStructureManager
 from data.swift_file import SwiftFile
 
@@ -91,7 +91,8 @@ class SwiftDeclConverter:
                                        decl.name,
                                        self.prefixes)
             ),
-            CompoundSymbolName.from_snake_case(decl.name)
+            CompoundSymbolName.from_snake_case(decl.name),
+            access_level=AccessLevel.PUBLIC
         )
 
     def convert_enum(self, decl: c_ast.Enum) -> SwiftEnumDecl:
@@ -111,7 +112,8 @@ class SwiftDeclConverter:
         return SwiftEnumDecl(
             enum_name,
             CompoundSymbolName.from_snake_case(decl.name),
-            cases
+            AccessLevel.PUBLIC,
+            cases,
         )
 
     # Struct
@@ -124,7 +126,8 @@ class SwiftDeclConverter:
     def convert_struct(self, decl: c_ast.Struct) -> SwiftStructDecl:
         return SwiftStructDecl(
             self.convert_struct_name(decl.name),
-            CompoundSymbolName.from_snake_case(decl.name)
+            CompoundSymbolName.from_snake_case(decl.name),
+            access_level=AccessLevel.PUBLIC
         )
 
     #

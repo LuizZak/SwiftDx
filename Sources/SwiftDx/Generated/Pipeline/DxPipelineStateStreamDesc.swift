@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxPipelineStateStreamDesc = D3D12_PIPELINE_STATE_STREAM_DESC
+public typealias DxPipelineStateStreamDesc = D3D12_PIPELINE_STATE_STREAM_DESC

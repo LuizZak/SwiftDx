@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceBarrierFlags = D3D12_RESOURCE_BARRIER_FLAGS
+public typealias DxResourceBarrierFlags = D3D12_RESOURCE_BARRIER_FLAGS
 
 public extension DxResourceBarrierFlags {
     static let none = D3D12_RESOURCE_BARRIER_FLAG_NONE

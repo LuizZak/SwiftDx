@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSubResourceTiling = D3D12_SUBRESOURCE_TILING
+public typealias DxSubResourceTiling = D3D12_SUBRESOURCE_TILING

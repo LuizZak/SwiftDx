@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFenceFlags = D3D12_FENCE_FLAGS
+public typealias DxFenceFlags = D3D12_FENCE_FLAGS
 
 public extension DxFenceFlags {
     static let none = D3D12_FENCE_FLAG_NONE

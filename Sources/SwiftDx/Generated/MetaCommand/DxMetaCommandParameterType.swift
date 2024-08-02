@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMetaCommandParameterType = D3D12_META_COMMAND_PARAMETER_TYPE
+public typealias DxMetaCommandParameterType = D3D12_META_COMMAND_PARAMETER_TYPE
 
 public extension DxMetaCommandParameterType {
     static let float = D3D12_META_COMMAND_PARAMETER_TYPE_FLOAT

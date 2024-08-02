@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3InterpolationMode = D3D_INTERPOLATION_MODE
+public typealias D3InterpolationMode = D3D_INTERPOLATION_MODE
 
 public extension D3InterpolationMode {
     static let undefined = D3D_INTERPOLATION_UNDEFINED

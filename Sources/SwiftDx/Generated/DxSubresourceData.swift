@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSubResourceData = D3D12_SUBRESOURCE_DATA
+public typealias DxSubResourceData = D3D12_SUBRESOURCE_DATA

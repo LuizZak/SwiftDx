@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFilterReductionType = D3D12_FILTER_REDUCTION_TYPE
+public typealias DxFilterReductionType = D3D12_FILTER_REDUCTION_TYPE
 
 public extension DxFilterReductionType {
     static let standard = D3D12_FILTER_REDUCTION_TYPE_STANDARD

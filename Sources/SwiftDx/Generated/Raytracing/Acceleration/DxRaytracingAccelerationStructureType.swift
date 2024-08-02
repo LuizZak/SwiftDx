@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingAccelerationStructureType = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE
+public typealias DxRaytracingAccelerationStructureType = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE
 
 public extension DxRaytracingAccelerationStructureType {
     static let topLevel = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL

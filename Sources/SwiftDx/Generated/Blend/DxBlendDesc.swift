@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxBlendDesc = D3D12_BLEND_DESC
+public typealias DxBlendDesc = D3D12_BLEND_DESC

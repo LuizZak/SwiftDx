@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxHitGroupType = D3D12_HIT_GROUP_TYPE
+public typealias DxHitGroupType = D3D12_HIT_GROUP_TYPE
 
 public extension DxHitGroupType {
     static let triangles = D3D12_HIT_GROUP_TYPE_TRIANGLES

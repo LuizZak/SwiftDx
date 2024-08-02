@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceBindingTier = D3D12_RESOURCE_BINDING_TIER
+public typealias DxResourceBindingTier = D3D12_RESOURCE_BINDING_TIER
 
 public extension DxResourceBindingTier {
     static let tier_1 = D3D12_RESOURCE_BINDING_TIER_1

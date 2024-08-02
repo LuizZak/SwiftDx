@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCullMode = D3D12_CULL_MODE
+public typealias DxCullMode = D3D12_CULL_MODE
 
 public extension DxCullMode {
     static let none = D3D12_CULL_MODE_NONE

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFilterType = D3D12_FILTER_TYPE
+public typealias DxFilterType = D3D12_FILTER_TYPE
 
 public extension DxFilterType {
     static let point = D3D12_FILTER_TYPE_POINT

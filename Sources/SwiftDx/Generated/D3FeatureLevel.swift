@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3FeatureLevel = D3D_FEATURE_LEVEL
+public typealias D3FeatureLevel = D3D_FEATURE_LEVEL
 
 public extension D3FeatureLevel {
     static let level_1_0Core = D3D_FEATURE_LEVEL_1_0_CORE

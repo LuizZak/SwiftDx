@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxElementsLayout = D3D12_ELEMENTS_LAYOUT
+public typealias DxElementsLayout = D3D12_ELEMENTS_LAYOUT
 
 public extension DxElementsLayout {
     static let array = D3D12_ELEMENTS_LAYOUT_ARRAY

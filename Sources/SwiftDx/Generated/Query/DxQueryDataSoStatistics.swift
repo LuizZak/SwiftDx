@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxQueryDataSoStatistics = D3D12_QUERY_DATA_SO_STATISTICS
+public typealias DxQueryDataSoStatistics = D3D12_QUERY_DATA_SO_STATISTICS

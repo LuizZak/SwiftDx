@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxMetaCommandParameterDesc = D3D12_META_COMMAND_PARAMETER_DESC
+public typealias DxMetaCommandParameterDesc = D3D12_META_COMMAND_PARAMETER_DESC

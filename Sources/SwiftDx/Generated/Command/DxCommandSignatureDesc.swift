@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxCommandSignatureDesc = D3D12_COMMAND_SIGNATURE_DESC
+public typealias DxCommandSignatureDesc = D3D12_COMMAND_SIGNATURE_DESC

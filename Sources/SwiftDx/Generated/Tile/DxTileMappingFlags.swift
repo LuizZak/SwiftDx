@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxTileMappingFlags = D3D12_TILE_MAPPING_FLAGS
+public typealias DxTileMappingFlags = D3D12_TILE_MAPPING_FLAGS
 
 public extension DxTileMappingFlags {
     static let none = D3D12_TILE_MAPPING_FLAG_NONE

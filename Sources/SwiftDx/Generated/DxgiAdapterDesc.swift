@@ -2,10 +2,10 @@
 
 import WinSDK
 
-typealias DxgiAdapterDesc = DXGI_ADAPTER_DESC
+public typealias DxgiAdapterDesc = DXGI_ADAPTER_DESC
 
-typealias DxgiAdapterDesc1 = DXGI_ADAPTER_DESC1
+public typealias DxgiAdapterDesc1 = DXGI_ADAPTER_DESC1
 
-typealias DxgiAdapterDesc2 = DXGI_ADAPTER_DESC2
+public typealias DxgiAdapterDesc2 = DXGI_ADAPTER_DESC2
 
-typealias DxgiAdapterDesc3 = DXGI_ADAPTER_DESC3
+public typealias DxgiAdapterDesc3 = DXGI_ADAPTER_DESC3

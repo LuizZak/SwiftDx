@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDsvDimension = D3D12_DSV_DIMENSION
+public typealias DxDsvDimension = D3D12_DSV_DIMENSION
 
 public extension DxDsvDimension {
     static let unknown = D3D12_DSV_DIMENSION_UNKNOWN

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSamplerDesc = D3D12_SAMPLER_DESC
+public typealias DxSamplerDesc = D3D12_SAMPLER_DESC

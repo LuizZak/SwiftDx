@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3ResourceReturnType = D3D_RESOURCE_RETURN_TYPE
+public typealias D3ResourceReturnType = D3D_RESOURCE_RETURN_TYPE
 
 public extension D3ResourceReturnType {
     static let returnTypeUnorm = D3D_RETURN_TYPE_UNORM

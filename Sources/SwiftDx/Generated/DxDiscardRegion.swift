@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDiscardRegion = D3D12_DISCARD_REGION
+public typealias DxDiscardRegion = D3D12_DISCARD_REGION

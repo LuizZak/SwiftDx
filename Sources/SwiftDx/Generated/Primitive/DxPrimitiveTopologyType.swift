@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxPrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE
+public typealias DxPrimitiveTopologyType = D3D12_PRIMITIVE_TOPOLOGY_TYPE
 
 public extension DxPrimitiveTopologyType {
     static let undefined = D3D12_PRIMITIVE_TOPOLOGY_TYPE_UNDEFINED

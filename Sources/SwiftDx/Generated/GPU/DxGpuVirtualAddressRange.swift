@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxGPUVirtualAddressRange = D3D12_GPU_VIRTUAL_ADDRESS_RANGE
+public typealias DxGPUVirtualAddressRange = D3D12_GPU_VIRTUAL_ADDRESS_RANGE

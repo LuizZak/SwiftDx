@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderPassEndingAccess = D3D12_RENDER_PASS_ENDING_ACCESS
+public typealias DxRenderPassEndingAccess = D3D12_RENDER_PASS_ENDING_ACCESS

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxGPUDescriptorHandle = D3D12_GPU_DESCRIPTOR_HANDLE
+public typealias DxGPUDescriptorHandle = D3D12_GPU_DESCRIPTOR_HANDLE

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxHeapType = D3D12_HEAP_TYPE
+public typealias DxHeapType = D3D12_HEAP_TYPE
 
 public extension DxHeapType {
     static let `default` = D3D12_HEAP_TYPE_DEFAULT

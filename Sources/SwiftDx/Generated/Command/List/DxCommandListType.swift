@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCommandListType = D3D12_COMMAND_LIST_TYPE
+public typealias DxCommandListType = D3D12_COMMAND_LIST_TYPE
 
 public extension DxCommandListType {
     static let direct = D3D12_COMMAND_LIST_TYPE_DIRECT

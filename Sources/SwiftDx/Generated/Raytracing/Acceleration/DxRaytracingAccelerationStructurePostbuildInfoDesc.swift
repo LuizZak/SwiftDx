@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingAccelerationStructurePostBuildInfoDesc = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC
+public typealias DxRaytracingAccelerationStructurePostBuildInfoDesc = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC

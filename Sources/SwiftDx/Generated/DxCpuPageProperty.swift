@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCPUPageProperty = D3D12_CPU_PAGE_PROPERTY
+public typealias DxCPUPageProperty = D3D12_CPU_PAGE_PROPERTY
 
 public extension DxCPUPageProperty {
     static let unknown = D3D12_CPU_PAGE_PROPERTY_UNKNOWN

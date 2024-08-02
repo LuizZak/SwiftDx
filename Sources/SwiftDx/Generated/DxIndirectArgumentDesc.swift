@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxIndirectArgumentDesc = D3D12_INDIRECT_ARGUMENT_DESC
+public typealias DxIndirectArgumentDesc = D3D12_INDIRECT_ARGUMENT_DESC

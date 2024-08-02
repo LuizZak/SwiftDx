@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxShaderCacheSessionDesc = D3D12_SHADER_CACHE_SESSION_DESC
+public typealias DxShaderCacheSessionDesc = D3D12_SHADER_CACHE_SESSION_DESC

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiOutduplPointerPosition = DXGI_OUTDUPL_POINTER_POSITION
+public typealias DxgiOutduplPointerPosition = DXGI_OUTDUPL_POINTER_POSITION

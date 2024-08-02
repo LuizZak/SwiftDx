@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiModeRotation = DXGI_MODE_ROTATION
+public typealias DxgiModeRotation = DXGI_MODE_ROTATION
 
 public extension DxgiModeRotation {
     static let unspecified = DXGI_MODE_ROTATION_UNSPECIFIED

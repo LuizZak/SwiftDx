@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderPassRenderTargetDesc = D3D12_RENDER_PASS_RENDER_TARGET_DESC
+public typealias DxRenderPassRenderTargetDesc = D3D12_RENDER_PASS_RENDER_TARGET_DESC

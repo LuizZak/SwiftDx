@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingAccelerationStructurePreBuildInfo = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO
+public typealias DxRaytracingAccelerationStructurePreBuildInfo = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO

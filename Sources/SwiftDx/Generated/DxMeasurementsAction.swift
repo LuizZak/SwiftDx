@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMeasurementsAction = D3D12_MEASUREMENTS_ACTION
+public typealias DxMeasurementsAction = D3D12_MEASUREMENTS_ACTION
 
 public extension DxMeasurementsAction {
     static let keepAll = D3D12_MEASUREMENTS_ACTION_KEEP_ALL

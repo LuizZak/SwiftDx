@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxQueryHeapType = D3D12_QUERY_HEAP_TYPE
+public typealias DxQueryHeapType = D3D12_QUERY_HEAP_TYPE
 
 public extension DxQueryHeapType {
     static let occlusion = D3D12_QUERY_HEAP_TYPE_OCCLUSION

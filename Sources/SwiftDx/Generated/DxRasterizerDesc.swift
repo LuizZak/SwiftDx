@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRasterizerDesc = D3D12_RASTERIZER_DESC
+public typealias DxRasterizerDesc = D3D12_RASTERIZER_DESC

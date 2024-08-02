@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiFormat = DXGI_FORMAT
+public typealias DxgiFormat = DXGI_FORMAT
 
 public extension DxgiFormat {
     static let unknown = DXGI_FORMAT_UNKNOWN

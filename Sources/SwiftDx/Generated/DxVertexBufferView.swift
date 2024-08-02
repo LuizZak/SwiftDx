@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxVertexBufferView = D3D12_VERTEX_BUFFER_VIEW
+public typealias DxVertexBufferView = D3D12_VERTEX_BUFFER_VIEW

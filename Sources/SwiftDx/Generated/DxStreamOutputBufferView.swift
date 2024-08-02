@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxStreamOutputBufferView = D3D12_STREAM_OUTPUT_BUFFER_VIEW
+public typealias DxStreamOutputBufferView = D3D12_STREAM_OUTPUT_BUFFER_VIEW

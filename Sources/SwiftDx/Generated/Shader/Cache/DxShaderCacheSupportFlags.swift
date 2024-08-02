@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderCacheSupportFlags = D3D12_SHADER_CACHE_SUPPORT_FLAGS
+public typealias DxShaderCacheSupportFlags = D3D12_SHADER_CACHE_SUPPORT_FLAGS
 
 public extension DxShaderCacheSupportFlags {
     static let none = D3D12_SHADER_CACHE_SUPPORT_NONE

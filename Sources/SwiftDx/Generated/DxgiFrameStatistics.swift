@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiFrameStatistics = DXGI_FRAME_STATISTICS
+public typealias DxgiFrameStatistics = DXGI_FRAME_STATISTICS

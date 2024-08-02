@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderPassBeginningAccessClearParameters = D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS
+public typealias DxRenderPassBeginningAccessClearParameters = D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS

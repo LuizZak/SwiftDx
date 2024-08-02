@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRootParameterType = D3D12_ROOT_PARAMETER_TYPE
+public typealias DxRootParameterType = D3D12_ROOT_PARAMETER_TYPE
 
 public extension DxRootParameterType {
     static let descriptorTable = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE

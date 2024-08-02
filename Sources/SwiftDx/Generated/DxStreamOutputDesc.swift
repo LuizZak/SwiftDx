@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxStreamOutputDesc = D3D12_STREAM_OUTPUT_DESC
+public typealias DxStreamOutputDesc = D3D12_STREAM_OUTPUT_DESC

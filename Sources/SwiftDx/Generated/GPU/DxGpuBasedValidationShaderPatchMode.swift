@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxGPUBasedValidationShaderPatchMode = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE
+public typealias DxGPUBasedValidationShaderPatchMode = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE
 
 public extension DxGPUBasedValidationShaderPatchMode {
     static let none = D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_NONE

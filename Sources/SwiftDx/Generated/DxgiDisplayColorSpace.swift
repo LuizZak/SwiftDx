@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiDisplayColorSpace = DXGI_DISPLAY_COLOR_SPACE
+public typealias DxgiDisplayColorSpace = DXGI_DISPLAY_COLOR_SPACE

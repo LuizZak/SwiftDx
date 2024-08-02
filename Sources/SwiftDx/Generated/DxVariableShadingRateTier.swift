@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxVariableShadingRateTier = D3D12_VARIABLE_SHADING_RATE_TIER
+public typealias DxVariableShadingRateTier = D3D12_VARIABLE_SHADING_RATE_TIER
 
 public extension DxVariableShadingRateTier {
     static let notSupported = D3D12_VARIABLE_SHADING_RATE_TIER_NOT_SUPPORTED

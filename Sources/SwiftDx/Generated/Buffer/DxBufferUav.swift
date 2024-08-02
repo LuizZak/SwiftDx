@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxBufferUAV = D3D12_BUFFER_UAV
+public typealias DxBufferUAV = D3D12_BUFFER_UAV

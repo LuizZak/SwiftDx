@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingAccelerationStructureCopyMode = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE
+public typealias DxRaytracingAccelerationStructureCopyMode = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE
 
 public extension DxRaytracingAccelerationStructureCopyMode {
     static let clone = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_CLONE

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxHitGroupDesc = D3D12_HIT_GROUP_DESC
+public typealias DxHitGroupDesc = D3D12_HIT_GROUP_DESC

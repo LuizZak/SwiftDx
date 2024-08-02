@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTextureCopyLocation = D3D12_TEXTURE_COPY_LOCATION
+public typealias DxTextureCopyLocation = D3D12_TEXTURE_COPY_LOCATION

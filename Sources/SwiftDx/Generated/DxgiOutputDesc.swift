@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxgiOutputDesc = DXGI_OUTPUT_DESC
+public typealias DxgiOutputDesc = DXGI_OUTPUT_DESC
 
-typealias DxgiOutputDesc1 = DXGI_OUTPUT_DESC1
+public typealias DxgiOutputDesc1 = DXGI_OUTPUT_DESC1

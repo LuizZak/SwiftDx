@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFormatSupport1 = D3D12_FORMAT_SUPPORT1
+public typealias DxFormatSupport1 = D3D12_FORMAT_SUPPORT1
 
 public extension DxFormatSupport1 {
     static let none = D3D12_FORMAT_SUPPORT1_NONE
@@ -66,7 +66,7 @@ public extension DxFormatSupport1 {
     static let videoEncoder = D3D12_FORMAT_SUPPORT1_VIDEO_ENCODER
 }
 
-typealias DxFormatSupport2 = D3D12_FORMAT_SUPPORT2
+public typealias DxFormatSupport2 = D3D12_FORMAT_SUPPORT2
 
 public extension DxFormatSupport2 {
     static let none = D3D12_FORMAT_SUPPORT2_NONE

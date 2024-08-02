@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResidencyFlags = D3D12_RESIDENCY_FLAGS
+public typealias DxResidencyFlags = D3D12_RESIDENCY_FLAGS
 
 public extension DxResidencyFlags {
     static let none = D3D12_RESIDENCY_FLAG_NONE

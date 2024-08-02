@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxGPUBasedValidationPipelineStateCreateFlags = D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS
+public typealias DxGPUBasedValidationPipelineStateCreateFlags = D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS
 
 public extension DxGPUBasedValidationPipelineStateCreateFlags {
     static let none = D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_NONE

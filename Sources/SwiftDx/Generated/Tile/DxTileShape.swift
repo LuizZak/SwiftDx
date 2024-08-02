@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTileShape = D3D12_TILE_SHAPE
+public typealias DxTileShape = D3D12_TILE_SHAPE

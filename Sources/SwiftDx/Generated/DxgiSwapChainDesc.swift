@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxgiSwapChainDesc = DXGI_SWAP_CHAIN_DESC
+public typealias DxgiSwapChainDesc = DXGI_SWAP_CHAIN_DESC
 
-typealias DxgiSwapChainDesc1 = DXGI_SWAP_CHAIN_DESC1
+public typealias DxgiSwapChainDesc1 = DXGI_SWAP_CHAIN_DESC1

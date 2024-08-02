@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxIndexBufferView = D3D12_INDEX_BUFFER_VIEW
+public typealias DxIndexBufferView = D3D12_INDEX_BUFFER_VIEW

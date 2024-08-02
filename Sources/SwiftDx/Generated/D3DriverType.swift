@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3DriverType = D3D_DRIVER_TYPE
+public typealias D3DriverType = D3D_DRIVER_TYPE
 
 public extension D3DriverType {
     static let unknown = D3D_DRIVER_TYPE_UNKNOWN

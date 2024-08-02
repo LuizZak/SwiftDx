@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxResourceBarrier = D3D12_RESOURCE_BARRIER
+public typealias DxResourceBarrier = D3D12_RESOURCE_BARRIER

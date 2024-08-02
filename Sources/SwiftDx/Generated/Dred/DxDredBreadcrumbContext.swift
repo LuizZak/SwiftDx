@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDredBreadcrumbContext = D3D12_DRED_BREADCRUMB_CONTEXT
+public typealias DxDredBreadcrumbContext = D3D12_DRED_BREADCRUMB_CONTEXT

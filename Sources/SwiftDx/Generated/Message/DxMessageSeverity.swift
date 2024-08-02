@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMessageSeverity = D3D12_MESSAGE_SEVERITY
+public typealias DxMessageSeverity = D3D12_MESSAGE_SEVERITY
 
 public extension DxMessageSeverity {
     static let corruption = D3D12_MESSAGE_SEVERITY_CORRUPTION

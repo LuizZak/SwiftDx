@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiModeScaling = DXGI_MODE_SCALING
+public typealias DxgiModeScaling = DXGI_MODE_SCALING
 
 public extension DxgiModeScaling {
     static let unspecified = DXGI_MODE_SCALING_UNSPECIFIED

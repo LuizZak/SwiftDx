@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiPresentParameters = DXGI_PRESENT_PARAMETERS
+public typealias DxgiPresentParameters = DXGI_PRESENT_PARAMETERS

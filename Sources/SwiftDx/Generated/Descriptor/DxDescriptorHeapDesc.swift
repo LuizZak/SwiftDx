@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDescriptorHeapDesc = D3D12_DESCRIPTOR_HEAP_DESC
+public typealias DxDescriptorHeapDesc = D3D12_DESCRIPTOR_HEAP_DESC

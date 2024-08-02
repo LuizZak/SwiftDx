@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMemoryPool = D3D12_MEMORY_POOL
+public typealias DxMemoryPool = D3D12_MEMORY_POOL
 
 public extension DxMemoryPool {
     static let unknown = D3D12_MEMORY_POOL_UNKNOWN

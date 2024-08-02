@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxGraphicsStates = D3D12_GRAPHICS_STATES
+public typealias DxGraphicsStates = D3D12_GRAPHICS_STATES
 
 public extension DxGraphicsStates {
     static let none = D3D12_GRAPHICS_STATE_NONE

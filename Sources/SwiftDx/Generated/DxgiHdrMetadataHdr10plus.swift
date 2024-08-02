@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiHDRMetadataHDR10plus = DXGI_HDR_METADATA_HDR10PLUS
+public typealias DxgiHDRMetadataHDR10plus = DXGI_HDR_METADATA_HDR10PLUS

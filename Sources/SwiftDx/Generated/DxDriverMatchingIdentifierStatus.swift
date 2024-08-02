@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDriverMatchingIdentifierStatus = D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS
+public typealias DxDriverMatchingIdentifierStatus = D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS
 
 public extension DxDriverMatchingIdentifierStatus {
     static let compatibleWithDevice = D3D12_DRIVER_MATCHING_IDENTIFIER_COMPATIBLE_WITH_DEVICE

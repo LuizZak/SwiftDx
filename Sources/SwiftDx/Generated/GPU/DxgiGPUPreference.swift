@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiGPUPreference = DXGI_GPU_PREFERENCE
+public typealias DxgiGPUPreference = DXGI_GPU_PREFERENCE
 
 public extension DxgiGPUPreference {
     static let unspecified = DXGI_GPU_PREFERENCE_UNSPECIFIED

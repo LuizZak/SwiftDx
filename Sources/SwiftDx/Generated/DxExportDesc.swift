@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxExportDesc = D3D12_EXPORT_DESC
+public typealias DxExportDesc = D3D12_EXPORT_DESC

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDredDeviceState = D3D12_DRED_DEVICE_STATE
+public typealias DxDredDeviceState = D3D12_DRED_DEVICE_STATE
 
 public extension DxDredDeviceState {
     static let unknown = D3D12_DRED_DEVICE_STATE_UNKNOWN

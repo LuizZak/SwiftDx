@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxStaticBorderColor = D3D12_STATIC_BORDER_COLOR
+public typealias DxStaticBorderColor = D3D12_STATIC_BORDER_COLOR
 
 public extension DxStaticBorderColor {
     static let transparentBlack = D3D12_STATIC_BORDER_COLOR_TRANSPARENT_BLACK

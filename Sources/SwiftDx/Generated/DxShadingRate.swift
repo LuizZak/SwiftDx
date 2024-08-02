@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShadingRate = D3D12_SHADING_RATE
+public typealias DxShadingRate = D3D12_SHADING_RATE
 
 public extension DxShadingRate {
     static let rate_1x1 = D3D12_SHADING_RATE_1X1

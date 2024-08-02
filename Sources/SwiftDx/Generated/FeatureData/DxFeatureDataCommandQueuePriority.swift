@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataCommandQueuePriority = D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY
+public typealias DxFeatureDataCommandQueuePriority = D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY

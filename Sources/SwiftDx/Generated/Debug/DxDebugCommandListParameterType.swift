@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDebugCommandListParameterType = D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE
+public typealias DxDebugCommandListParameterType = D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE
 
 public extension DxDebugCommandListParameterType {
     static let gpuBasedValidationSettings = D3D12_DEBUG_COMMAND_LIST_PARAMETER_GPU_BASED_VALIDATION_SETTINGS

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxConservativeRasterizationTier = D3D12_CONSERVATIVE_RASTERIZATION_TIER
+public typealias DxConservativeRasterizationTier = D3D12_CONSERVATIVE_RASTERIZATION_TIER
 
 public extension DxConservativeRasterizationTier {
     static let notSupported = D3D12_CONSERVATIVE_RASTERIZATION_TIER_NOT_SUPPORTED

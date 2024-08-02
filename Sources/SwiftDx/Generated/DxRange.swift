@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRange = D3D12_RANGE
+public typealias DxRange = D3D12_RANGE

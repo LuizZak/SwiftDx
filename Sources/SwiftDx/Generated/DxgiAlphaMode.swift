@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiAlphaMode = DXGI_ALPHA_MODE
+public typealias DxgiAlphaMode = DXGI_ALPHA_MODE
 
 public extension DxgiAlphaMode {
     static let unspecified = DXGI_ALPHA_MODE_UNSPECIFIED

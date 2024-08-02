@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSerializedRaytracingAccelerationStructureHeader = D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER
+public typealias DxSerializedRaytracingAccelerationStructureHeader = D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER

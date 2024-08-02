@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataFormatInfo = D3D12_FEATURE_DATA_FORMAT_INFO
+public typealias DxFeatureDataFormatInfo = D3D12_FEATURE_DATA_FORMAT_INFO

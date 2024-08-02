@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxTextureLayout = D3D12_TEXTURE_LAYOUT
+public typealias DxTextureLayout = D3D12_TEXTURE_LAYOUT
 
 public extension DxTextureLayout {
     static let unknown = D3D12_TEXTURE_LAYOUT_UNKNOWN

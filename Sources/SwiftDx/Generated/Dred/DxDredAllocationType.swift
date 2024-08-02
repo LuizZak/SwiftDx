@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDredAllocationType = D3D12_DRED_ALLOCATION_TYPE
+public typealias DxDredAllocationType = D3D12_DRED_ALLOCATION_TYPE
 
 public extension DxDredAllocationType {
     static let commandQueue = D3D12_DRED_ALLOCATION_TYPE_COMMAND_QUEUE

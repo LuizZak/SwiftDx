@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderCacheKindFlags = D3D12_SHADER_CACHE_KIND_FLAGS
+public typealias DxShaderCacheKindFlags = D3D12_SHADER_CACHE_KIND_FLAGS
 
 public extension DxShaderCacheKindFlags {
     static let implicitD3DCacheForDriver = D3D12_SHADER_CACHE_KIND_FLAG_IMPLICIT_D3D_CACHE_FOR_DRIVER

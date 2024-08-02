@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxHeapSerializationTier = D3D12_HEAP_SERIALIZATION_TIER
+public typealias DxHeapSerializationTier = D3D12_HEAP_SERIALIZATION_TIER
 
 public extension DxHeapSerializationTier {
     static let tier_0 = D3D12_HEAP_SERIALIZATION_TIER_0

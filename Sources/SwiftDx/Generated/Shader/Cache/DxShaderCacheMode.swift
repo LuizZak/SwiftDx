@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderCacheMode = D3D12_SHADER_CACHE_MODE
+public typealias DxShaderCacheMode = D3D12_SHADER_CACHE_MODE
 
 public extension DxShaderCacheMode {
     static let memory = D3D12_SHADER_CACHE_MODE_MEMORY

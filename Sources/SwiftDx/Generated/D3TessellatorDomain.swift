@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3TessellatorDomain = D3D_TESSELLATOR_DOMAIN
+public typealias D3TessellatorDomain = D3D_TESSELLATOR_DOMAIN
 
 public extension D3TessellatorDomain {
     static let undefined = D3D_TESSELLATOR_DOMAIN_UNDEFINED

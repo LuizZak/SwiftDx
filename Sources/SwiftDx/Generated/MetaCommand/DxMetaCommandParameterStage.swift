@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMetaCommandParameterStage = D3D12_META_COMMAND_PARAMETER_STAGE
+public typealias DxMetaCommandParameterStage = D3D12_META_COMMAND_PARAMETER_STAGE
 
 public extension DxMetaCommandParameterStage {
     static let creation = D3D12_META_COMMAND_PARAMETER_STAGE_CREATION

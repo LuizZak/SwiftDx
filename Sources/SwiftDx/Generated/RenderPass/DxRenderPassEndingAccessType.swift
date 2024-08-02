@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRenderPassEndingAccessType = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE
+public typealias DxRenderPassEndingAccessType = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE
 
 public extension DxRenderPassEndingAccessType {
     static let discard = D3D12_RENDER_PASS_ENDING_ACCESS_TYPE_DISCARD

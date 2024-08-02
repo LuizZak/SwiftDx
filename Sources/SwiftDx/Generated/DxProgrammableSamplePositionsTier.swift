@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxProgrammableSamplePositionsTier = D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER
+public typealias DxProgrammableSamplePositionsTier = D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER
 
 public extension DxProgrammableSamplePositionsTier {
     static let notSupported = D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER_NOT_SUPPORTED

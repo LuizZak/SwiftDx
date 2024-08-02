@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiFramePresentationMode = DXGI_FRAME_PRESENTATION_MODE
+public typealias DxgiFramePresentationMode = DXGI_FRAME_PRESENTATION_MODE
 
 public extension DxgiFramePresentationMode {
     static let composed = DXGI_FRAME_PRESENTATION_MODE_COMPOSED

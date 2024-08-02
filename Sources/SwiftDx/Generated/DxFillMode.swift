@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFillMode = D3D12_FILL_MODE
+public typealias DxFillMode = D3D12_FILL_MODE
 
 public extension DxFillMode {
     static let wireframe = D3D12_FILL_MODE_WIREFRAME

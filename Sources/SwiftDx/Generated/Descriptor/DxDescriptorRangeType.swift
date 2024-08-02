@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDescriptorRangeType = D3D12_DESCRIPTOR_RANGE_TYPE
+public typealias DxDescriptorRangeType = D3D12_DESCRIPTOR_RANGE_TYPE
 
 public extension DxDescriptorRangeType {
     static let srv = D3D12_DESCRIPTOR_RANGE_TYPE_SRV

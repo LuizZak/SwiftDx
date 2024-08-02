@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingPipelineFlags = D3D12_RAYTRACING_PIPELINE_FLAGS
+public typealias DxRaytracingPipelineFlags = D3D12_RAYTRACING_PIPELINE_FLAGS
 
 public extension DxRaytracingPipelineFlags {
     static let none = D3D12_RAYTRACING_PIPELINE_FLAG_NONE

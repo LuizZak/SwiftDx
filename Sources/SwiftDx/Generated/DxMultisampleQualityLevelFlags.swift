@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMultiSampleQualityLevelFlags = D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS
+public typealias DxMultiSampleQualityLevelFlags = D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS
 
 public extension DxMultiSampleQualityLevelFlags {
     static let none = D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE

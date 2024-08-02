@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiRational = DXGI_RATIONAL
+public typealias DxgiRational = DXGI_RATIONAL

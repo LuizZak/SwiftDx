@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDescriptorHeapType = D3D12_DESCRIPTOR_HEAP_TYPE
+public typealias DxDescriptorHeapType = D3D12_DESCRIPTOR_HEAP_TYPE
 
 public extension DxDescriptorHeapType {
     static let cbvSRVUAV = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV

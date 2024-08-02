@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxHitKind = D3D12_HIT_KIND
+public typealias DxHitKind = D3D12_HIT_KIND
 
 public extension DxHitKind {
     static let triangleFrontFace = D3D12_HIT_KIND_TRIANGLE_FRONT_FACE

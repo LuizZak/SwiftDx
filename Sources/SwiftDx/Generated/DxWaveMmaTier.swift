@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxWaveMmaTier = D3D12_WAVE_MMA_TIER
+public typealias DxWaveMmaTier = D3D12_WAVE_MMA_TIER
 
 public extension DxWaveMmaTier {
     static let notSupported = D3D12_WAVE_MMA_TIER_NOT_SUPPORTED

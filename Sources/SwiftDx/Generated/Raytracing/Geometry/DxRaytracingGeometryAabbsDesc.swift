@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingGeometryAabbsDesc = D3D12_RAYTRACING_GEOMETRY_AABBS_DESC
+public typealias DxRaytracingGeometryAabbsDesc = D3D12_RAYTRACING_GEOMETRY_AABBS_DESC

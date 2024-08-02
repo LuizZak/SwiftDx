@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxAutoBreadcrumbOp = D3D12_AUTO_BREADCRUMB_OP
+public typealias DxAutoBreadcrumbOp = D3D12_AUTO_BREADCRUMB_OP
 
 public extension DxAutoBreadcrumbOp {
     static let setmarker = D3D12_AUTO_BREADCRUMB_OP_SETMARKER

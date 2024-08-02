@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceHeapTier = D3D12_RESOURCE_HEAP_TIER
+public typealias DxResourceHeapTier = D3D12_RESOURCE_HEAP_TIER
 
 public extension DxResourceHeapTier {
     static let tier_1 = D3D12_RESOURCE_HEAP_TIER_1

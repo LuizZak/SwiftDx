@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxLocalRootSignature = D3D12_LOCAL_ROOT_SIGNATURE
+public typealias DxLocalRootSignature = D3D12_LOCAL_ROOT_SIGNATURE

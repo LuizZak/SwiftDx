@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderComponentMapping = D3D12_SHADER_COMPONENT_MAPPING
+public typealias DxShaderComponentMapping = D3D12_SHADER_COMPONENT_MAPPING
 
 public extension DxShaderComponentMapping {
     static let fromMemoryComponent0 = D3D12_SHADER_COMPONENT_MAPPING_FROM_MEMORY_COMPONENT_0

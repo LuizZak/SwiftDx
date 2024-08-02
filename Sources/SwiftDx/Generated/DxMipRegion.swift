@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxMipRegion = D3D12_MIP_REGION
+public typealias DxMipRegion = D3D12_MIP_REGION

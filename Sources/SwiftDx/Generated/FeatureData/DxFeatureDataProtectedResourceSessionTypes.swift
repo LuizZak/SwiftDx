@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataProtectedResourceSessionTypes = D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES
+public typealias DxFeatureDataProtectedResourceSessionTypes = D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES

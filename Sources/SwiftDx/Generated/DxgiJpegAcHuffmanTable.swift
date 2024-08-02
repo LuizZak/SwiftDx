@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiJpegAcHuffmanTable = DXGI_JPEG_AC_HUFFMAN_TABLE
+public typealias DxgiJpegAcHuffmanTable = DXGI_JPEG_AC_HUFFMAN_TABLE

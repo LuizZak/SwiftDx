@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxBlendOp = D3D12_BLEND_OP
+public typealias DxBlendOp = D3D12_BLEND_OP
 
 public extension DxBlendOp {
     static let add = D3D12_BLEND_OP_ADD

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxInputClassification = D3D12_INPUT_CLASSIFICATION
+public typealias DxInputClassification = D3D12_INPUT_CLASSIFICATION
 
 public extension DxInputClassification {
     static let perVertexData = D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxBuildRaytracingAccelerationStructureInputs = D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS
+public typealias DxBuildRaytracingAccelerationStructureInputs = D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS

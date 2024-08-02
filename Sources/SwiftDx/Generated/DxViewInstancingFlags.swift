@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxViewInstancingFlags = D3D12_VIEW_INSTANCING_FLAGS
+public typealias DxViewInstancingFlags = D3D12_VIEW_INSTANCING_FLAGS
 
 public extension DxViewInstancingFlags {
     static let none = D3D12_VIEW_INSTANCING_FLAG_NONE

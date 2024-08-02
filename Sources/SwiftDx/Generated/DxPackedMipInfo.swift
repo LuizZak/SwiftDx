@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxPackedMipInfo = D3D12_PACKED_MIP_INFO
+public typealias DxPackedMipInfo = D3D12_PACKED_MIP_INFO

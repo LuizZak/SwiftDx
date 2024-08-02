@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiOutduplDesc = DXGI_OUTDUPL_DESC
+public typealias DxgiOutduplDesc = DXGI_OUTDUPL_DESC

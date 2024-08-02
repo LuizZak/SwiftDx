@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxBackgroundProcessingMode = D3D12_BACKGROUND_PROCESSING_MODE
+public typealias DxBackgroundProcessingMode = D3D12_BACKGROUND_PROCESSING_MODE
 
 public extension DxBackgroundProcessingMode {
     static let allowed = D3D12_BACKGROUND_PROCESSING_MODE_ALLOWED

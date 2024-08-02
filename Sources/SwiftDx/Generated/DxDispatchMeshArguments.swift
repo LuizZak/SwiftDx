@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDispatchMeshArguments = D3D12_DISPATCH_MESH_ARGUMENTS
+public typealias DxDispatchMeshArguments = D3D12_DISPATCH_MESH_ARGUMENTS

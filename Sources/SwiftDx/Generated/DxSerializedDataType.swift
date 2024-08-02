@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxSerializedDataType = D3D12_SERIALIZED_DATA_TYPE
+public typealias DxSerializedDataType = D3D12_SERIALIZED_DATA_TYPE
 
 public extension DxSerializedDataType {
     static let raytracingAccelerationStructure = D3D12_SERIALIZED_DATA_RAYTRACING_ACCELERATION_STRUCTURE

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiResidency = DXGI_RESIDENCY
+public typealias DxgiResidency = DXGI_RESIDENCY
 
 public extension DxgiResidency {
     static let fullyResident = DXGI_RESIDENCY_FULLY_RESIDENT

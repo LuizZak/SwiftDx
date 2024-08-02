@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTex1DDsv = D3D12_TEX1D_DSV
+public typealias DxTex1DDsv = D3D12_TEX1D_DSV

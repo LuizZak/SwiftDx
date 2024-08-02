@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiOutduplPointerShapeType = DXGI_OUTDUPL_POINTER_SHAPE_TYPE
+public typealias DxgiOutduplPointerShapeType = DXGI_OUTDUPL_POINTER_SHAPE_TYPE
 
 public extension DxgiOutduplPointerShapeType {
     static let monochrome = DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME

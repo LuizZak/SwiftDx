@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataFeatureLevels = D3D12_FEATURE_DATA_FEATURE_LEVELS
+public typealias DxFeatureDataFeatureLevels = D3D12_FEATURE_DATA_FEATURE_LEVELS

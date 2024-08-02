@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResidencyPriority = D3D12_RESIDENCY_PRIORITY
+public typealias DxResidencyPriority = D3D12_RESIDENCY_PRIORITY
 
 public extension DxResidencyPriority {
     static let minimum = D3D12_RESIDENCY_PRIORITY_MINIMUM

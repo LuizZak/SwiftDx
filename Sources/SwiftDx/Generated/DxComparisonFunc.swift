@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxComparisonFunc = D3D12_COMPARISON_FUNC
+public typealias DxComparisonFunc = D3D12_COMPARISON_FUNC
 
 public extension DxComparisonFunc {
     static let never = D3D12_COMPARISON_FUNC_NEVER

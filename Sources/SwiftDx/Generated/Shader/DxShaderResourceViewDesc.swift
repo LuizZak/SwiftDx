@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxShaderResourceViewDesc = D3D12_SHADER_RESOURCE_VIEW_DESC
+public typealias DxShaderResourceViewDesc = D3D12_SHADER_RESOURCE_VIEW_DESC

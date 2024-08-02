@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingGeometryFlags = D3D12_RAYTRACING_GEOMETRY_FLAGS
+public typealias DxRaytracingGeometryFlags = D3D12_RAYTRACING_GEOMETRY_FLAGS
 
 public extension DxRaytracingGeometryFlags {
     static let none = D3D12_RAYTRACING_GEOMETRY_FLAG_NONE

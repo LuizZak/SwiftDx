@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiGammaControlCapabilities = DXGI_GAMMA_CONTROL_CAPABILITIES
+public typealias DxgiGammaControlCapabilities = DXGI_GAMMA_CONTROL_CAPABILITIES

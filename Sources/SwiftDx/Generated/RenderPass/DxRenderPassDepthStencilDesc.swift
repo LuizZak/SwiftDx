@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderPassDepthStencilDesc = D3D12_RENDER_PASS_DEPTH_STENCIL_DESC
+public typealias DxRenderPassDepthStencilDesc = D3D12_RENDER_PASS_DEPTH_STENCIL_DESC

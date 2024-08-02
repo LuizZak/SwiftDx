@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiMultiPlaneOverlayYCbCrFlags = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS
+public typealias DxgiMultiPlaneOverlayYCbCrFlags = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS
 
 public extension DxgiMultiPlaneOverlayYCbCrFlags {
     static let nominalRange = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE

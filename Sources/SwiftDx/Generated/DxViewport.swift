@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxViewport = D3D12_VIEWPORT
+public typealias DxViewport = D3D12_VIEWPORT

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3TessellatorOutputPrimitive = D3D_TESSELLATOR_OUTPUT_PRIMITIVE
+public typealias D3TessellatorOutputPrimitive = D3D_TESSELLATOR_OUTPUT_PRIMITIVE
 
 public extension D3TessellatorOutputPrimitive {
     static let undefined = D3D_TESSELLATOR_OUTPUT_UNDEFINED

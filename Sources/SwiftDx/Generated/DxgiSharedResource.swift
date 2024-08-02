@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiSharedResource = DXGI_SHARED_RESOURCE
+public typealias DxgiSharedResource = DXGI_SHARED_RESOURCE

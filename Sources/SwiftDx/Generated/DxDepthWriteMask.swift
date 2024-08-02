@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDepthWriteMask = D3D12_DEPTH_WRITE_MASK
+public typealias DxDepthWriteMask = D3D12_DEPTH_WRITE_MASK
 
 public extension DxDepthWriteMask {
     static let zero = D3D12_DEPTH_WRITE_MASK_ZERO

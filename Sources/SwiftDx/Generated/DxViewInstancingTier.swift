@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxViewInstancingTier = D3D12_VIEW_INSTANCING_TIER
+public typealias DxViewInstancingTier = D3D12_VIEW_INSTANCING_TIER
 
 public extension DxViewInstancingTier {
     static let notSupported = D3D12_VIEW_INSTANCING_TIER_NOT_SUPPORTED

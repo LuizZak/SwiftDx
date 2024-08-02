@@ -16,27 +16,53 @@ private typealias Output = DirectX.Infrastructure.Output
 private typealias RootSignature = DirectX.RootSignature
 private typealias PipelineState = DirectX.PipelineState
 
-class DirectXManager {
+public class DirectXManager {
     #if DEBUG
-    let debugMode: Bool = true
+    static let debugMode: Bool = true
     #else
-    let debugMode: Bool = false
+    static let debugMode: Bool = false
     #endif
 
-    private let useWarp: Bool = false
+    private static let useWarp: Bool = false
 
-    private var state: DirectXState?
+    private let hwnd: HWND, width: Int, height: Int
+
+    private var state: DirectXState
     private var shaders: [DirectXShader]
 
-    init(shaders: [DirectXShader]) {
+    // MARK: - Public members
+
+    public var device: DirectX.Device {
+        state.device
+    }
+
+    public var swapChain: DirectX.Infrastructure.SwapChain {
+        state.swapChain
+    }
+
+    public var fenceStructure: FenceStructure {
+        state.fenceStructure
+    }
+
+    public var commandQueue: DirectX.CommandQueue {
+        state.commandQueue
+    }
+
+    // MARK: -
+
+    public init(hwnd: HWND, width: Int, height: Int, shaders: [DirectXShader]) throws {
+        self.hwnd = hwnd
+        self.width = width
+        self.height = height
         self.shaders = shaders
+        self.state = try Self.initialize(hwnd: hwnd, width: width, height: height)
     }
 
     deinit {
         // De-allocate resources
     }
 
-    func initialize(hwnd: HWND, width: Int, height: Int) throws {
+    fileprivate static func initialize(hwnd: HWND, width: Int, height: Int) throws -> DirectXState {
         if debugMode {
             try enableDebugInterface()
         }
@@ -73,14 +99,14 @@ class DirectXManager {
         let commandList: GraphicsCommandList = try device.CreateCommandList(0, .direct, commandAllocators[0], nil)
         try commandList.Close()
 
-        let fenceStructure = DirectXState.FenceStructure(
+        let fenceStructure = FenceStructure(
             fence: fence,
             fenceValue: 0,
             frameFenceValues: .init(repeating: 0, count: backBufferCount),
             fenceEvent: fenceEvent
         )
 
-        state = .init(
+        var state: DirectXState = .init(
             backBufferCount: backBufferCount,
             backBufferFormat: backBufferFormat,
             tearingSupported: tearingSupported,
@@ -96,19 +122,19 @@ class DirectXManager {
             rtvDescriptorSize: rtvDescriptorSize
         )
 
-        try state?.updateRenderTargetViews(device, swapChain, rtvDescriptorHeap)
+        try state.updateRenderTargetViews(device, swapChain, rtvDescriptorHeap)
+
+        return state
     }
 
-    func render() throws {
-        guard var state = state else {
-            throw Error.callToRenderBeforeInitialize
-        }
-        defer { self.state = state }
-
+    func render(_ block: () -> Void) throws {
         let backBufferState = try state.makeBackBufferStateForFrame()
         let commandList = try backBufferState.resetCommandList()
 
         try clearRenderTarget(state: state, commandList: commandList, backBufferState: backBufferState)
+
+        block()
+
         try present(state: &state, commandList: commandList, backBufferState: backBufferState)
     }
 
@@ -142,12 +168,19 @@ class DirectXManager {
         try state.fenceStructure.waitForFenceValue(fenceValue: state.fenceStructure.frameFenceValues[state.backBufferIndex])
     }
 
-    private func enableDebugInterface() throws {
+    private static func enableDebugInterface() throws {
         let debugInterface: DirectX.Debug = try D3D12GetDebugInterface()
         try debugInterface.EnableDebugLayer()
     }
 
-    private func enableDebugBreaks(_ device: Device) throws {
+    private static func checkTearingSupport(_ factory: Factory) throws -> Bool {
+        var allowTearing: BOOL = 0
+        allowTearing = try factory.CheckFeatureSupport(.presentAllowTearing)
+
+        return allowTearing == 1
+    }
+
+    private static func enableDebugBreaks(_ device: Device) throws {
         let infoQueue: DirectX.InfoQueue = try device.QueryInterface()
 
         try infoQueue.SetBreakOnSeverity(.corruption, true)
@@ -176,7 +209,7 @@ class DirectXManager {
         }
     }
 
-    private func makeRootSignature(_ device: Device) throws -> RootSignature {
+    private static func makeRootSignature(_ device: Device) throws -> RootSignature {
         let rootSignatureDesc = DxRootSignatureDesc(0, nil, 0, nil, .allowInputAssemblerInputLayout)
 
         let (signature, _) = try D3D12SerializeRootSignature(rootSignatureDesc, .version_1)
@@ -184,7 +217,7 @@ class DirectXManager {
         return try device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
     }
 
-    private func makeDxgiFactory() throws -> Factory {
+    private static func makeDxgiFactory() throws -> Factory {
         var flags: UINT = 0
         if debugMode {
             flags = UINT(DXGI_CREATE_FACTORY_DEBUG)
@@ -193,7 +226,7 @@ class DirectXManager {
         return try CreateDXGIFactory2(flags)
     }
 
-    private func makeAdapter(_ factory: Factory) throws -> Adapter {
+    private static func makeAdapter(_ factory: Factory) throws -> Adapter {
         if useWarp {
             return try factory.EnumWarpAdapter()
         }
@@ -201,11 +234,11 @@ class DirectXManager {
         return try factory.EnumAdapterByGpuPreference(0, .highPerformance)
     }
 
-    private func makeDevice(_ adapter: Adapter) throws -> Device {
+    private static func makeDevice(_ adapter: Adapter) throws -> Device {
         try D3D12CreateDevice(adapter, .level_12_0)
     }
 
-    private func makeCommandAllocators(_ device: Device, backBufferCount: Int) throws -> [CommandAllocator] {
+    private static func makeCommandAllocators(_ device: Device, backBufferCount: Int) throws -> [CommandAllocator] {
         var commandAllocators: [CommandAllocator] = []
         for _ in 0..<backBufferCount {
             commandAllocators.append(try device.CreateCommandAllocator(.direct))
@@ -214,7 +247,7 @@ class DirectXManager {
         return commandAllocators
     }
 
-    private func makeCommandQueue(_ device: Device) throws -> CommandQueue {
+    private static func makeCommandQueue(_ device: Device) throws -> CommandQueue {
         var desc = DxCommandQueueDesc()
         desc.Type =     .direct
         desc.Priority = DxCommandQueuePriority.normal.rawValue
@@ -224,7 +257,7 @@ class DirectXManager {
         return try device.CreateCommandQueue(desc)
     }
 
-    private func makeSwapChain(
+    private static func makeSwapChain(
         _ factory: Factory,
         _ queue: CommandQueue,
         _ hwnd: HWND,
@@ -252,14 +285,7 @@ class DirectXManager {
         return try factory.CreateSwapChainForHwnd(queue, hwnd, swapChainDesc, nil, nil).QueryInterface()
     }
 
-    private func checkTearingSupport(_ factory: Factory) throws -> Bool {
-        var allowTearing: BOOL = 0
-        allowTearing = try factory.CheckFeatureSupport(.presentAllowTearing)
-
-        return allowTearing == 1
-    }
-
-    private func makeDescriptorHeap(_ device: Device, _ type: DxDescriptorHeapType, _ numDescriptors: Int) throws -> DescriptorHeap {
+    private static func makeDescriptorHeap(_ device: Device, _ type: DxDescriptorHeapType, _ numDescriptors: Int) throws -> DescriptorHeap {
         var desc = DxDescriptorHeapDesc()
 
         desc.NumDescriptors = UINT(numDescriptors)
@@ -268,11 +294,11 @@ class DirectXManager {
         return try device.CreateDescriptorHeap(desc)
     }
 
-    private func makeFence(_ device: Device) throws -> Fence {
+    private static func makeFence(_ device: Device) throws -> Fence {
         try device.CreateFence(0, .none)
     }
 
-    private func makeEventHandle() throws -> HANDLE {
+    private static func makeEventHandle() throws -> HANDLE {
         guard let event = CreateEventW(nil, false, false, nil) else {
             throw Error.failedToCreateEvent
         }
@@ -282,7 +308,43 @@ class DirectXManager {
 
     private enum Error: Swift.Error {
         case failedToCreateEvent
-        case callToRenderBeforeInitialize
+    }
+}
+
+public class FenceStructure {
+    var fence: DirectX.Fence
+    var fenceValue: UInt64
+    var frameFenceValues: [UInt64]
+    var fenceEvent: HANDLE
+
+    internal init(fence: DirectX.Fence, fenceValue: UInt64, frameFenceValues: [UInt64], fenceEvent: HANDLE) {
+        self.fence = fence
+        self.fenceValue = fenceValue
+        self.frameFenceValues = frameFenceValues
+        self.fenceEvent = fenceEvent
+    }
+
+    @discardableResult
+    func signal(_ index: Int, commandQueue: DirectX.CommandQueue) throws -> UInt64 {
+        fenceValue &+= 1
+
+        try commandQueue.Signal(fence, fenceValue)
+
+        return fenceValue
+    }
+
+    public func waitForFenceValue(fenceValue: UInt64, milliseconds: DWORD = .max) throws {
+        guard try fence.GetCompletedValue() < fenceValue else {
+            return
+        }
+
+        try fence.SetEventOnCompletion(fenceValue, fenceEvent)
+        WaitForSingleObject(fenceEvent, milliseconds)
+    }
+
+    func flush(_ index: Int, _ commandQueue: DirectX.CommandQueue) throws {
+        let fenceValueForSignal = try signal(index, commandQueue: commandQueue)
+        try waitForFenceValue(fenceValue: fenceValueForSignal)
     }
 }
 
@@ -383,36 +445,6 @@ private struct DirectXState {
         func resetCommandList() throws -> GraphicsCommandList {
             try commandList.Reset(commandAllocator, nil)
             return commandList
-        }
-    }
-
-    struct FenceStructure {
-        var fence: Fence
-        var fenceValue: UInt64
-        var frameFenceValues: [UInt64]
-        var fenceEvent: HANDLE
-
-        @discardableResult
-        mutating func signal(_ index: Int, commandQueue: CommandQueue) throws -> UInt64 {
-            fenceValue &+= 1
-
-            try commandQueue.Signal(fence, fenceValue)
-
-            return fenceValue
-        }
-
-        func waitForFenceValue(fenceValue: UInt64, milliseconds: DWORD = .max) throws {
-            guard try fence.GetCompletedValue() < fenceValue else {
-                return
-            }
-
-            try fence.SetEventOnCompletion(fenceValue, fenceEvent)
-            WaitForSingleObject(fenceEvent, milliseconds)
-        }
-
-        mutating func flush(_ index: Int, _ commandQueue: CommandQueue) throws {
-            let fenceValueForSignal = try signal(index, commandQueue: commandQueue)
-            try waitForFenceValue(fenceValue: fenceValueForSignal)
         }
     }
 }

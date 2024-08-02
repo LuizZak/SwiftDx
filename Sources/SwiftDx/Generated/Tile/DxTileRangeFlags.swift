@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxTileRangeFlags = D3D12_TILE_RANGE_FLAGS
+public typealias DxTileRangeFlags = D3D12_TILE_RANGE_FLAGS
 
 public extension DxTileRangeFlags {
     static let none = D3D12_TILE_RANGE_FLAG_NONE

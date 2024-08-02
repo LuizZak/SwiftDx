@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataProtectedResourceSessionTypeCount = D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT
+public typealias DxFeatureDataProtectedResourceSessionTypeCount = D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT

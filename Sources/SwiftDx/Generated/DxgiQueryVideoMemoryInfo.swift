@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiQueryVideoMemoryInfo = DXGI_QUERY_VIDEO_MEMORY_INFO
+public typealias DxgiQueryVideoMemoryInfo = DXGI_QUERY_VIDEO_MEMORY_INFO

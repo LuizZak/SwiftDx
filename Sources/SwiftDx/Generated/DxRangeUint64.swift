@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRangeUInt64 = D3D12_RANGE_UINT64
+public typealias DxRangeUInt64 = D3D12_RANGE_UINT64

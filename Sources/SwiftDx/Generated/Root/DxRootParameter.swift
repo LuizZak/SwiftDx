@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxRootParameter = D3D12_ROOT_PARAMETER
+public typealias DxRootParameter = D3D12_ROOT_PARAMETER
 
-typealias DxRootParameter1 = D3D12_ROOT_PARAMETER1
+public typealias DxRootParameter1 = D3D12_ROOT_PARAMETER1

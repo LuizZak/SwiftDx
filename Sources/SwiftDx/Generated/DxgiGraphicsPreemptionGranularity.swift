@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiGraphicsPreemptionGranularity = DXGI_GRAPHICS_PREEMPTION_GRANULARITY
+public typealias DxgiGraphicsPreemptionGranularity = DXGI_GRAPHICS_PREEMPTION_GRANULARITY
 
 public extension DxgiGraphicsPreemptionGranularity {
     static let dmaBufferBoundary = DXGI_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRootDescriptorFlags = D3D12_ROOT_DESCRIPTOR_FLAGS
+public typealias DxRootDescriptorFlags = D3D12_ROOT_DESCRIPTOR_FLAGS
 
 public extension DxRootDescriptorFlags {
     static let none = D3D12_ROOT_DESCRIPTOR_FLAG_NONE

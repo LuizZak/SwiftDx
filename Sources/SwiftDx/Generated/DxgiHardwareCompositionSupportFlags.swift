@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiHardwareCompositionSupportFlags = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS
+public typealias DxgiHardwareCompositionSupportFlags = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS
 
 public extension DxgiHardwareCompositionSupportFlags {
     static let fullscreen = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN

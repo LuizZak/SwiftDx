@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiOverlaySupportFlag = DXGI_OVERLAY_SUPPORT_FLAG
+public typealias DxgiOverlaySupportFlag = DXGI_OVERLAY_SUPPORT_FLAG
 
 public extension DxgiOverlaySupportFlag {
     static let direct = DXGI_OVERLAY_SUPPORT_FLAG_DIRECT

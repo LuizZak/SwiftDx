@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingInstanceFlags = D3D12_RAYTRACING_INSTANCE_FLAGS
+public typealias DxRaytracingInstanceFlags = D3D12_RAYTRACING_INSTANCE_FLAGS
 
 public extension DxRaytracingInstanceFlags {
     static let none = D3D12_RAYTRACING_INSTANCE_FLAG_NONE

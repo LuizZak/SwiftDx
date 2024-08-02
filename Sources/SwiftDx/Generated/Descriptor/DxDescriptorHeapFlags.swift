@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDescriptorHeapFlags = D3D12_DESCRIPTOR_HEAP_FLAGS
+public typealias DxDescriptorHeapFlags = D3D12_DESCRIPTOR_HEAP_FLAGS
 
 public extension DxDescriptorHeapFlags {
     static let none = D3D12_DESCRIPTOR_HEAP_FLAG_NONE

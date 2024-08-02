@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxTextureAddressMode = D3D12_TEXTURE_ADDRESS_MODE
+public typealias DxTextureAddressMode = D3D12_TEXTURE_ADDRESS_MODE
 
 public extension DxTextureAddressMode {
     static let wrap = D3D12_TEXTURE_ADDRESS_MODE_WRAP

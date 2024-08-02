@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxUnorderedAccessViewDesc = D3D12_UNORDERED_ACCESS_VIEW_DESC
+public typealias DxUnorderedAccessViewDesc = D3D12_UNORDERED_ACCESS_VIEW_DESC

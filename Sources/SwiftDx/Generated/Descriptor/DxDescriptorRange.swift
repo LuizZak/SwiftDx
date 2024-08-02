@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxDescriptorRange = D3D12_DESCRIPTOR_RANGE
+public typealias DxDescriptorRange = D3D12_DESCRIPTOR_RANGE
 
-typealias DxDescriptorRange1 = D3D12_DESCRIPTOR_RANGE1
+public typealias DxDescriptorRange1 = D3D12_DESCRIPTOR_RANGE1

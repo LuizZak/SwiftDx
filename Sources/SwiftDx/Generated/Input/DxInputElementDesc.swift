@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxInputElementDesc = D3D12_INPUT_ELEMENT_DESC
+public typealias DxInputElementDesc = D3D12_INPUT_ELEMENT_DESC

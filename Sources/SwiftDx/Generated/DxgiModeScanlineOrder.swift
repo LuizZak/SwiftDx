@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiModeScanlineOrder = DXGI_MODE_SCANLINE_ORDER
+public typealias DxgiModeScanlineOrder = DXGI_MODE_SCANLINE_ORDER
 
 public extension DxgiModeScanlineOrder {
     static let unspecified = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED

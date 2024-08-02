@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxStateSubObjectType = D3D12_STATE_SUBOBJECT_TYPE
+public typealias DxStateSubObjectType = D3D12_STATE_SUBOBJECT_TYPE
 
 public extension DxStateSubObjectType {
     static let stateObjectConfig = D3D12_STATE_SUBOBJECT_TYPE_STATE_OBJECT_CONFIG

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3Name = D3D_NAME
+public typealias D3Name = D3D_NAME
 
 public extension D3Name {
     static let undefined = D3D_NAME_UNDEFINED

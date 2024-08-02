@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataQueryMetaCommand = D3D12_FEATURE_DATA_QUERY_META_COMMAND
+public typealias DxFeatureDataQueryMetaCommand = D3D12_FEATURE_DATA_QUERY_META_COMMAND

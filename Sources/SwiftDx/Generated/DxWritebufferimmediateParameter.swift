@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxWriteBufferImmediateParameter = D3D12_WRITEBUFFERIMMEDIATE_PARAMETER
+public typealias DxWriteBufferImmediateParameter = D3D12_WRITEBUFFERIMMEDIATE_PARAMETER

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3Primitive = D3D_PRIMITIVE
+public typealias D3Primitive = D3D_PRIMITIVE
 
 public extension D3Primitive {
     static let undefined = D3D_PRIMITIVE_UNDEFINED

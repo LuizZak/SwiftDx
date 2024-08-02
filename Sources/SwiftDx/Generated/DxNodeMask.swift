@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxNodeMask = D3D12_NODE_MASK
+public typealias DxNodeMask = D3D12_NODE_MASK

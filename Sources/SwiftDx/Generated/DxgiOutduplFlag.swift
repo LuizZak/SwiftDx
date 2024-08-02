@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiOutduplFlag = DXGI_OUTDUPL_FLAG
+public typealias DxgiOutduplFlag = DXGI_OUTDUPL_FLAG
 
 public extension DxgiOutduplFlag {
     static let compositedUiCaptureOnly = DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY

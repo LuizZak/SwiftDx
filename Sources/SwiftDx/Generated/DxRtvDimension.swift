@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRTVDimension = D3D12_RTV_DIMENSION
+public typealias DxRTVDimension = D3D12_RTV_DIMENSION
 
 public extension DxRTVDimension {
     static let unknown = D3D12_RTV_DIMENSION_UNKNOWN

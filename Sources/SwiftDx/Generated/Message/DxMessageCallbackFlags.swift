@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMessageCallbackFlags = D3D12_MESSAGE_CALLBACK_FLAGS
+public typealias DxMessageCallbackFlags = D3D12_MESSAGE_CALLBACK_FLAGS
 
 public extension DxMessageCallbackFlags {
     static let none = D3D12_MESSAGE_CALLBACK_FLAG_NONE

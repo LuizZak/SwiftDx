@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxConstantBufferViewDesc = D3D12_CONSTANT_BUFFER_VIEW_DESC
+public typealias DxConstantBufferViewDesc = D3D12_CONSTANT_BUFFER_VIEW_DESC

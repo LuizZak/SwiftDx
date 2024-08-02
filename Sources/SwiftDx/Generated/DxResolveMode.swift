@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResolveMode = D3D12_RESOLVE_MODE
+public typealias DxResolveMode = D3D12_RESOLVE_MODE
 
 public extension DxResolveMode {
     static let decompress = D3D12_RESOLVE_MODE_DECOMPRESS

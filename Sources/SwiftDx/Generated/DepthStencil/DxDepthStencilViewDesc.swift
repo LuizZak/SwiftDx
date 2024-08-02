@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDepthStencilViewDesc = D3D12_DEPTH_STENCIL_VIEW_DESC
+public typealias DxDepthStencilViewDesc = D3D12_DEPTH_STENCIL_VIEW_DESC

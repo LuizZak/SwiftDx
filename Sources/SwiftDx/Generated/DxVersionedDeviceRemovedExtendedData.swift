@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxVersionedDeviceRemovedExtendedData = D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA
+public typealias DxVersionedDeviceRemovedExtendedData = D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA

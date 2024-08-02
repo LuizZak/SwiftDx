@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiSurfaceDesc = DXGI_SURFACE_DESC
+public typealias DxgiSurfaceDesc = DXGI_SURFACE_DESC

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiSwapEffect = DXGI_SWAP_EFFECT
+public typealias DxgiSwapEffect = DXGI_SWAP_EFFECT
 
 public extension DxgiSwapEffect {
     static let discard = DXGI_SWAP_EFFECT_DISCARD

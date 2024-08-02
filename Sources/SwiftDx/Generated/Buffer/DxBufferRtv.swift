@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxBufferRTV = D3D12_BUFFER_RTV
+public typealias DxBufferRTV = D3D12_BUFFER_RTV

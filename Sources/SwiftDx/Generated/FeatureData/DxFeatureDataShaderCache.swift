@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataShaderCache = D3D12_FEATURE_DATA_SHADER_CACHE
+public typealias DxFeatureDataShaderCache = D3D12_FEATURE_DATA_SHADER_CACHE

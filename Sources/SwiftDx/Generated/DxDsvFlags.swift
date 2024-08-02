@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDsvFlags = D3D12_DSV_FLAGS
+public typealias DxDsvFlags = D3D12_DSV_FLAGS
 
 public extension DxDsvFlags {
     static let none = D3D12_DSV_FLAG_NONE

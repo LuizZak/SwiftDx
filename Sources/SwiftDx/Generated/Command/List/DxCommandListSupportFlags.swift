@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCommandListSupportFlags = D3D12_COMMAND_LIST_SUPPORT_FLAGS
+public typealias DxCommandListSupportFlags = D3D12_COMMAND_LIST_SUPPORT_FLAGS
 
 public extension DxCommandListSupportFlags {
     static let none = D3D12_COMMAND_LIST_SUPPORT_FLAG_NONE

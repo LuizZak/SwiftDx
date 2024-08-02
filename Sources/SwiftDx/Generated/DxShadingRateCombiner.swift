@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShadingRateCombiner = D3D12_SHADING_RATE_COMBINER
+public typealias DxShadingRateCombiner = D3D12_SHADING_RATE_COMBINER
 
 public extension DxShadingRateCombiner {
     static let passthrough = D3D12_SHADING_RATE_COMBINER_PASSTHROUGH

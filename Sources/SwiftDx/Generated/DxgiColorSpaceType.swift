@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiColorSpaceType = DXGI_COLOR_SPACE_TYPE
+public typealias DxgiColorSpaceType = DXGI_COLOR_SPACE_TYPE
 
 public extension DxgiColorSpaceType {
     static let rgbFullG22NoneP709 = DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709

@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxRootDescriptor = D3D12_ROOT_DESCRIPTOR
+public typealias DxRootDescriptor = D3D12_ROOT_DESCRIPTOR
 
-typealias DxRootDescriptor1 = D3D12_ROOT_DESCRIPTOR1
+public typealias DxRootDescriptor1 = D3D12_ROOT_DESCRIPTOR1

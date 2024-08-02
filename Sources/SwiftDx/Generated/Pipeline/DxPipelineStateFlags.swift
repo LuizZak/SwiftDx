@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxPipelineStateFlags = D3D12_PIPELINE_STATE_FLAGS
+public typealias DxPipelineStateFlags = D3D12_PIPELINE_STATE_FLAGS
 
 public extension DxPipelineStateFlags {
     static let none = D3D12_PIPELINE_STATE_FLAG_NONE

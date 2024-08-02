@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCommandQueueFlags = D3D12_COMMAND_QUEUE_FLAGS
+public typealias DxCommandQueueFlags = D3D12_COMMAND_QUEUE_FLAGS
 
 public extension DxCommandQueueFlags {
     static let none = D3D12_COMMAND_QUEUE_FLAG_NONE

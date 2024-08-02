@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxSamplerFeedbackTier = D3D12_SAMPLER_FEEDBACK_TIER
+public typealias DxSamplerFeedbackTier = D3D12_SAMPLER_FEEDBACK_TIER
 
 public extension DxSamplerFeedbackTier {
     static let notSupported = D3D12_SAMPLER_FEEDBACK_TIER_NOT_SUPPORTED

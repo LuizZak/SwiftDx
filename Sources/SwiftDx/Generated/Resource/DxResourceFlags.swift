@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceFlags = D3D12_RESOURCE_FLAGS
+public typealias DxResourceFlags = D3D12_RESOURCE_FLAGS
 
 public extension DxResourceFlags {
     static let none = D3D12_RESOURCE_FLAG_NONE

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataGPUVirtualAddressSupport = D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT
+public typealias DxFeatureDataGPUVirtualAddressSupport = D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingGeometryTrianglesDesc = D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC
+public typealias DxRaytracingGeometryTrianglesDesc = D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC

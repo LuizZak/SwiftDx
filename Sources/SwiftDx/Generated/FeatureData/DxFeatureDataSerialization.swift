@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataSerialization = D3D12_FEATURE_DATA_SERIALIZATION
+public typealias DxFeatureDataSerialization = D3D12_FEATURE_DATA_SERIALIZATION

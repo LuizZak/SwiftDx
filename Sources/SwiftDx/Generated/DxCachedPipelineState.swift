@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxCachedPipelineState = D3D12_CACHED_PIPELINE_STATE
+public typealias DxCachedPipelineState = D3D12_CACHED_PIPELINE_STATE

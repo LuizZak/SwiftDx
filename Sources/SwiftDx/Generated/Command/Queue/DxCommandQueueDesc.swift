@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxCommandQueueDesc = D3D12_COMMAND_QUEUE_DESC
+public typealias DxCommandQueueDesc = D3D12_COMMAND_QUEUE_DESC

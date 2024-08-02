@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingShaderConfig = D3D12_RAYTRACING_SHADER_CONFIG
+public typealias DxRaytracingShaderConfig = D3D12_RAYTRACING_SHADER_CONFIG

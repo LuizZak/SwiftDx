@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDxilLibraryDesc = D3D12_DXIL_LIBRARY_DESC
+public typealias DxDxilLibraryDesc = D3D12_DXIL_LIBRARY_DESC

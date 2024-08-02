@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRootSignatureFlags = D3D12_ROOT_SIGNATURE_FLAGS
+public typealias DxRootSignatureFlags = D3D12_ROOT_SIGNATURE_FLAGS
 
 public extension DxRootSignatureFlags {
     static let none = D3D12_ROOT_SIGNATURE_FLAG_NONE

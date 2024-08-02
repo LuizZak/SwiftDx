@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxIndirectArgumentType = D3D12_INDIRECT_ARGUMENT_TYPE
+public typealias DxIndirectArgumentType = D3D12_INDIRECT_ARGUMENT_TYPE
 
 public extension DxIndirectArgumentType {
     static let draw = D3D12_INDIRECT_ARGUMENT_TYPE_DRAW

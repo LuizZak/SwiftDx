@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataRootSignature = D3D12_FEATURE_DATA_ROOT_SIGNATURE
+public typealias DxFeatureDataRootSignature = D3D12_FEATURE_DATA_ROOT_SIGNATURE

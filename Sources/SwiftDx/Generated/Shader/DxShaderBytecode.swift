@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxShaderBytecode = D3D12_SHADER_BYTECODE
+public typealias DxShaderBytecode = D3D12_SHADER_BYTECODE

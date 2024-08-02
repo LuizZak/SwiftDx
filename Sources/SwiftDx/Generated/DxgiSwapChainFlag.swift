@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiSwapChainFlag = DXGI_SWAP_CHAIN_FLAG
+public typealias DxgiSwapChainFlag = DXGI_SWAP_CHAIN_FLAG
 
 public extension DxgiSwapChainFlag {
     static let nonprerotated = DXGI_SWAP_CHAIN_FLAG_NONPREROTATED

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxIndexBufferStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE
+public typealias DxIndexBufferStripCutValue = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE
 
 public extension DxIndexBufferStripCutValue {
     static let disabled = D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED

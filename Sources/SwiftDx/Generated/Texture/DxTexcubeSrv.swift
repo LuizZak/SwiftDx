@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTexcubeSRV = D3D12_TEXCUBE_SRV
+public typealias DxTexcubeSRV = D3D12_TEXCUBE_SRV

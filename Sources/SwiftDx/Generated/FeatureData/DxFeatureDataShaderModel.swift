@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataShaderModel = D3D12_FEATURE_DATA_SHADER_MODEL
+public typealias DxFeatureDataShaderModel = D3D12_FEATURE_DATA_SHADER_MODEL

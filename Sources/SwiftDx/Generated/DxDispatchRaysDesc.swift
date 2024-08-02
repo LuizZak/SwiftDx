@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDispatchRaysDesc = D3D12_DISPATCH_RAYS_DESC
+public typealias DxDispatchRaysDesc = D3D12_DISPATCH_RAYS_DESC

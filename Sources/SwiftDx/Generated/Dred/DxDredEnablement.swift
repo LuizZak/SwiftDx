@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDredEnablement = D3D12_DRED_ENABLEMENT
+public typealias DxDredEnablement = D3D12_DRED_ENABLEMENT
 
 public extension DxDredEnablement {
     static let systemControlled = D3D12_DRED_ENABLEMENT_SYSTEM_CONTROLLED

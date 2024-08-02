@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxQueryHeapDesc = D3D12_QUERY_HEAP_DESC
+public typealias DxQueryHeapDesc = D3D12_QUERY_HEAP_DESC

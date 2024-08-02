@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderTargetViewDesc = D3D12_RENDER_TARGET_VIEW_DESC
+public typealias DxRenderTargetViewDesc = D3D12_RENDER_TARGET_VIEW_DESC

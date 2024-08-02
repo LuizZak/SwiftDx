@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxLifetimeState = D3D12_LIFETIME_STATE
+public typealias DxLifetimeState = D3D12_LIFETIME_STATE
 
 public extension DxLifetimeState {
     static let inUse = D3D12_LIFETIME_STATE_IN_USE

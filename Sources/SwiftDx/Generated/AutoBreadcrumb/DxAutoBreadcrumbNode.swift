@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxAutoBreadcrumbNode = D3D12_AUTO_BREADCRUMB_NODE
+public typealias DxAutoBreadcrumbNode = D3D12_AUTO_BREADCRUMB_NODE
 
-typealias DxAutoBreadcrumbNode1 = D3D12_AUTO_BREADCRUMB_NODE1
+public typealias DxAutoBreadcrumbNode1 = D3D12_AUTO_BREADCRUMB_NODE1

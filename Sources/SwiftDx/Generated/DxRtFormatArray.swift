@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRtFormatArray = D3D12_RT_FORMAT_ARRAY
+public typealias DxRtFormatArray = D3D12_RT_FORMAT_ARRAY

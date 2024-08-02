@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRenderPassFlags = D3D12_RENDER_PASS_FLAGS
+public typealias DxRenderPassFlags = D3D12_RENDER_PASS_FLAGS
 
 public extension DxRenderPassFlags {
     static let none = D3D12_RENDER_PASS_FLAG_NONE

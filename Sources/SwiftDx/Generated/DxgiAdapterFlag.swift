@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiAdapterFlag = DXGI_ADAPTER_FLAG
+public typealias DxgiAdapterFlag = DXGI_ADAPTER_FLAG
 
 public extension DxgiAdapterFlag {
     static let none = DXGI_ADAPTER_FLAG_NONE
@@ -14,7 +14,7 @@ public extension DxgiAdapterFlag {
     static let forceDword = DXGI_ADAPTER_FLAG_FORCE_DWORD
 }
 
-typealias DxgiAdapterFlag3 = DXGI_ADAPTER_FLAG3
+public typealias DxgiAdapterFlag3 = DXGI_ADAPTER_FLAG3
 
 public extension DxgiAdapterFlag3 {
     static let none = DXGI_ADAPTER_FLAG3_NONE

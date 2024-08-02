@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataExistingHeaps = D3D12_FEATURE_DATA_EXISTING_HEAPS
+public typealias DxFeatureDataExistingHeaps = D3D12_FEATURE_DATA_EXISTING_HEAPS

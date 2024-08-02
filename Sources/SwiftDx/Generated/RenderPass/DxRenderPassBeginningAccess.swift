@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderPassBeginningAccess = D3D12_RENDER_PASS_BEGINNING_ACCESS
+public typealias DxRenderPassBeginningAccess = D3D12_RENDER_PASS_BEGINNING_ACCESS

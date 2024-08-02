@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderVisibility = D3D12_SHADER_VISIBILITY
+public typealias DxShaderVisibility = D3D12_SHADER_VISIBILITY
 
 public extension DxShaderVisibility {
     static let all = D3D12_SHADER_VISIBILITY_ALL

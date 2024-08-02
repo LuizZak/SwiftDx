@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiMappedRect = DXGI_MAPPED_RECT
+public typealias DxgiMappedRect = DXGI_MAPPED_RECT

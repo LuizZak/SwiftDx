@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderMinPrecisionSupport = D3D12_SHADER_MIN_PRECISION_SUPPORT
+public typealias DxShaderMinPrecisionSupport = D3D12_SHADER_MIN_PRECISION_SUPPORT
 
 public extension DxShaderMinPrecisionSupport {
     static let none = D3D12_SHADER_MIN_PRECISION_SUPPORT_NONE

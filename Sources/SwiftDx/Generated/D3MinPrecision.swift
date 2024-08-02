@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3MinPrecision = D3D_MIN_PRECISION
+public typealias D3MinPrecision = D3D_MIN_PRECISION
 
 public extension D3MinPrecision {
     static let `default` = D3D_MIN_PRECISION_DEFAULT

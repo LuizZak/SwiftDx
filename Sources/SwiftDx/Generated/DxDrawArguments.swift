@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDrawArguments = D3D12_DRAW_ARGUMENTS
+public typealias DxDrawArguments = D3D12_DRAW_ARGUMENTS

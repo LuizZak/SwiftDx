@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFilter = D3D12_FILTER
+public typealias DxFilter = D3D12_FILTER
 
 public extension DxFilter {
     static let minMagMipPoint = D3D12_FILTER_MIN_MAG_MIP_POINT

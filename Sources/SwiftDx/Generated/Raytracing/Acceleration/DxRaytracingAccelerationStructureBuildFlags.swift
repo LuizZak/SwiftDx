@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingAccelerationStructureBuildFlags = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS
+public typealias DxRaytracingAccelerationStructureBuildFlags = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS
 
 public extension DxRaytracingAccelerationStructureBuildFlags {
     static let none = D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAG_NONE

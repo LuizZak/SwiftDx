@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiScaling = DXGI_SCALING
+public typealias DxgiScaling = DXGI_SCALING
 
 public extension DxgiScaling {
     static let stretch = DXGI_SCALING_STRETCH

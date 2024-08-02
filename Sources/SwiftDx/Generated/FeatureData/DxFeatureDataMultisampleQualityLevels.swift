@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataMultiSampleQualityLevels = D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS
+public typealias DxFeatureDataMultiSampleQualityLevels = D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS

@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxBlend = D3D12_BLEND
+public typealias DxBlend = D3D12_BLEND
 
 public extension DxBlend {
     static let zero = D3D12_BLEND_ZERO

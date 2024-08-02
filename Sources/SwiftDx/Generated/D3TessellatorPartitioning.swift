@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3TessellatorPartitioning = D3D_TESSELLATOR_PARTITIONING
+public typealias D3TessellatorPartitioning = D3D_TESSELLATOR_PARTITIONING
 
 public extension D3TessellatorPartitioning {
     static let undefined = D3D_TESSELLATOR_PARTITIONING_UNDEFINED

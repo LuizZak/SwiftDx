@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxStateObjectFlags = D3D12_STATE_OBJECT_FLAGS
+public typealias DxStateObjectFlags = D3D12_STATE_OBJECT_FLAGS
 
 public extension DxStateObjectFlags {
     static let none = D3D12_STATE_OBJECT_FLAG_NONE

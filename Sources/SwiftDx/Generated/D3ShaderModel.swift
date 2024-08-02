@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3ShaderModel = D3D_SHADER_MODEL
+public typealias D3ShaderModel = D3D_SHADER_MODEL
 
 public extension D3ShaderModel {
     static let model_5_1 = D3D_SHADER_MODEL_5_1

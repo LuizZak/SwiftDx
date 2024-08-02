@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiSampleDesc = DXGI_SAMPLE_DESC
+public typealias DxgiSampleDesc = DXGI_SAMPLE_DESC

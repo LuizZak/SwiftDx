@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxShaderCacheControlFlags = D3D12_SHADER_CACHE_CONTROL_FLAGS
+public typealias DxShaderCacheControlFlags = D3D12_SHADER_CACHE_CONTROL_FLAGS
 
 public extension DxShaderCacheControlFlags {
     static let disable = D3D12_SHADER_CACHE_CONTROL_FLAG_DISABLE

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxBox = D3D12_BOX
+public typealias DxBox = D3D12_BOX

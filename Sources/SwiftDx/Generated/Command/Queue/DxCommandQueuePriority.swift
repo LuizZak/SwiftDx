@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCommandQueuePriority = D3D12_COMMAND_QUEUE_PRIORITY
+public typealias DxCommandQueuePriority = D3D12_COMMAND_QUEUE_PRIORITY
 
 public extension DxCommandQueuePriority {
     static let normal = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL

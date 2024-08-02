@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRayFlags = D3D12_RAY_FLAGS
+public typealias DxRayFlags = D3D12_RAY_FLAGS
 
 public extension DxRayFlags {
     static let none = D3D12_RAY_FLAG_NONE

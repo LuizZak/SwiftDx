@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxDredAutoBreadcrumbsOutput = D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT
+public typealias DxDredAutoBreadcrumbsOutput = D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT
 
-typealias DxDredAutoBreadcrumbsOutput1 = D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1
+public typealias DxDredAutoBreadcrumbsOutput1 = D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1

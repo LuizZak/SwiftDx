@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxMessage = D3D12_MESSAGE
+public typealias DxMessage = D3D12_MESSAGE

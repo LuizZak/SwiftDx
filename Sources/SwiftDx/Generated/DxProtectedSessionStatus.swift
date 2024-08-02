@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxProtectedSessionStatus = D3D12_PROTECTED_SESSION_STATUS
+public typealias DxProtectedSessionStatus = D3D12_PROTECTED_SESSION_STATUS
 
 public extension DxProtectedSessionStatus {
     static let ok = D3D12_PROTECTED_SESSION_STATUS_OK

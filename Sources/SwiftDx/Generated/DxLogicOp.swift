@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxLogicOp = D3D12_LOGIC_OP
+public typealias DxLogicOp = D3D12_LOGIC_OP
 
 public extension DxLogicOp {
     static let clear = D3D12_LOGIC_OP_CLEAR

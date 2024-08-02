@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRenderPassEndingAccessResolveSubResourceParameters = D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS
+public typealias DxRenderPassEndingAccessResolveSubResourceParameters = D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS

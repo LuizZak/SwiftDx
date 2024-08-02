@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxPredicationOp = D3D12_PREDICATION_OP
+public typealias DxPredicationOp = D3D12_PREDICATION_OP
 
 public extension DxPredicationOp {
     static let equalZero = D3D12_PREDICATION_OP_EQUAL_ZERO

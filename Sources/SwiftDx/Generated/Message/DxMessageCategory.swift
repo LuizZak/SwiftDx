@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMessageCategory = D3D12_MESSAGE_CATEGORY
+public typealias DxMessageCategory = D3D12_MESSAGE_CATEGORY
 
 public extension DxMessageCategory {
     static let applicationDefined = D3D12_MESSAGE_CATEGORY_APPLICATION_DEFINED

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSamplePosition = D3D12_SAMPLE_POSITION
+public typealias DxSamplePosition = D3D12_SAMPLE_POSITION

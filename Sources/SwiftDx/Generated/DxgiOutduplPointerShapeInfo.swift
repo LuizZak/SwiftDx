@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiOutduplPointerShapeInfo = DXGI_OUTDUPL_POINTER_SHAPE_INFO
+public typealias DxgiOutduplPointerShapeInfo = DXGI_OUTDUPL_POINTER_SHAPE_INFO

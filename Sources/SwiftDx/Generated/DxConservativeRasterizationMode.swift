@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxConservativeRasterizationMode = D3D12_CONSERVATIVE_RASTERIZATION_MODE
+public typealias DxConservativeRasterizationMode = D3D12_CONSERVATIVE_RASTERIZATION_MODE
 
 public extension DxConservativeRasterizationMode {
     static let off = D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF

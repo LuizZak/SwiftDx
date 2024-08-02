@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxFeature = D3D12_FEATURE
+public typealias DxFeature = D3D12_FEATURE
 
 public extension DxFeature {
     static let options = D3D12_FEATURE_D3D12_OPTIONS

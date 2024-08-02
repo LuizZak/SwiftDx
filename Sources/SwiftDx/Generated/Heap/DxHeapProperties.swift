@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxHeapProperties = D3D12_HEAP_PROPERTIES
+public typealias DxHeapProperties = D3D12_HEAP_PROPERTIES

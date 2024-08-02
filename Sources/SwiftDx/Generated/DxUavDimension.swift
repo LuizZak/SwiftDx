@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxUAVDimension = D3D12_UAV_DIMENSION
+public typealias DxUAVDimension = D3D12_UAV_DIMENSION
 
 public extension DxUAVDimension {
     static let unknown = D3D12_UAV_DIMENSION_UNKNOWN

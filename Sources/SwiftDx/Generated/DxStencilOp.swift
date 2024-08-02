@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxStencilOp = D3D12_STENCIL_OP
+public typealias DxStencilOp = D3D12_STENCIL_OP
 
 public extension DxStencilOp {
     static let keep = D3D12_STENCIL_OP_KEEP

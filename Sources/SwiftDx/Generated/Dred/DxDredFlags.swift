@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDredFlags = D3D12_DRED_FLAGS
+public typealias DxDredFlags = D3D12_DRED_FLAGS
 
 public extension DxDredFlags {
     static let none = D3D12_DRED_FLAG_NONE

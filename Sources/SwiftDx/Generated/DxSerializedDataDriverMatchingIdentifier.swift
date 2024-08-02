@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSerializedDataDriverMatchingIdentifier = D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER
+public typealias DxSerializedDataDriverMatchingIdentifier = D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER

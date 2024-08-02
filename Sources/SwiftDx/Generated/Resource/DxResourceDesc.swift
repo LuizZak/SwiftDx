@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxResourceDesc = D3D12_RESOURCE_DESC
+public typealias DxResourceDesc = D3D12_RESOURCE_DESC
 
-typealias DxResourceDesc1 = D3D12_RESOURCE_DESC1
+public typealias DxResourceDesc1 = D3D12_RESOURCE_DESC1

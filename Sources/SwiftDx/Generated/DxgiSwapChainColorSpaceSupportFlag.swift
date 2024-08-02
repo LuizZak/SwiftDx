@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxgiSwapChainColorSpaceSupportFlag = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG
+public typealias DxgiSwapChainColorSpaceSupportFlag = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG
 
 public extension DxgiSwapChainColorSpaceSupportFlag {
     static let present = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT

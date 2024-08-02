@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxGPUBasedValidationFlags = D3D12_GPU_BASED_VALIDATION_FLAGS
+public typealias DxGPUBasedValidationFlags = D3D12_GPU_BASED_VALIDATION_FLAGS
 
 public extension DxGPUBasedValidationFlags {
     static let none = D3D12_GPU_BASED_VALIDATION_FLAGS_NONE

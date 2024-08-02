@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxCrossNodeSharingTier = D3D12_CROSS_NODE_SHARING_TIER
+public typealias DxCrossNodeSharingTier = D3D12_CROSS_NODE_SHARING_TIER
 
 public extension DxCrossNodeSharingTier {
     static let notSupported = D3D12_CROSS_NODE_SHARING_TIER_NOT_SUPPORTED

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDispatchArguments = D3D12_DISPATCH_ARGUMENTS
+public typealias DxDispatchArguments = D3D12_DISPATCH_ARGUMENTS

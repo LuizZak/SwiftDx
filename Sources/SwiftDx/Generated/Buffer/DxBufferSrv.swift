@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxBufferSRV = D3D12_BUFFER_SRV
+public typealias DxBufferSRV = D3D12_BUFFER_SRV

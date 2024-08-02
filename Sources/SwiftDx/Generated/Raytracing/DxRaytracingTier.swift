@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRaytracingTier = D3D12_RAYTRACING_TIER
+public typealias DxRaytracingTier = D3D12_RAYTRACING_TIER
 
 public extension DxRaytracingTier {
     static let notSupported = D3D12_RAYTRACING_TIER_NOT_SUPPORTED

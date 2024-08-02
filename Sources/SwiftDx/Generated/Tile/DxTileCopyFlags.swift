@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxTileCopyFlags = D3D12_TILE_COPY_FLAGS
+public typealias DxTileCopyFlags = D3D12_TILE_COPY_FLAGS
 
 public extension DxTileCopyFlags {
     static let none = D3D12_TILE_COPY_FLAG_NONE

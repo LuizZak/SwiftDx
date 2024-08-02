@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxInputLayoutDesc = D3D12_INPUT_LAYOUT_DESC
+public typealias DxInputLayoutDesc = D3D12_INPUT_LAYOUT_DESC

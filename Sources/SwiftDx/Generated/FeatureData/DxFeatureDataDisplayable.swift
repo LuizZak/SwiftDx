@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataDisplayable = D3D12_FEATURE_DATA_DISPLAYABLE
+public typealias DxFeatureDataDisplayable = D3D12_FEATURE_DATA_DISPLAYABLE

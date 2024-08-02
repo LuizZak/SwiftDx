@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRootConstants = D3D12_ROOT_CONSTANTS
+public typealias DxRootConstants = D3D12_ROOT_CONSTANTS

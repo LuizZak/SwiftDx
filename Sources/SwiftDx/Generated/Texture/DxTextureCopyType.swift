@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxTextureCopyType = D3D12_TEXTURE_COPY_TYPE
+public typealias DxTextureCopyType = D3D12_TEXTURE_COPY_TYPE
 
 public extension DxTextureCopyType {
     static let subResourceIndex = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX

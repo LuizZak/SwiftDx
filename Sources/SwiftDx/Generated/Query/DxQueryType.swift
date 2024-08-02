@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxQueryType = D3D12_QUERY_TYPE
+public typealias DxQueryType = D3D12_QUERY_TYPE
 
 public extension DxQueryType {
     static let occlusion = D3D12_QUERY_TYPE_OCCLUSION

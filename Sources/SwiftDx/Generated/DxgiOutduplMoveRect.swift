@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiOutduplMoveRect = DXGI_OUTDUPL_MOVE_RECT
+public typealias DxgiOutduplMoveRect = DXGI_OUTDUPL_MOVE_RECT

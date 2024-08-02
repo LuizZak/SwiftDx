@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceBarrierType = D3D12_RESOURCE_BARRIER_TYPE
+public typealias DxResourceBarrierType = D3D12_RESOURCE_BARRIER_TYPE
 
 public extension DxResourceBarrierType {
     static let transition = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION

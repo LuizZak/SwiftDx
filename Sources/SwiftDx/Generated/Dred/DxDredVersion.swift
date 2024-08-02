@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDredVersion = D3D12_DRED_VERSION
+public typealias DxDredVersion = D3D12_DRED_VERSION
 
 public extension DxDredVersion {
     static let version_1_0 = D3D12_DRED_VERSION_1_0

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxSoDeclarationEntry = D3D12_SO_DECLARATION_ENTRY
+public typealias DxSoDeclarationEntry = D3D12_SO_DECLARATION_ENTRY

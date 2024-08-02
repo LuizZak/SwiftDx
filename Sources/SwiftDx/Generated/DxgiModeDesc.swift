@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxgiModeDesc = DXGI_MODE_DESC
+public typealias DxgiModeDesc = DXGI_MODE_DESC
 
-typealias DxgiModeDesc1 = DXGI_MODE_DESC1
+public typealias DxgiModeDesc1 = DXGI_MODE_DESC1

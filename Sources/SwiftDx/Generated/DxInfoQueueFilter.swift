@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxInfoQueueFilter = D3D12_INFO_QUEUE_FILTER
+public typealias DxInfoQueueFilter = D3D12_INFO_QUEUE_FILTER

@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiMatrix3x2F = DXGI_MATRIX_3X2_F
+public typealias DxgiMatrix3x2F = DXGI_MATRIX_3X2_F

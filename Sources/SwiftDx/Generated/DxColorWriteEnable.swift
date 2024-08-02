@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxColorWriteEnable = D3D12_COLOR_WRITE_ENABLE
+public typealias DxColorWriteEnable = D3D12_COLOR_WRITE_ENABLE
 
 public extension DxColorWriteEnable {
     static let red = D3D12_COLOR_WRITE_ENABLE_RED

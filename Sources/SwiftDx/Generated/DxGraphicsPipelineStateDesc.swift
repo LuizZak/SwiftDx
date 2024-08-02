@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxGraphicsPipelineStateDesc = D3D12_GRAPHICS_PIPELINE_STATE_DESC
+public typealias DxGraphicsPipelineStateDesc = D3D12_GRAPHICS_PIPELINE_STATE_DESC

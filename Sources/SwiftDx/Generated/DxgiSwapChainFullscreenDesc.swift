@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiSwapChainFullscreenDesc = DXGI_SWAP_CHAIN_FULLSCREEN_DESC
+public typealias DxgiSwapChainFullscreenDesc = DXGI_SWAP_CHAIN_FULLSCREEN_DESC

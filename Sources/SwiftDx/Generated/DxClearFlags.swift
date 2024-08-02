@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxClearFlags = D3D12_CLEAR_FLAGS
+public typealias DxClearFlags = D3D12_CLEAR_FLAGS
 
 public extension DxClearFlags {
     static let depth = D3D12_CLEAR_FLAG_DEPTH

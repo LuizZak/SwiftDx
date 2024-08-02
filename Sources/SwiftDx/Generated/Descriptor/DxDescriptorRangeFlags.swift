@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDescriptorRangeFlags = D3D12_DESCRIPTOR_RANGE_FLAGS
+public typealias DxDescriptorRangeFlags = D3D12_DESCRIPTOR_RANGE_FLAGS
 
 public extension DxDescriptorRangeFlags {
     static let none = D3D12_DESCRIPTOR_RANGE_FLAG_NONE

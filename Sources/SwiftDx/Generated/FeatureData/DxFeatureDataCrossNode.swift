@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxFeatureDataCrossNode = D3D12_FEATURE_DATA_CROSS_NODE
+public typealias DxFeatureDataCrossNode = D3D12_FEATURE_DATA_CROSS_NODE

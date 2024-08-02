@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMessageId = D3D12_MESSAGE_ID
+public typealias DxMessageId = D3D12_MESSAGE_ID
 
 public extension DxMessageId {
     static let unknown = D3D12_MESSAGE_ID_UNKNOWN

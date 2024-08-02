@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxMultipleFenceWaitFlags = D3D12_MULTIPLE_FENCE_WAIT_FLAGS
+public typealias DxMultipleFenceWaitFlags = D3D12_MULTIPLE_FENCE_WAIT_FLAGS
 
 public extension DxMultipleFenceWaitFlags {
     static let none = D3D12_MULTIPLE_FENCE_WAIT_FLAG_NONE

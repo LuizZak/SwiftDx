@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingInstanceDesc = D3D12_RAYTRACING_INSTANCE_DESC
+public typealias DxRaytracingInstanceDesc = D3D12_RAYTRACING_INSTANCE_DESC

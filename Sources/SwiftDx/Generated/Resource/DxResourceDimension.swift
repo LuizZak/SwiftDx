@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxResourceDimension = D3D12_RESOURCE_DIMENSION
+public typealias DxResourceDimension = D3D12_RESOURCE_DIMENSION
 
 public extension DxResourceDimension {
     static let unknown = D3D12_RESOURCE_DIMENSION_UNKNOWN

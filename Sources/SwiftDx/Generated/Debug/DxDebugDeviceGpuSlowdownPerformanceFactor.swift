@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDebugDeviceGPUSlowdownPerformanceFactor = D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR
+public typealias DxDebugDeviceGPUSlowdownPerformanceFactor = D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR

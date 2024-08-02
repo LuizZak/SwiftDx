@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTiledResourceCoordinate = D3D12_TILED_RESOURCE_COORDINATE
+public typealias DxTiledResourceCoordinate = D3D12_TILED_RESOURCE_COORDINATE

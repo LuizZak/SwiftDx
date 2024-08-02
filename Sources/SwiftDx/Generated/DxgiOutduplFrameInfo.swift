@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiOutduplFrameInfo = DXGI_OUTDUPL_FRAME_INFO
+public typealias DxgiOutduplFrameInfo = DXGI_OUTDUPL_FRAME_INFO

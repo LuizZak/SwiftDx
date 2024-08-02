@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDebugFeature = D3D12_DEBUG_FEATURE
+public typealias DxDebugFeature = D3D12_DEBUG_FEATURE
 
 public extension DxDebugFeature {
     static let none = D3D12_DEBUG_FEATURE_NONE

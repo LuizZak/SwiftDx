@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxResourceAliasingBarrier = D3D12_RESOURCE_ALIASING_BARRIER
+public typealias DxResourceAliasingBarrier = D3D12_RESOURCE_ALIASING_BARRIER

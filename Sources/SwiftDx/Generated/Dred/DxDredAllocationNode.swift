@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxDredAllocationNode = D3D12_DRED_ALLOCATION_NODE
+public typealias DxDredAllocationNode = D3D12_DRED_ALLOCATION_NODE
 
-typealias DxDredAllocationNode1 = D3D12_DRED_ALLOCATION_NODE1
+public typealias DxDredAllocationNode1 = D3D12_DRED_ALLOCATION_NODE1

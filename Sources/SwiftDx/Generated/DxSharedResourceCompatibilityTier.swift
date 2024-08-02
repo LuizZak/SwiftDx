@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxSharedResourceCompatibilityTier = D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER
+public typealias DxSharedResourceCompatibilityTier = D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER
 
 public extension DxSharedResourceCompatibilityTier {
     static let tier_0 = D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER_0

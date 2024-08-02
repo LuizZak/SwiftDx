@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxResourceTransitionBarrier = D3D12_RESOURCE_TRANSITION_BARRIER
+public typealias DxResourceTransitionBarrier = D3D12_RESOURCE_TRANSITION_BARRIER

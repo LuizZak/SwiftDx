@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxClearValue = D3D12_CLEAR_VALUE
+public typealias DxClearValue = D3D12_CLEAR_VALUE

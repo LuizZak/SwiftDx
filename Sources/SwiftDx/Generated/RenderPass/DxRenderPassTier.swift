@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxRenderPassTier = D3D12_RENDER_PASS_TIER
+public typealias DxRenderPassTier = D3D12_RENDER_PASS_TIER
 
 public extension DxRenderPassTier {
     static let tier_0 = D3D12_RENDER_PASS_TIER_0

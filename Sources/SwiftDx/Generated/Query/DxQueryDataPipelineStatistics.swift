@@ -2,6 +2,6 @@
 
 import WinSDK
 
-typealias DxQueryDataPipelineStatistics = D3D12_QUERY_DATA_PIPELINE_STATISTICS
+public typealias DxQueryDataPipelineStatistics = D3D12_QUERY_DATA_PIPELINE_STATISTICS
 
-typealias DxQueryDataPipelineStatistics1 = D3D12_QUERY_DATA_PIPELINE_STATISTICS1
+public typealias DxQueryDataPipelineStatistics1 = D3D12_QUERY_DATA_PIPELINE_STATISTICS1

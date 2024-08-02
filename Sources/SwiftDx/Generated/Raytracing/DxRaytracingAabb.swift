@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxRaytracingAabb = D3D12_RAYTRACING_AABB
+public typealias DxRaytracingAabb = D3D12_RAYTRACING_AABB

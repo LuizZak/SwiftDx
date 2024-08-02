@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxMemcpyDest = D3D12_MEMCPY_DEST
+public typealias DxMemcpyDest = D3D12_MEMCPY_DEST

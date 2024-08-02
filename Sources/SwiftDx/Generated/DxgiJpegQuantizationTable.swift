@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxgiJpegQuantizationTable = DXGI_JPEG_QUANTIZATION_TABLE
+public typealias DxgiJpegQuantizationTable = DXGI_JPEG_QUANTIZATION_TABLE

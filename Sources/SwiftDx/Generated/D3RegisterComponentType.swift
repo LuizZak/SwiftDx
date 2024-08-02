@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias D3RegisterComponentType = D3D_REGISTER_COMPONENT_TYPE
+public typealias D3RegisterComponentType = D3D_REGISTER_COMPONENT_TYPE
 
 public extension D3RegisterComponentType {
     static let unknown = D3D_REGISTER_COMPONENT_UNKNOWN

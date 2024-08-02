@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxDxilSubObjectToExportsAssociation = D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION
+public typealias DxDxilSubObjectToExportsAssociation = D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION

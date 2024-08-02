@@ -2,4 +2,4 @@
 
 import WinSDK
 
-typealias DxTileRegionSize = D3D12_TILE_REGION_SIZE
+public typealias DxTileRegionSize = D3D12_TILE_REGION_SIZE

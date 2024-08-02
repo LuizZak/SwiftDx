@@ -2,7 +2,7 @@
 
 import WinSDK
 
-typealias DxDebugDeviceParameterType = D3D12_DEBUG_DEVICE_PARAMETER_TYPE
+public typealias DxDebugDeviceParameterType = D3D12_DEBUG_DEVICE_PARAMETER_TYPE
 
 public extension DxDebugDeviceParameterType {
     static let featureFlags = D3D12_DEBUG_DEVICE_PARAMETER_FEATURE_FLAGS
